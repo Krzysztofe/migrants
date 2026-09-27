@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
   const secret = request.headers.get("x-headlessnext-secret");
 
   if (secret !== process.env.REVALIDATE_SECRET) {
-    console.log("ddddd", process.env.REVALIDATE_SECRET);
     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
   }
 
