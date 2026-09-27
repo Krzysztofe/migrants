@@ -7,7 +7,7 @@ import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | strona główna",
+  title: "Prawo do strajku",
 };
 
 export default async function HomePage() {
@@ -39,9 +39,7 @@ export default async function HomePage() {
     <>
       <section>
         <div className="container flex flex-col gap-10 py-10">
-          <div className="text-2xl font-bold">
-            Razem mamy głos. Osobno mamy tylko opinię.
-          </div>
+          <div className="text-2xl font-bold">Prawo do strajku</div>
           <div>
             MZZP „Zjednoczeni” reprezentuje pracowników ochrony, hoteli i
             przedszkoli zakładowych w grupie Elbest. Pilnujemy, żeby zmiany
