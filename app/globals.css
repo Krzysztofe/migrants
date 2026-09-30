@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #a32a2a;
+  --color-accent: #d1d1d1;
   --color-accent-dark: #930000;
   --color-accent-light: #ff8b8b;
   --color-accent-lighter: #ffb3b3;
   --color-accent-opacity: #ff8b8b;
 
-  --color-bg-dark: #858589;
+  --color-bg: #ef1a1a;
+  --color-bg-dark: #faffd0;
   --color-bg-light: rgb(251 251 251);
 
-  --color-font-dark: rgb(66 66 66);
+  --color-font: #000000;
   --color-gray-light: #c0bbbb;
 
   --color-error: rgb(231 0 0);
@@ -70,9 +71,9 @@ html {
 
 body {
   font-size: var(--text-base);
-  color: var(--color-font-dark);
+  color: var(--color-font);
   font-family: var(--font-oswald);
-  background-color: #ededee;
+  background-color: var(--color-bg);
 }
 
 .container {
@@ -87,5 +88,5 @@ body {
 }
 
 .btn-primary-empty {
-  @apply border border-font-dark bg-white font-bold px-12 py-5 hover:!bg-font-dark hover:text-white;
+  @apply border border-font bg-white font-bold px-12 py-5 hover:!bg-font hover:text-white;
 }

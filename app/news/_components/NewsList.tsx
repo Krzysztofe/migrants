@@ -77,7 +77,7 @@ const NewsList = ({
               key={category.name}
               link={createUrl(category.id, 1, search)}
               className={`
-                ${isActive && "!bg-font-dark text-white"}
+                ${isActive && "!bg-color-bg text-white"}
               `}
               variant="primary-empty"
             >
