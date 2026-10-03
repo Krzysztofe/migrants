@@ -1,9 +1,8 @@
 export const navLinks: { text: string; link: string }[] = [
   { text: "Strona główna", link: "/" },
-  { text: "O związku", link: "/about" },
+  { text: "O nas", link: "/about" },
   { text: "Aktualności", link: "/news" },
-  { text: "Nasza działalność", link: "/activity" },
-  { text: "Dla członków", link: "/for-members" },
-  { text: "Dokumenty", link: "/documents" },
-  { text: "Kontakt", link: "/contact" },
+  { text: "Prawo do strajku to fikcja", link: "/activity" },
+  { text: "Podpisz się", link: "/for-members" },
+  { text: "Dołącz do działań", link: "/documents" },
 ];

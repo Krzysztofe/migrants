@@ -12,12 +12,12 @@ const MobileMenu = () => {
   const toggleClass = isOpen ? "translate-x-0" : "translate-x-full";
 
   return (
-    <div className="relative lg:hidden h-full">
+    <div className="relative lg:hidden h-full ml-auto">
       {isOpen && (
         <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
       )}
       <Button
-        className=""
+        className="ml-auto"
         icon={<Icon icon={"hamburger"} size={30} className={"bg-white"} />}
         onClickAction={() => setOpen((prev) => !prev)}
         variant="ghost"
@@ -26,7 +26,7 @@ const MobileMenu = () => {
       />
 
       <nav
-        className={`fixed bg-bg-dark top-0 right-0 z-40 h-screen  w-80 transform shadow-xl transition-transform duration-300 ease-in-out ${toggleClass} z-20 lg:hidden`}
+        className={`fixed bg-black top-0 right-0 z-40 h-screen  w-80 transform shadow-xl transition-transform duration-300 ease-in-out ${toggleClass} z-20 lg:hidden`}
       >
         {" "}
         <Button

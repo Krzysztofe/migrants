@@ -14,14 +14,12 @@ const MenuLink = ({ text, link, onClick }: Props) => {
   const isActive = pathname === link || pathname.startsWith(`${link}/`);
 
   return (
-    <li onClick={onClick}>
+    <li onClick={onClick} className="flex justify-center">
       <ButtonLink
         link={link}
-        className={`relative font-semibold text-white
-          after:absolute after:-bottom-1 after:left-0 after:h-[1px]
-          after:bg-white after:transition-all after:duration-300
-          ${isActive ? "!text-accent" : "after:w-0 hover:after:w-full"}
-        `}
+        className={`inline-block relative font-semibold text-white transition-transform duration-200
+    ${isActive ? "!text-accent" : "hover:scale-125"}
+  `}
       >
         {text}
       </ButtonLink>
