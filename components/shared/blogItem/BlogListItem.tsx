@@ -19,7 +19,9 @@ const BlogListItem = ({ post, image }: Props) => {
     <li key={post.id} className="py-16 border-b !border-gray-light">
       <ButtonLink
         link={`/news/${post.slug}`}
-        className="text-left flex flex-col md:flex-row gap-6 group"
+        className="text-left flex flex-col md:flex-row gap-6 group  transition duration-200 ease-out
+                   hover:-translate-y-1 hover:shadow-[0_14px_30px_-14px_rgba(0,0,0,0.45)]
+                   motion-reduce:transform-none motion-reduce:transition-none"
       >
         <PostImage alt={image?.alt_text || post.title.rendered} image={image} />
 

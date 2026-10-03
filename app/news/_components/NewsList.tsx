@@ -68,7 +68,7 @@ const NewsList = ({
   return (
     <>
       {/* Categories */}
-      <div className="flex gap-4 flex-wrap">
+      {/* <div className="flex gap-4 flex-wrap">
         {categories.map((category) => {
           const isActive = currentCategory === category.id;
 
@@ -85,11 +85,10 @@ const NewsList = ({
             </ButtonLink>
           );
         })}
-      </div>
+      </div> */}
 
       <SearchForm initialSearch={search} currentCategory={currentCategory} />
 
-      {/* List */}
       <ul className="flex flex-col gap-4">
         {posts.map((post, idx) => {
           const image = post._embedded?.["wp:featuredmedia"]?.[0];
@@ -97,12 +96,10 @@ const NewsList = ({
         })}
       </ul>
 
-      {/* No results */}
       {posts.length === 0 && (
         <p className="py-10 font-bold text-xl">Nie znaleziono wpisów.</p>
       )}
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-center gap-2 my-10">
           <ButtonLink

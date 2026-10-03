@@ -1,11 +1,11 @@
 import TopSection from "@/components/shared/TopSection";
-import { Post } from "../models/postModel";
-import NewsList from "./_components/NewsList";
 import { Metadata } from "next";
+import { Post } from "../models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
+import NewsList from "../news/_components/NewsList";
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | Aktualności",
+  title: "Zjednoczeni | Nasza działalność ",
 };
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
   }>;
 };
 
-const NewsPage = async ({ searchParams }: Props) => {
+const PostsListPage = async ({ searchParams }: Props) => {
   const params = await searchParams;
 
   const category = params.category ? Number(params.category) : null;
@@ -72,8 +72,8 @@ const NewsPage = async ({ searchParams }: Props) => {
   return (
     <>
       <TopSection
-        header="Aktualności"
-        paragraph="Najnowsze informacje o kampanii dość zakazku strajków "
+        header="Prawo do strajku to fikcja"
+        paragraph="Na papierze strajk jest legalny, w praktyce przejście całej procedury jest niemal niemożliwe. Zbieramy tu analizy, wyjaśnienia i historie pracowników."
       />
       <SuspenseErrorBoundary
         size="lg"
@@ -97,4 +97,4 @@ const NewsPage = async ({ searchParams }: Props) => {
   );
 };
 
-export default NewsPage;
+export default PostsListPage;

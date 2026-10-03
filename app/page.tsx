@@ -8,6 +8,7 @@ import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBound
 import Image from "next/image";
 import FirstBlogItem from "@/components/shared/blogItem/BlogListHome";
 import BlogListHome from "@/components/shared/blogItem/BlogListHome";
+import AccentHeader from "@/components/shared/AccentHeader";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków",
@@ -54,7 +55,7 @@ export default async function HomePage() {
   return (
     <>
       <section className="bg-[url('/images/hero-img.png')] bg-cover bg-center">
-        <div className="container flex h-[90vh] flex gap-10 py-10 ">
+        <div className="container flex h-[60vh] md:h-[80vh] flex gap-10 py-10 ">
           <div className="flex-1 flex flex-col  justify-center">
             <h1 className="text-2xl leading-none ">
               DOŚĆ&nbsp;ZAKAZU
@@ -82,7 +83,7 @@ export default async function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className=" flex justify-center items-center hidden lg:flex">
+          <div className=" flex justify-center items-center hidden xl:flex">
             <Image
               src="/icons/logo-black.png"
               alt="Logo"
@@ -101,11 +102,9 @@ export default async function HomePage() {
           {" "}
         </div> */}
         <div className="container">
-          <div className=" my-52 lg:flex  gap-10">
+          <div className=" my-42 lg:flex  gap-10">
             <div className="flex-1 flex justify-center ">
-              <h2 className="text-xl font-extrabold  h-fit mb-22 pl-10 border-l-6 border-accent">
-                KIM JESTEŚMY I O CO WALCZYMY?
-              </h2>
+              <AccentHeader message="    KIM JESTEŚMY I O CO WALCZYMY?" />
             </div>
             <div className="flex-1">
               <p className="">
@@ -139,54 +138,12 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      <section>
-        <div className="container pb-30">
-          <SideBorder />
-          <div className="lg:flex justify-between gap-4 pb-10 mt-30">
-            <h2 className="text-xl">PRAWO DO STRAJKU TO FIKCJA</h2>
-            <ButtonLink
-              link={"/news"}
-              className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
-              variant="ghost"
-            >
-              Wszystkie wpisy{" "}
-              {
-                <Icon
-                  icon={"arrow"}
-                  size={15}
-                  className={`bg-accent -rotate-90`}
-                />
-              }
-            </ButtonLink>
-          </div>
-          <SuspenseErrorBoundary
-            size="lg"
-            errorMessage="Błąd ładowania wpisów"
-            loadingMessage="Ładowanie aktualności"
-          >
-            <ul className="grid lg:grid-cols-2 gap-8">
-              {publications.map((post, idx) => {
-                const image = post._embedded?.["wp:featuredmedia"]?.[0];
-
-                return (
-                  <BlogListHome
-                    key={post.id}
-                    post={post}
-                    image={image}
-                    idx={idx}
-                  />
-                );
-              })}
-            </ul>
-          </SuspenseErrorBoundary>
-        </div>
-      </section>
 
       <section className="">
         <div className="container pb-30">
           <SideBorder />
           <div className="lg:flex justify-between gap-4 pb-10 mt-30">
-            <h2 className="text-xl">AKTUALNOŚCI</h2>
+            <h2 className="text-lg">AKTUALNOŚCI</h2>
             <ButtonLink
               link={"/news"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
@@ -209,6 +166,48 @@ export default async function HomePage() {
           >
             <ul className="grid lg:grid-cols-2 gap-8">
               {news.map((post, idx) => {
+                const image = post._embedded?.["wp:featuredmedia"]?.[0];
+
+                return (
+                  <BlogListHome
+                    key={post.id}
+                    post={post}
+                    image={image}
+                    idx={idx}
+                  />
+                );
+              })}
+            </ul>
+          </SuspenseErrorBoundary>
+        </div>
+      </section>
+      <section>
+        <div className="container pb-30">
+          <SideBorder />
+          <div className="lg:flex justify-between gap-4 pb-10 mt-30">
+            <h2 className="text-lg">PRAWO DO STRAJKU TO FIKCJA</h2>
+            <ButtonLink
+              link={"/news"}
+              className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+              variant="ghost"
+            >
+              Wszystkie wpisy{" "}
+              {
+                <Icon
+                  icon={"arrow"}
+                  size={15}
+                  className={`bg-accent -rotate-90`}
+                />
+              }
+            </ButtonLink>
+          </div>
+          <SuspenseErrorBoundary
+            size="lg"
+            errorMessage="Błąd ładowania wpisów"
+            loadingMessage="Ładowanie aktualności"
+          >
+            <ul className="grid lg:grid-cols-2 gap-8">
+              {publications.map((post, idx) => {
                 const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
                 return (

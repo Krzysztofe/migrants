@@ -1,19 +1,16 @@
 import SideBorder from "./SideBorder";
 
 type Props = {
-  title: string;
   header: string;
   paragraph: string;
 };
 
-const TopSection = ({ title, header, paragraph }: Props) => {
+const TopSection = ({ header, paragraph }: Props) => {
   return (
-    <section className="">
-      <div className="container py-22">
-        <div className="text-accent text-sm">{title}</div>
-        <h1 className="text-2xl font-bold mb-5">{header}</h1>
+    <section className="text-white">
+      <div className="container py-32 bg-accent">
+        <h1 className="text-2xl font-bold mb-20">{header}</h1>
         <p className="md:w-2/3 text-lg">{paragraph}</p>
-        <SideBorder />
       </div>
     </section>
   );

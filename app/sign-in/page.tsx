@@ -1,3 +1,4 @@
+import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
@@ -6,14 +7,34 @@ export const metadata: Metadata = {
   title: "Zjednoczeni | Dla członków",
 };
 
-const ForMembersPage = () => {
+const SignInPage = () => {
   return (
     <>
       <TopSection
-        title="Dla członków"
-        header="Dołącz do Zjednoczonych"
-        paragraph="Członkostwo jest dobrowolne i nieznane pracodawcy. Im więcej nas, tym silniejsza jest nasza pozycja w rozmowach o warunkach pracy."
+        header="Podpisz się pod wolnością strajkowania!"
+        paragraph="Jako oddolna grupa działaczy i działaczek związków zawodowych oraz organizacji społecznych wspieramy Komitet Inicjatywy Ustawodawczej „Dość zakazów strajku – przywróćmy wolność strajkowania” w zbiórce podpisów."
       />
+      <section>
+        {" "}
+        <div className="container">
+          <div className="flex  sm:flex-row gap-6 mt-6">
+            <ButtonLink
+              link={"/contact"}
+              className="w-fit "
+              variant="primary-empty"
+            >
+              Gdzie można się podpisać?
+            </ButtonLink>
+            <ButtonLink
+              link={"for-members"}
+              className="w-fit "
+              variant="primary"
+            >
+              Kto może się podpisać?
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
       <section>
         {" "}
         <div className="container grid md:grid-cols-2 gap-6 pb-16">
@@ -97,8 +118,10 @@ const ForMembersPage = () => {
           </div>
         </div>
       </section>
+      Chcesz pomóc zbierać podpisy? Dołącz do działań w swoim mieście lub w
+      swoim miejscu pracy.
     </>
   );
 };
 
-export default ForMembersPage;
+export default SignInPage;
