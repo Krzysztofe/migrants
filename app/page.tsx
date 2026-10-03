@@ -6,9 +6,11 @@ import { Metadata } from "next";
 import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import Image from "next/image";
+import FirstBlogItem from "@/components/shared/blogItem/BlogListHome";
+import BlogListHome from "@/components/shared/blogItem/BlogListHome";
 
 export const metadata: Metadata = {
-  title: "Dość zkazu strajków",
+  title: "Dość zakazu strajków",
 };
 
 export default async function HomePage() {
@@ -16,12 +18,12 @@ export default async function HomePage() {
   let news: Post[] = [];
 
   try {
-    const [respPublications, respNews] = await Promise.all([
+    const [respNews, respPublications] = await Promise.all([
       fetch(
         `${process.env.API_BASE_URL}/posts?per_page=3&categories=5&_embed`,
         {
           next: {
-            revalidate: false,
+            revalidate: 60,
             tags: ["posts-category-5"],
           },
         },
@@ -30,7 +32,7 @@ export default async function HomePage() {
         `${process.env.API_BASE_URL}/posts?per_page=3&categories=6&_embed`,
         {
           next: {
-            revalidate: false,
+            revalidate: 60,
             tags: ["posts-category-6"],
           },
         },
@@ -39,6 +41,7 @@ export default async function HomePage() {
 
     if (respPublications.ok) {
       publications = await respPublications.json();
+      console.log("", publications.length);
     }
 
     if (respNews.ok) {
@@ -50,8 +53,8 @@ export default async function HomePage() {
 
   return (
     <>
-      <section>
-        <div className="container flex h-[80vh] flex gap-10 py-10 bg-[url('/images/hero-img.png')] bg-cover bg-center">
+      <section className="bg-[url('/images/hero-img.png')] bg-cover bg-center">
+        <div className="container flex h-[90vh] flex gap-10 py-10 ">
           <div className="flex-1 flex flex-col  justify-center">
             <h1 className="text-2xl leading-none ">
               DOŚĆ&nbsp;ZAKAZU
@@ -59,23 +62,23 @@ export default async function HomePage() {
                 STRAJKÓW
               </span>
             </h1>
-            <div className="mt-6 text-lg">
+            <div className="my-6 text-lg text-white lg:w-2/3">
               Kampania na rzecz zmiany ustawy o rozwiązywaniu sporów zbiorowych.
             </div>
             <div className="flex  sm:flex-row gap-6 mt-6">
-              <ButtonLink
-                link={"for-members"}
-                className="w-fit "
-                variant="primary-empty"
-              >
-                Podpisz się
-              </ButtonLink>
               <ButtonLink
                 link={"/contact"}
                 className="w-fit "
                 variant="primary-empty"
               >
                 Dołącz
+              </ButtonLink>
+              <ButtonLink
+                link={"for-members"}
+                className="w-fit "
+                variant="primary"
+              >
+                Podpisz się
               </ButtonLink>
             </div>
           </div>
@@ -94,89 +97,132 @@ export default async function HomePage() {
       </section>
       <section className="mt-10">
         {" "}
-        <div className="container bg-[url('/images/hero-img.png')] bg-cover bg-center h-[40vh]">
+        {/* <div className="container bg-[url('/images/hero-img.png')] bg-cover bg-center h-[40vh]">
           {" "}
-        </div>
-        <div className="container-sm ">
-          <h2 className="text-xl font-extrabold my-10">
-            KIM JESTEŚMY I O CO WALCZYMY?
-          </h2>
-          <p className="text-lg">
-            Strajk jest podstawowym demokratycznym prawem i jedynym realnym
-            narzędziem pracowników do obrony przed atakami ze strony rządów i
-            wielkiego biznesu. Jak pokazują jednak doświadczenia związków
-            zawodowych, w Polsce prawo do strajku mamy tylko na papierze. Wciąż
-            podlegamy restrykcjom, które Jaruzelski wprowadził w stanie
-            wojennym, żeby uniemożliwić strajki i złamać “Solidarność” lat 80.
-            Nowe władze III RP z chęcią podtrzymały te restrykcje, gdy
-            wprowadzały “nową” ustawę o rozwi... [czytaj dalej]
-          </p>
+        </div> */}
+        <div className="container">
+          <div className=" my-52 lg:flex  gap-10">
+            <div className="flex-1 flex justify-center ">
+              <h2 className="text-xl font-extrabold  h-fit mb-22 pl-10 border-l-6 border-accent">
+                KIM JESTEŚMY I O CO WALCZYMY?
+              </h2>
+            </div>
+            <div className="flex-1">
+              <p className="">
+                Strajk jest podstawowym demokratycznym prawem i jedynym realnym
+                narzędziem pracowników do obrony przed atakami ze strony rządów
+                i wielkiego biznesu.
+              </p>
+              <p className="mt-8">
+                Jak pokazują jednak doświadczenia związków zawodowych, w Polsce
+                prawo do strajku mamy tylko na papierze. Wciąż podlegamy
+                restrykcjom, które Jaruzelski wprowadził w stanie wojennym, żeby
+                uniemożliwić strajki i złamać “Solidarność” lat 80. Nowe władze
+                III RP z chęcią podtrzymały te restrykcje, gdy wprowadzały
+                “nową” ustawę o rozwi...
+              </p>
+              <ButtonLink
+                link={"/news"}
+                className="w-fit mt-8 h-fit font-bold text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+                variant="ghost"
+              >
+                Czytaj dalej{" "}
+                {
+                  <Icon
+                    icon={"arrow"}
+                    size={15}
+                    className={`bg-accent -rotate-90 font-bold`}
+                  />
+                }
+              </ButtonLink>
+            </div>
+          </div>
         </div>
       </section>
-      <section className="container  pt-16 pb-30">
-        <div className="flex justify-between gap-4 border-b-3 pb-10">
-          <h2 className="text-xl">PRAWO DO STRAJKU TO FIKCJA</h2>
-          <ButtonLink
-            link={"/news"}
-            className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
-            variant="ghost"
+      <section>
+        <div className="container pb-30">
+          <SideBorder />
+          <div className="lg:flex justify-between gap-4 pb-10 mt-30">
+            <h2 className="text-xl">PRAWO DO STRAJKU TO FIKCJA</h2>
+            <ButtonLink
+              link={"/news"}
+              className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+              variant="ghost"
+            >
+              Wszystkie wpisy{" "}
+              {
+                <Icon
+                  icon={"arrow"}
+                  size={15}
+                  className={`bg-accent -rotate-90`}
+                />
+              }
+            </ButtonLink>
+          </div>
+          <SuspenseErrorBoundary
+            size="lg"
+            errorMessage="Błąd ładowania wpisów"
+            loadingMessage="Ładowanie aktualności"
           >
-            Wszystkie wpisy{" "}
-            {
-              <Icon
-                icon={"arrow"}
-                size={15}
-                className={`bg-accent -rotate-90`}
-              />
-            }
-          </ButtonLink>
-        </div>
-        <SuspenseErrorBoundary
-          size="lg"
-          errorMessage="Błąd ładowania wpisów"
-          loadingMessage="Ładowanie aktualności"
-        >
-          <ul className="flex flex-col gap-4">
-            {publications.map((post) => {
-              const image = post._embedded?.["wp:featuredmedia"]?.[0];
+            <ul className="grid lg:grid-cols-2 gap-8">
+              {publications.map((post, idx) => {
+                const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
-              return <BlogListItem key={post.id} post={post} image={image} />;
-            })}
-          </ul>
-        </SuspenseErrorBoundary>
+                return (
+                  <BlogListHome
+                    key={post.id}
+                    post={post}
+                    image={image}
+                    idx={idx}
+                  />
+                );
+              })}
+            </ul>
+          </SuspenseErrorBoundary>
+        </div>
       </section>
 
-      <section className="container  pt-16 pb-30">
-        <div className="flex justify-between gap-4 border-b-3 pb-10">
-          <h2 className="text-xl">AKTUALNOŚCI</h2>
-          <ButtonLink
-            link={"/news"}
-            className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
-            variant="ghost"
+      <section className="">
+        <div className="container pb-30">
+          <SideBorder />
+          <div className="lg:flex justify-between gap-4 pb-10 mt-30">
+            <h2 className="text-xl">AKTUALNOŚCI</h2>
+            <ButtonLink
+              link={"/news"}
+              className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+              variant="ghost"
+            >
+              Wszystkie aktualności{" "}
+              {
+                <Icon
+                  icon={"arrow"}
+                  size={15}
+                  className={`bg-accent -rotate-90`}
+                />
+              }
+            </ButtonLink>
+          </div>
+          <SuspenseErrorBoundary
+            size="lg"
+            errorMessage="Błąd ładowania wpisów"
+            loadingMessage="Ładowanie aktualności"
           >
-            Wszystkie aktualności{" "}
-            {
-              <Icon
-                icon={"arrow"}
-                size={15}
-                className={`bg-accent -rotate-90`}
-              />
-            }
-          </ButtonLink>
-        </div>
-        <SuspenseErrorBoundary
-          size="lg"
-          errorMessage="Błąd ładowania wpisów"
-          loadingMessage="Ładowanie aktualności"
-        >
-          <ul className="flex flex-col gap-4">
-            {news.map((post) => {
-              const image = post._embedded?.["wp:featuredmedia"]?.[0];
+            <ul className="grid lg:grid-cols-2 gap-8">
+              {news.map((post, idx) => {
+                const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
-              return <BlogListItem key={post.id} post={post} image={image} />;
-            })}
-          </ul>
-        </SuspenseErrorBoundary>
+                return (
+                  <BlogListHome
+                    key={post.id}
+                    post={post}
+                    image={image}
+                    idx={idx}
+                  />
+                );
+              })}
+            </ul>
+          </SuspenseErrorBoundary>
+        </div>
       </section>
     </>
   );

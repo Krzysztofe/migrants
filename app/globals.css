@@ -13,7 +13,7 @@
 
   --color-font: #000000;
   --color-gray: #d1d1d1;
-
+  --color-gray-light: #f4f4f4;
   --color-error: rgb(231 0 0);
 
   --text-2xs: 1rem;
@@ -60,7 +60,7 @@
 
 @media (min-width: 900px) {
   :root {
-    --text-xl: 5rem;
+    --text-xl: 4.7rem;
   }
 }
 
@@ -78,6 +78,7 @@ h1,
 h2 {
   font-family: "Haettenschweiler", "Arial Narrow", sans-serif;
   font-weight: 900;
+  line-height: 1;
 }
 
 .container {
@@ -111,9 +112,9 @@ h2 {
 }
 
 .btn-primary {
-  @apply border border-accent bg-accent font-bold px-4 md:px-12 py-5 text-white hover:!bg-white hover:text-accent;
+  @apply border border-white border-2 bg-accent font-bold px-4 md:px-12 py-5 text-white hover:!bg-white hover:text-accent;
 }
 
 .btn-primary-empty {
-  @apply border border-font bg-white font-bold px-12 py-5 hover:!bg-font hover:text-white;
+  @apply border border-font bg-white border-2 font-bold px-12 py-5 hover:!bg-font hover:text-white;
 }

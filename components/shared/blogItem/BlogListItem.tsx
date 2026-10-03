@@ -24,12 +24,11 @@ const BlogListItem = ({ post, image }: Props) => {
         <PostImage alt={image?.alt_text || post.title.rendered} image={image} />
 
         <div className="pb-20 md:w-1/2">
-          <div></div>
           <p className="text-xs text-gray">
             {formatDate(post.date)} /{" "}
             {mapBlogCategories[post.categories[0]] ?? "Inne"}
           </p>{" "}
-          <h2 className="font-bold text-xl group-hover:text-accent transition-colors">
+          <h2 className="font-bold text-xl my-6 group-hover:text-accent transition-colors">
             {post.title.rendered}
           </h2>
           <div

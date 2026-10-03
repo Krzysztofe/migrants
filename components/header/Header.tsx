@@ -5,7 +5,10 @@ import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-20 bg-black">
+    <header
+      className="sticky top-0 z-20 bg-black 
+   border-b-6 border-accent"
+    >
       <div className="container flex items-center justify-between py-4">
         <Link href="/" className="block lg:hidden">
           <Image
