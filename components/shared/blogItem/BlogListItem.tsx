@@ -25,7 +25,7 @@ const BlogListItem = ({ post, image }: Props) => {
 
         <div className="pb-20 md:w-1/2">
           <div></div>
-          <p className="text-xs text-gray-light">
+          <p className="text-xs text-gray">
             {formatDate(post.date)} /{" "}
             {mapBlogCategories[post.categories[0]] ?? "Inne"}
           </p>{" "}

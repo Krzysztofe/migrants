@@ -32,9 +32,9 @@ const PostImage = ({ image, alt }: Props) => {
           onLoad={() => setLoaded(true)}
         />
       ) : (
-        <div className="bg-white h-100 md:w-150 shrink-0 flex items-center justify-center">
+        <div className="bg-gray h-100 md:w-150 shrink-0 flex items-center justify-center">
           <Image
-            src="/icons/logoBlack.png"
+            src="/icons/logo-black.png"
             alt="Logo"
             width={150}
             height={100}
