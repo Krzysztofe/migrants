@@ -5,9 +5,10 @@ import SideBorder from "@/components/shared/SideBorder";
 import { Metadata } from "next";
 import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Prawo do strajku",
+  title: "Dość zkazu strajków",
 };
 
 export default async function HomePage() {
@@ -38,30 +39,42 @@ export default async function HomePage() {
   return (
     <>
       <section>
-        <div className="container flex flex-col gap-10 py-10">
-          <div className="text-2xl font-bold">Prawo do strajku</div>
-          <div>
-            MZZP „Zjednoczeni” reprezentuje pracowników ochrony, hoteli i
-            przedszkoli zakładowych w grupie Elbest. Pilnujemy, żeby zmiany
-            właścicielskie i restrukturyzacje nie odbywały się kosztem ludzi.
+        <div className="container flex h-[70vh] flex gap-10 py-10 bg-[url('/images/hero-img.png')] bg-cover bg-center">
+          <div className="flex-1 flex flex-col align-items justify-center">
+            <h1 className="text-2xl font-extrabold leading-none">
+              DOŚĆ ZAKAZU STRAJKÓW{" "}
+            </h1>{" "}
+            <div className="mt-6 text-lg">
+              Kampania na rzecz zmiany ustawy o rozwiązywaniu sporów zbiorowych.
+            </div>
+            <div className="flex  sm:flex-row gap-6 mt-6">
+              <ButtonLink
+                link={"for-members"}
+                className="w-fit "
+                variant="primary-empty"
+              >
+                Podpisz się
+              </ButtonLink>
+              <ButtonLink
+                link={"/contact"}
+                className="w-fit "
+                variant="primary-empty"
+              >
+                Dołącz
+              </ButtonLink>
+            </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-6">
-            <ButtonLink
-              link={"for-members"}
-              className="w-fit "
-              variant="primary"
-            >
-              Dołącz do związku
-            </ButtonLink>
-            <ButtonLink
-              link={"/contact"}
-              className="w-fit "
-              variant="primary-empty"
-            >
-              Zgłoś problem w pracy
-            </ButtonLink>
+          <div className=" flex justify-center items-center hidden lg:flex">
+            <Image
+              src="/icons/logo-black.png"
+              alt="Logo"
+              width={150}
+              height={100}
+              className="w-[400px] h-auto"
+              priority
+              unoptimized
+            />
           </div>
-          <SideBorder />
         </div>
       </section>
       <section className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-10">
