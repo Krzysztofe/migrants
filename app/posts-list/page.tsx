@@ -19,7 +19,8 @@ type Props = {
 const PostsListPage = async ({ searchParams }: Props) => {
   const params = await searchParams;
 
-  const category = params.category ? Number(params.category) : null;
+  // const category = params.category ? Number(params.category) : null;
+  const category = 5;
 
   const search = params.search?.trim() || "";
 
@@ -29,11 +30,8 @@ const PostsListPage = async ({ searchParams }: Props) => {
     per_page: "5",
     page: currentPage.toString(),
     _embed: "true",
+    categories: category.toString(),
   });
-
-  if (category !== null) {
-    queryParams.set("categories", category.toString());
-  }
 
   if (search) {
     queryParams.set("search", search);
@@ -49,7 +47,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
       {
         next: {
           revalidate: 60,
-          tags: ["posts", category ? `posts-cat-${category}` : "posts-all"],
+          tags: ["posts", `posts-cat-${category}`],
         },
       },
     );
@@ -81,7 +79,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
         loadingMessage="Ładowanie aktualności"
       >
         <section>
-          <div className="container">
+          <div className="container mt-20">
             <NewsList
               posts={posts}
               currentCategory={category}

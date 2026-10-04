@@ -67,26 +67,6 @@ const NewsList = ({
 
   return (
     <>
-      {/* Categories */}
-      {/* <div className="flex gap-4 flex-wrap">
-        {categories.map((category) => {
-          const isActive = currentCategory === category.id;
-
-          return (
-            <ButtonLink
-              key={category.name}
-              link={createUrl(category.id, 1, search)}
-              className={`
-                ${isActive && "!bg-color-bg text-white"}
-              `}
-              variant="primary-empty"
-            >
-              {category.name}
-            </ButtonLink>
-          );
-        })}
-      </div> */}
-
       <SearchForm initialSearch={search} currentCategory={currentCategory} />
 
       <ul className="flex flex-col gap-4">
