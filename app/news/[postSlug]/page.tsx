@@ -38,7 +38,7 @@ const PostPage = async ({ params }: Props) => {
           errorMessage="Błąd ładowania wpisu"
           loadingMessage="Ładowanie wpisu"
         >
-          <PostContent postSlug={postSlug} />
+          <PostContent postSlug={postSlug} link="news" />
         </SuspenseErrorBoundary>
       </div>
     </section>

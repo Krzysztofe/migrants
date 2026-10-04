@@ -9,14 +9,14 @@ const Header = () => {
       className="sticky top-0 z-20 bg-black 
    border-b-6 border-accent"
     >
-      <div className="container flex items-center justify-between py-4">
-        <Link href="/" className="block lg:hidden">
+      <div className="container flex items-center justify-between py-4 ">
+        <Link href="/">
           <Image
             src="/icons/logo-white.png"
             alt="Logo"
             width={150}
             height={100}
-            className="w-[70px] h-auto"
+            className="w-[70px] h-auto mr-4"
             priority
             unoptimized
           />

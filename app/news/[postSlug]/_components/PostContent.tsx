@@ -6,9 +6,10 @@ import { mapBlogCategories } from "@/data/mapBlogCategiries";
 
 type Props = {
   postSlug: string;
+  link: string;
 };
 
-const PostContent = async ({ postSlug }: Props) => {
+const PostContent = async ({ postSlug, link }: Props) => {
   const response = await fetch(
     `${process.env.API_BASE_URL}/posts?slug=${postSlug}&_fields=id,slug,date,title,content,author,tags,categories`,
     {
@@ -33,15 +34,15 @@ const PostContent = async ({ postSlug }: Props) => {
   return (
     <>
       <ButtonLink
-        link="/news"
-        className="w-fit h-fit mb-10 text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+        link={`/${link}`}
+        className="w-fit font-extrabold h-fit mb-10 text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
         variant="ghost"
       >
         <Icon icon="arrow" size={15} className="bg-accent rotate-90" />
         Wróć do listy aktualności
       </ButtonLink>
 
-      <p className="text-xs text-gray-light mb-2">
+      <p className="text-xs text-gray mb-2">
         {formatDate(post.date)} /{" "}
         {mapBlogCategories[post.categories[0]] ?? "Inne"}
       </p>

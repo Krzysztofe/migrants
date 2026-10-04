@@ -4,9 +4,9 @@ import MenuLink from "./MenuLink";
 const NavMenu = () => {
   return (
     <nav>
-      <ul className="flex items-center justify-center gap-6 sm:gap-12 w-full">
+      <ul className="flex items-center justify-end gap-8 w-full">
         {navLinks.map(({ text, link }) => (
-          <div className="flex-1" key={link}>
+          <div className="" key={link}>
             <MenuLink key={link} {...{ text, link }} />
           </div>
         ))}

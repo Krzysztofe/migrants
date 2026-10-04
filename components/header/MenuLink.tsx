@@ -17,8 +17,8 @@ const MenuLink = ({ text, link, onClick }: Props) => {
     <li onClick={onClick} className="flex justify-center">
       <ButtonLink
         link={link}
-        className={`inline-block relative font-semibold text-white transition-transform duration-200
-    ${isActive ? "!text-accent" : "hover:scale-125"}
+        className={`inline-block relative font-semibold text-white transition-transform duration-200 !px-2
+    ${isActive ? "!text-accent" : "hover:scale-110"}
   `}
       >
         {text}
