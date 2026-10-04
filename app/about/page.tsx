@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import TimelineWrapper from "./_components/TimelineWrapper";
 import Image from "next/image";
 import heroImg from "@/public/images/hero-img.png";
+import ButtonLink from "@/components/shared/buttons/ButtonLink";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | O związku",
@@ -29,6 +30,33 @@ const countHeaders = [
   "Wolność strajkowania dla pracowników budżetówki",
   "Wolność strajkowania bez represji",
   "Wolność organizacji strajków politycznych!",
+];
+
+const btns = [
+  {
+    message: "OZZ Inicjatywy Pracowniczej",
+    link: "https://www.facebook.com/InicjatywaPracownicza",
+  },
+  {
+    message: "Konfederacja Pracy",
+    link: "https://www.facebook.com/opzzkp",
+  },
+  {
+    message: "NSZZ „Solidarność”",
+    link: "https://www.facebook.com/solidarnosc",
+  },
+  {
+    message: "WZZ „Sierpień 80”",
+    link: "https://www.facebook.com/KomisjaKrajowaSierpnia80",
+  },
+  {
+    message: "KNSZZ „Ad Rem”",
+    link: "https://www.facebook.com/zzasystentow",
+  },
+  {
+    message: "KZZ w ZUS „Niezależni”",
+    link: "https://www.facebook.com/OZZPZUSNiezalezni",
+  },
 ];
 
 const AboutPage = () => {
@@ -156,6 +184,19 @@ const AboutPage = () => {
               ds. Pracy w gronie przedstawicieli związków zawodowych z całej
               Polski, m.in.:
             </p>
+            <div className="flex gap-4 flex-wrap mt-10">
+              {btns.map(({ message, link }) => {
+                return (
+                  <ButtonLink
+                    link={link}
+                    className="w-fit "
+                    variant="primary-empty"
+                  >
+                    {message}
+                  </ButtonLink>
+                );
+              })}
+            </div>
             <p>
               Rozmawialiśmy o represjach, które dotykają na co dzień związkowców
               i związkowczynie. Z doświadczenia wiemy, że najbardziej nasilone
