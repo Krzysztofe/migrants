@@ -1,6 +1,6 @@
 import { Post } from "@/app/models/postModel";
 import { formatDate } from "@/app/utils/formatDate";
-import ButtonLink from "../buttons/ButtonLink";
+import ButtonLink from "../../components/shared/buttons/ButtonLink";
 import { stripHtml } from "@/app/utils/stripHtml";
 
 type Props = {
@@ -18,7 +18,11 @@ const BlogListHome = ({ post, image, idx }: Props) => {
   const isFirst = !idx;
 
   return (
-    <li className={isFirst ? "lg:row-span-2" : "h-[25vh]"}>
+    <li
+      className={
+        isFirst ? "lg:row-span-2 lg:col-span-3" : "h-[28vh] lg:col-span-2"
+      }
+    >
       <ButtonLink
         link={`/news/${post.slug}`}
         className="group flex h-full flex-col gap-6 text-left
@@ -45,8 +49,8 @@ const BlogListHome = ({ post, image, idx }: Props) => {
             }}
           />
 
-          <div className="relative z-10 bg-black/50 p-6 text-white">
-            <p className="text-xs text-gray">{formatDate(post.date)}</p>
+          <div className="relative flex flex-col z-10 bg-black/50 p-6 text-white h-full">
+            <p className="text-xs text-gray mt-auto">{formatDate(post.date)}</p>
 
             <h2 className="my-4  font-bold transition-colors duration-200 group-hover:text-red-500">
               {post.title.rendered}

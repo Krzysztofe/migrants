@@ -6,8 +6,8 @@ import { Metadata } from "next";
 import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import Image from "next/image";
-import FirstBlogItem from "@/components/shared/blogItem/BlogListHome";
-import BlogListHome from "@/components/shared/blogItem/BlogListHome";
+import FirstBlogItem from "@/app/_components/BlogListHome";
+import BlogListHome from "@/app/_components/BlogListHome";
 import AccentHeader from "@/components/shared/AccentHeader";
 
 export const metadata: Metadata = {
@@ -164,7 +164,7 @@ export default async function HomePage() {
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
           >
-            <ul className="grid lg:grid-cols-2 gap-8">
+            <ul className="grid lg:grid-cols-5 gap-8">
               {news.map((post, idx) => {
                 const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -206,7 +206,7 @@ export default async function HomePage() {
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
           >
-            <ul className="grid lg:grid-cols-2 gap-8">
+            <ul className="grid lg:grid-cols-5 gap-8">
               {publications.map((post, idx) => {
                 const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
