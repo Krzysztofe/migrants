@@ -103,8 +103,8 @@ export default async function HomePage() {
         </div> */}
         <div className="container">
           <div className=" my-42 lg:flex  gap-10">
-            <div className="flex-1 flex justify-center ">
-              <AccentHeader message="    KIM JESTEŚMY I O CO WALCZYMY?" />
+            <div className="flex-1 ">
+              <AccentHeader message="KIM JESTEŚMY I O CO WALCZYMY?" />
             </div>
             <div className="flex-1">
               <p className="">

@@ -1,11 +1,25 @@
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
+import AccentHeader from "@/components/shared/headers/AccentHeader";
 import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
+import Image from "next/image";
+import heroImg from "@/public/images/hero-img.png";
+import Icon from "@/components/shared/Icon";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | Dla członków",
 };
+
+const cities = [
+  "WARSZAWA",
+  "ŁÓDŹ",
+  "WROCŁAW",
+  "POZNAŃ",
+  "KRAKÓW",
+  "TRÓJMIASTO",
+  "GNIEZNO",
+];
 
 const SignInPage = () => {
   return (
@@ -14,108 +28,124 @@ const SignInPage = () => {
         header="Podpisz się pod wolnością strajkowania!"
         paragraph="Jako oddolna grupa działaczy i działaczek związków zawodowych oraz organizacji społecznych wspieramy Komitet Inicjatywy Ustawodawczej „Dość zakazów strajku – przywróćmy wolność strajkowania” w zbiórce podpisów."
       />
-      <section>
+      <section id="1" className="bg-accent  pb-32">
         {" "}
         <div className="container">
-          <div className="flex  sm:flex-row gap-6 mt-6">
-            <ButtonLink
-              link={"/contact"}
-              className="w-fit "
-              variant="primary-empty"
-            >
+          <div className="flex flex-col sm:flex-row gap-6 ">
+            <ButtonLink link={"#1"} className="w-fit " variant="primary">
               Gdzie można się podpisać?
             </ButtonLink>
-            <ButtonLink
-              link={"for-members"}
-              className="w-fit "
-              variant="primary"
-            >
+            <ButtonLink link={"#2"} className="w-fit " variant="primary">
               Kto może się podpisać?
             </ButtonLink>
           </div>
         </div>
       </section>
       <section>
-        {" "}
-        <div className="container grid md:grid-cols-2 gap-6 pb-16">
-          <div className="bg-white p-10">
-            <h3 className="font-bold mb-6">Ochrona prawna</h3>
-            <p>
-              Twój głos jest częścią stanowiska związku przy ustalaniu układów
-              zbiorowych i regulaminów.
-            </p>
+        <div className="container">
+          <div className=" mt-30 lg:flex  gap-10">
+            <div className="flex-1 ">
+              <AccentHeader message="Kto może złożyć podpis?" />
+            </div>
+            <div className="flex-1">
+              <p className="mb-20">
+                Podpisać się może każda osoba, która spełnia dwa warunki. Podpis
+                trzeba złożyć osobiście.
+              </p>
+            </div>
+          </div>{" "}
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light">
+              <div className="text-accent text-2xl font-extrabold">18+</div>
+              <h3 className="font-extrabold text-lg-plus leading-none mb-8">
+                Ukończone 18 lat
+              </h3>
+              <p>Podpis może złożyć każda osoba pełnoletnia.</p>
+            </div>
+            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light">
+              <div className="text-accent text-2xl font-extrabold">PL</div>
+              <h3 className="font-extrabold text-lg-plus leading-none mb-8">
+                Obywatelstwo polskie
+              </h3>
+              <p>Podpisać się może obywatel lub obywatelka Polski.</p>
+            </div>
+            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light">
+              <div className="text-accent text-2xl font-extrabold">LIVE</div>
+              <h3 className="font-extrabold text-lg-plus leading-none mb-8">
+                Podpis na żywo
+              </h3>
+              <p id="2">
+                Trzeba się podpisać osobiście, na miejscu, podczas zbiórki.
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-10">
-            <h3 className="font-bold mb-6">Reprezentacja w negocjacjach</h3>
-            <p>
-              Wsparcie w sprawach pracowniczych - od rozmowy dyscyplinującej po
-              spór sądowy.
-            </p>
+        </div>
+      </section>
+      <section>
+        <div className="container grid md:grid-cols-2 gap-20 my-40">
+          <div className="relative min-h-100">
+            <Image
+              src="/images/hero-img.png"
+              alt="Demonstracja"
+              fill
+              className="object-cover"
+            />
           </div>
-          <div className="bg-white p-10">
-            <h3 className="font-bold mb-6">Informacja z pierwszej ręki</h3>
+          <div className="text-lg [&>p]:mt-10">
+            <h2 className="text-xl">Gdzie nas znajdziesz?</h2>
             <p>
-              Wiesz o zmianach w firmie zanim staną się plotką na korytarzu.
+              Zbieramy podpisy na żywo, tam gdzie spotykają się ludzie
+              zaangażowani społecznie:
             </p>
-          </div>
-          <div className="bg-white p-10">
-            <h3 className="font-bold mb-6">Anonimowe zgłaszanie problemów</h3>
-            <p>
-              Możesz zgłosić nieprawidłowość bez ujawniania swojego nazwiska
-              pracodawcy.
+            <p className="relative pl-16 before:absolute before:left-0 before:top-1/2 before:size-8 before:-translate-y-1/2 before:bg-accent">
+              na demonstracjach
+            </p>
+            <p className="relative pl-16 before:absolute before:left-0 before:top-1/2 before:size-8 before:-translate-y-1/2 before:bg-accent">
+              na konferencjach
+            </p>
+            <p className="relative pl-16 before:absolute before:left-0 before:top-1/2 before:size-8 before:-translate-y-1/2 before:bg-accent">
+              na kongresach
             </p>
           </div>
         </div>
       </section>
       <section>
         <div className="container">
-          {" "}
-          <h2 className="font-bold text-xl">Jak dołączyć</h2>
-          <SideBorder />
-          <div className="flex my-20">
-            <div className="text-xl text-accent mr-16">1</div>
-            <div>
-              <h3 className="font-bold mb-2">Skontaktuj się z nami</h3>
-              <div>
-                Zadzwoń pod numer 733 654 323 lub napisz przez formularz
-                kontaktowy.
-              </div>
-            </div>
-          </div>
-          <div className="flex my-20">
-            <div className="text-xl text-accent mr-16">2</div>
-            <div>
-              <h3 className="font-bold mb-2">
-                Wypełnij deklarację członkowską
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-10">
+            {cities.map((city) => {
+              return (
+                <div className=" p-10 flex-1 border-gray border-2 flex flex-col h-[19rem]">
+                  <h3 className="font-extrabold text-lg leading-none">
+                    {city}
+                  </h3>
+
+                  <p className="mt-auto relative pl-8 before:absolute before:left-0 before:top-1/2 before:size-5 before:-translate-y-1/2 before:bg-accent before:rounded-full">
+                    Terminy wkrótce
+                  </p>
+                </div>
+              );
+            })}
+            <div className=" p-10 flex-1 border-black border-2 bg-black text-white h-[19rem]">
+              <h3 className="font-extrabold text-lg leading-none mb-16">
+                Brakuje Towjego miasta?
               </h3>
-              <div>
-                Formularz dostępny jest w zakładce Dokumenty oraz u
-                przedstawicieli związku w Twoim zakładzie..
-              </div>
+
+              <p>Napisz do nas</p>
+              <p>strajkuj.pl@proton.me</p>
             </div>
           </div>
-          <div className="flex my-20">
-            <div className="text-xl text-accent mr-16">3</div>
-            <div>
-              <h3 className="font-bold mb-2">
-                Przekaż deklarację przedstawicielowi
-              </h3>
-              <div>
-                Twoje członkostwo jest poufne - pracodawca nie jest informowany
-                o przynależności związkowej.
+          <AccentHeader
+            className="bg-gray-light py-8 mt-20"
+            message={
+              <div className="flex items-center">
+                <Icon icon={"clock"} size={50} className={`!bg-accent`} />
+                <div className=" text-lg  mt-8 ml-6">
+                  Niebawem znajdziesz tutaj spis stałych miejsc i terminów
+                  zbiórek podpisów w poszczególnych miastach.
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="flex my-20">
-            <div className="text-xl text-accent mr-16">4</div>
-            <div>
-              <h3 className="font-bold mb-2">Zacznij korzystać ze wsparcia</h3>
-              <div>
-                Od tego momentu możesz zgłaszać sprawy i brać udział w
-                spotkaniach związkowych.
-              </div>
-            </div>
-          </div>
+            }
+          />
         </div>
       </section>
       Chcesz pomóc zbierać podpisy? Dołącz do działań w swoim mieście lub w

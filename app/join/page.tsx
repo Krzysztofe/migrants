@@ -19,17 +19,13 @@ const JoinPage = () => {
         {" "}
         <div className="container">
           <div className="flex flex-col sm:flex-row gap-6 ">
-            <ButtonLink link={"/contact"} className="w-fit " variant="primary">
+            <ButtonLink link={"#1"} className="w-fit " variant="primary">
               <div className="flex items-center gap-4">
                 <div className="text-lg-plus">1</div>{" "}
                 <div className="text-left">Zbieraj podpisy</div>
               </div>
             </ButtonLink>
-            <ButtonLink
-              link={"for-members"}
-              className="w-fit "
-              variant="primary"
-            >
+            <ButtonLink link={"#2"} className="w-fit " variant="primary">
               <div className="flex items-center gap-4">
                 <div className="text-lg-plus">2</div>{" "}
                 <div className="text-left">Dołącz do związku zawodowego</div>
@@ -38,7 +34,7 @@ const JoinPage = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section id="1">
         <div className="container py-20">
           <div className="md:!w-2/3">
             <h2 className="font-extrabold text-xl flex items-center gap-10">
@@ -133,13 +129,42 @@ const JoinPage = () => {
           </div>
         </div>
       </section>
-      <section>
-        <div className="container">
+      <section className="bg-gray-light" id="2">
+        <div className="container py-40">
           <h2 className="font-extrabold text-xl flex items-center gap-10">
             {" "}
             <div className=" text-accent text-3xl ">2</div> Dołącz do związku
             zawodowego w swoim miejscu pracy
           </h2>
+          <p className="mt-16 text-lg">
+            Poza zbieraniem podpisów na rzecz zmiany prawnej musimy także
+            budować silny ruch pracowniczy, który będzie bronił swoich zdobyczy
+            przed atakami polityków i biznesmenów. Jeśli tak jak my chcesz
+            wolności strajkowania, zbieraj z nami podpisy i dołącz do związku
+            zawodowego w swoim miejscu pracy lub go załóż!
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-10 mt-20">
+            <div className="border-2 border-gray p-10 flex-1">
+              <Icon icon={"userPlus"} size={50} className={`!bg-accent mb-8`} />
+              <h3 className="font-extrabold text-lg-plus leading-none mb-8">
+                Dołącz do związku
+              </h3>
+              <p>
+                Wstąp do związku zawodowego działającego w Twoim miejscu pracy.
+              </p>
+            </div>
+            <div className="border-2 border-gray p-10 flex-1">
+              <Icon icon={"flag"} size={50} className={`!bg-accent mb-8`} />
+              <h3 className="font-extrabold text-lg-plus leading-none mb-8">
+                Załóż związek
+              </h3>
+              <p>
+                Jeśli takiego związku nie ma, załóż go razem z koleżankami i
+                kolegami.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>
