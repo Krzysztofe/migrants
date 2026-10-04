@@ -1,10 +1,32 @@
-import AccentHeader from "@/components/shared/AccentHeader";
+import AccentHeader from "@/components/shared/headers/AccentHeader";
+import AccentHeaderSmall from "@/components/shared/headers/AccentHeaderSmall";
+import CountHeader from "@/components/shared/headers/CountHeader";
+import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | O związku",
 };
+
+const headers = [
+  "niskie płace",
+  "rażąco niski stopień uzwiązkowienia",
+  "przymusowe nadgodziny",
+  "jeden z najdłuższych tygodni pracy",
+  "zatrzęsienie śmieciówek",
+  "łamanie prawa pracy na potęgę",
+  "antyzwiązkowe kancelarie prawnicze zamiast dialogu",
+  "sprawy w sądach pracy ciągnące się latami",
+];
+
+const countHeaders = [
+  "Znieść wymóg referendum strajkowego",
+  "Oddzielić strajk od procedury sporu zbiorowego",
+  "Wolność strajkowania dla pracowników budżetówki",
+  "Wolność strajkowania bez represji",
+  "Wolność organizacji strajków politycznych!",
+];
 
 const AboutPage = () => {
   return (
@@ -15,7 +37,7 @@ const AboutPage = () => {
       />
 
       <section>
-        <div className="container  pb-30">
+        <div className="container-sm  py-30 [&>p]:mt-10 text-lg">
           <AccentHeader message="PRAWO TYLKO NA PAPIERZE" />{" "}
           <p>
             Strajk jest podstawowym demokratycznym prawem i jedynym realnym
@@ -42,9 +64,14 @@ const AboutPage = () => {
             “Solidarności”, ale w rzeczywistości boją się zjednoczonych
             pracowników bardziej niż dyktatury.{" "}
           </p>
-          <p className="font-bold">
+          <p className="font-bold ">
             W efekcie mamy jeden z najgorszych rynków pracy w całej Europie:
           </p>
+          <div className="grid gap-4 xl:grid-cols-2 mt-10">
+            {headers.map((header) => {
+              return <AccentHeaderSmall key={header} message={header} />;
+            })}
+          </div>
           <p>
             Dialog z pracodawcami jest bardzo nierówny lub niemożliwy. Stał się
             pustym frazesem, którym zasłaniają się zarządy, by wszelkimi
@@ -58,11 +85,14 @@ const AboutPage = () => {
             podstawowego narzędzia walki o nasze prawa, o dobre miejsca pracy i
             godne życie.
           </p>
+          <div className="mt-30">
+            <SideBorder />
+          </div>
         </div>{" "}
       </section>
       <section>
         {" "}
-        <div className="container">
+        <div className="container-sm text-lg [&>p]:mt-10">
           {" "}
           <AccentHeader message="O co walczymy?" />{" "}
           <p>
@@ -77,6 +107,13 @@ const AboutPage = () => {
           <p className="font-bold">
             Wiosną 2026 roku wypracowaliśmy wspólne postulaty:
           </p>{" "}
+          <div className="mt-10 mb-30">
+            {countHeaders.map((header, idx) => {
+              return (
+                <CountHeader key={header} message={header} idx={idx + 1} />
+              );
+            })}
+          </div>
           <AccentHeader message="Komitet Inicjatywy Ustawodawczej" />{" "}
           <p>
             We wrześniu 2026 roku zawiązał się Komitet Inicjatywy Ustawodawczej

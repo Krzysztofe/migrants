@@ -8,7 +8,7 @@ import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBound
 import Image from "next/image";
 import FirstBlogItem from "@/app/_components/BlogListHome";
 import BlogListHome from "@/app/_components/BlogListHome";
-import AccentHeader from "@/components/shared/AccentHeader";
+import AccentHeader from "@/components/shared/headers/AccentHeader";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków",

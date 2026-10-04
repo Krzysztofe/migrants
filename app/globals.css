@@ -20,7 +20,8 @@
   --text-xs: 1.2rem;
   --text-sm: 1.4rem;
   --text-base: 1.6rem;
-  --text-lg: 2.5rem;
+  --text-lg: 2.3rem;
+  --text-lg-plus: 2.8rem;
   --text-xl: 4rem;
   --text-2xl: clamp(3rem, 10vw, 9rem);
 
@@ -60,6 +61,7 @@
 
 @media (min-width: 900px) {
   :root {
+    --text-lg-plus: 3.5rem;
     --text-xl: 4.7rem;
   }
 }
@@ -90,25 +92,9 @@ h2 {
 
 .container-sm {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: 900px;
   margin-inline: auto;
   padding-inline: 2rem;
-}
-
-.container-sm {
-  width: 100%;
-  max-width: var(--max-width);
-  margin-inline: auto;
-  padding-inline: 2rem;
-}
-
-@media (min-width: 900px) {
-  .container-sm {
-    width: 70%;
-    max-width: var(--max-width);
-    margin-inline: auto;
-    padding-inline: 2rem;
-  }
 }
 
 .btn-primary {
