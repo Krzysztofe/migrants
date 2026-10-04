@@ -3,7 +3,7 @@
 @theme {
   --color-accent: #ff1700;
   --color-accent-dark: #930000;
-  --color-accent-light: #ff8b8b;
+  --color-accent-light: #f19e9d;
   --color-accent-lighter: #ffb3b3;
   --color-accent-opacity: #ff8b8b;
 
@@ -25,6 +25,7 @@
   --text-lg-plus: 2.8rem;
   --text-xl: 4rem;
   --text-2xl: clamp(4rem, 10vw, 10rem);
+  --text-3xl: 11rem;
 
   --spacing-sm: 2rem;
   --spacing-md: 3.2rem;
@@ -64,6 +65,7 @@
   :root {
     --text-lg-plus: 3.5rem;
     --text-xl: 4.7rem;
+    --text-3xl: 12rem;
   }
 }
 
