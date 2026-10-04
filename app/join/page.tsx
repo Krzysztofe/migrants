@@ -17,17 +17,17 @@ const JoinPage = () => {
       <TopSection header="Dołącz do działań" />
       <section className="bg-accent  pb-32">
         {" "}
-        <div className="container">
+        <div className="container pt-10">
           <div className="flex flex-col sm:flex-row gap-6 ">
             <ButtonLink link={"#1"} className="w-fit " variant="primary">
-              <div className="flex items-center gap-4">
-                <div className="text-lg-plus">1</div>{" "}
+              <div className="flex items-center gap-8">
+                <div className="">1</div>{" "}
                 <div className="text-left">Zbieraj podpisy</div>
               </div>
             </ButtonLink>
             <ButtonLink link={"#2"} className="w-fit " variant="primary">
-              <div className="flex items-center gap-4">
-                <div className="text-lg-plus">2</div>{" "}
+              <div className="flex items-center gap-8">
+                <div className="">2</div>{" "}
                 <div className="text-left">Dołącz do związku zawodowego</div>
               </div>
             </ButtonLink>
