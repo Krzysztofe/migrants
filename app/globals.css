@@ -23,7 +23,7 @@
   --text-lg: 2.3rem;
   --text-lg-plus: 2.8rem;
   --text-xl: 4rem;
-  --text-2xl: clamp(3rem, 10vw, 9rem);
+  --text-2xl: clamp(4rem, 10vw, 10rem);
 
   --spacing-sm: 2rem;
   --spacing-md: 3.2rem;

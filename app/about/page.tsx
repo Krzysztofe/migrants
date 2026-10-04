@@ -4,6 +4,9 @@ import CountHeader from "@/components/shared/headers/CountHeader";
 import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
+import TimelineWrapper from "./_components/TimelineWrapper";
+import Image from "next/image";
+import heroImg from "@/public/images/hero-img.png";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | O związku",
@@ -135,11 +138,86 @@ const AboutPage = () => {
             Sami musimy stworzyć taką presję, aby rządzący byli zmuszeni znieść
             restrykcje ciążące na strajku. Nikt tego za nas nie zrobi.
           </p>
+          <div className="mt-30">
+            <SideBorder />
+          </div>
         </div>
       </section>
       <section>
-        <div className="container">
-          <AccentHeader message="Przebieg naszej walki o wolność strajkowania" />{" "}
+        <div className="container-sm mt-30 mb-60 ">
+          <AccentHeader message="Przebieg naszej walki o wolność strajkowania" />
+
+          <TimelineWrapper day="30" month="KWI 2026">
+            <h3 className="font-bold text-lg-plus">
+              Spotkanie w Zespole Sejmowym ds. Pracy
+            </h3>
+            <p>
+              30 kwietnia 2026 uczestniczyliśmy w spotkaniu Zespołu Sejmowego
+              ds. Pracy w gronie przedstawicieli związków zawodowych z całej
+              Polski, m.in.:
+            </p>
+            <p>
+              Rozmawialiśmy o represjach, które dotykają na co dzień związkowców
+              i związkowczynie. Z doświadczenia wiemy, że najbardziej nasilone
+              taktyki zwalczania związków pracodawcy stosują w trakcie sporu
+              zbiorowego i przy okazji strajku. Działacze są zwalniani,
+              zastraszani, zasypywani sprawami karnymi za realizowanie swoich
+              praw konstytucyjnych: prawa do zrzeszania się i prawa do strajku.
+            </p>
+            <p>
+              Reprezentacja ze strony Ministerstwa Pracy potwierdziła, że pewne
+              kancelarie prawne w Polsce otwarcie stosują metody zwalczania
+              związków zawodowych i że jest to niezgodne z prawem. W Sejmie
+              podnieśliśmy nasze postulaty dotyczące zmiany prawa regulującego w
+              Polsce organizację strajków.
+            </p>
+          </TimelineWrapper>
+
+          <TimelineWrapper day="1" month="MAJ 2026">
+            <h3 className="font-bold text-lg-plus">
+              Marsz „Dość zakazu strajków”
+            </h3>
+            <Image
+              src={heroImg}
+              alt="Demonstracja"
+              className="w-full h-auto mt-10"
+            />
+            <p>
+              1 maja 2026 przeszliśmy ulicami Warszawy pod hasłem „Dość zakazu
+              strajków”.
+            </p>
+            <p className="font-bold">Pod semjem</p>
+            <p>
+              Zebrało się około tysiąca osób. Zespół prawny IP, związkowcy IP
+              Zalando oraz Konfederacji Pracy Dino przedstawili zasadnicze
+              problemy z ustawą o sporach zbiorowych: wymóg wysokiej frekwencji
+              w referendum i uwikłanie strajku w warunek długich negocjacji.
+            </p>
+            <p className="font-bold">Pod Ministerstwem Sprawiedliwości</p>
+            <p>
+              Związkowcy z Amazon, Jeremias i Komisji Pracowników
+              Latynoamerykańskich zabrali głos na temat rosnących represji na
+              związki przy pomocy państwa: dotowania pracy więźniów i prawników
+              zwalczających związki, sądowych zakazów wypowiedzi dla związkowców
+              czy wciąż zbyt licznych umów śmieciowych.
+            </p>
+            <p className="font-bold">Marszałkowska 66</p>
+            <p>
+              Marsz zakończył się pod sprywatyzowaną kamienicą komunalną.
+              Organizacje lokatorskie opowiedziały o swojej walce z rosnącym
+              wyzyskiem czynszowym i eksmisjami w Poznaniu, Warszawie i w Łodzi.
+            </p>
+          </TimelineWrapper>
+
+          <TimelineWrapper day="1" month="MAJ 2026">
+            <h3 className="font-bold text-lg-plus">List otwarty do premiera</h3>
+            <p>
+              Ponadto 1 maja skierowaliśmy do premiera Donalda Tuska list
+              otwarty, w którym domagamy się pilnych zmian w ustawie o sporach
+              zbiorowych. List został podpisany przez dziesiątki komisji
+              zakładowych związków zawodowych z całej Polski.
+            </p>
+          </TimelineWrapper>
         </div>
       </section>
     </>
