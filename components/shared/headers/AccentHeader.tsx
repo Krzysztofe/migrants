@@ -1,5 +1,5 @@
 type Props = {
-  message: string;
+  message: string | React.ReactNode;
 };
 
 const AccentHeader = ({ message }: Props) => {
