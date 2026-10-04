@@ -90,7 +90,7 @@ const SignInPage = () => {
         <div className="container grid md:grid-cols-2 gap-20 my-40">
           <div className="relative min-h-100">
             <Image
-              src="/images/hero-img.png"
+              src="/images/collecting-img.jpg"
               alt="Demonstracja"
               fill
               className="object-cover"

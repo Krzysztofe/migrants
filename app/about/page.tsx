@@ -6,7 +6,7 @@ import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 import TimelineWrapper from "./_components/TimelineWrapper";
 import Image from "next/image";
-import heroImg from "@/public/images/hero-img.png";
+import heroImg from "@/public/images/demo-img.jpg";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 
 export const metadata: Metadata = {
