@@ -68,7 +68,7 @@ const AboutPage = () => {
       />
 
       <section>
-        <div className="container-sm  py-30 [&>p]:mt-10 text-lg">
+        <div className="container-sm  py-30 [&>p]:mt-10">
           <AccentHeader message="PRAWO TYLKO NA PAPIERZE" />{" "}
           <p>
             Strajk jest podstawowym demokratycznym prawem i jedynym realnym
@@ -126,7 +126,7 @@ const AboutPage = () => {
       </section>
       <section>
         {" "}
-        <div className="container-sm text-lg [&>p]:mt-10">
+        <div className="container-sm  [&>p]:mt-10">
           {" "}
           <AccentHeader message="O co walczymy?" />{" "}
           <p>

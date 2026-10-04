@@ -42,7 +42,7 @@ const JoinPage = () => {
               <div className=" text-accent text-3xl ">1</div> Zbieraj podpisy
             </h2>
 
-            <p className="text-lg">
+            <p>
               Każdy może zbierać podpisy na rzecz Komitetu Inicjatywy
               Ustawodawczej „Dość zakazów strajku – przywróćmy wolność
               strajkowania”. To bardzo proste: wystarczy wydrukować dwa
@@ -136,7 +136,7 @@ const JoinPage = () => {
             <div className=" text-accent text-3xl ">2</div> Dołącz do związku
             zawodowego w swoim miejscu pracy
           </h2>
-          <p className="mt-16 text-lg">
+          <p className="mt-16 md:!w-2/3">
             Poza zbieraniem podpisów na rzecz zmiany prawnej musimy także
             budować silny ruch pracowniczy, który będzie bronił swoich zdobyczy
             przed atakami polityków i biznesmenów. Jeśli tak jak my chcesz

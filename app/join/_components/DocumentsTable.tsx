@@ -4,7 +4,7 @@ import Icon from "@/components/shared/Icon";
 const DocumentsTable = () => {
   return (
     <div className="w-full overflow-auto">
-      <table className="m-auto w-full mb-10 text-lg font-bold">
+      <table className="m-auto w-full mb-10 text font-bold">
         {/* <thead className="border-b-2">
         <tr>
           <th className="p-10 pt-0"></th>
