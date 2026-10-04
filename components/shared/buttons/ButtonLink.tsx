@@ -15,6 +15,7 @@ type Props = {
   variant?: "primary" | "primary-empty" | "ghost";
   ariaLabel?: string;
   ariaCurrent?: "page";
+  download?: boolean;
 };
 
 export default function ButtonLink({
@@ -26,6 +27,7 @@ export default function ButtonLink({
   ariaLabel,
   ariaCurrent,
   children,
+  download,
 }: Props) {
   return (
     <Link
@@ -34,6 +36,7 @@ export default function ButtonLink({
       rel={target === "_blank" ? (rel ?? "noopener noreferrer") : rel}
       aria-label={ariaLabel}
       aria-current={ariaCurrent}
+      download={download}
       className={`block cursor-pointer text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${VARIANTS[variant]} ${className ?? ""} `}
     >
       {children}

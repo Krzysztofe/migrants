@@ -68,17 +68,13 @@ export default async function HomePage() {
             </div>
             <div className="flex  sm:flex-row gap-6 mt-6">
               <ButtonLink
-                link={"/contact"}
+                link={"join"}
                 className="w-fit "
                 variant="primary-empty"
               >
                 Dołącz
               </ButtonLink>
-              <ButtonLink
-                link={"for-members"}
-                className="w-fit "
-                variant="primary"
-              >
+              <ButtonLink link={"sign-in"} className="w-fit " variant="primary">
                 Podpisz się
               </ButtonLink>
             </div>
@@ -121,7 +117,7 @@ export default async function HomePage() {
                 “nową” ustawę o rozwi...
               </p>
               <ButtonLink
-                link={"/news"}
+                link={"/about"}
                 className="w-fit mt-8 h-fit font-bold text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
               >

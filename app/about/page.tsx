@@ -73,13 +73,16 @@ const AboutPage = () => {
           <p>
             Strajk jest podstawowym demokratycznym prawem i jedynym realnym
             narzędziem pracowników do obrony przed atakami ze strony rządów i
-            wielkiego biznesu. Jak pokazują jednak doświadczenia związków
-            zawodowych, w Polsce prawo do strajku mamy tylko na papierze. Wciąż
-            podlegamy restrykcjom, które Jaruzelski wprowadził w stanie
-            wojennym, żeby uniemożliwić strajki i złamać “Solidarność” lat 80.
-            Nowe władze III RP z chęcią podtrzymały te restrykcje, gdy
-            wprowadzały “nową” ustawę o rozwiązywaniu sporów zbiorowych w 1991
-            roku.
+            wielkiego biznesu.
+          </p>{" "}
+          <p>
+            {" "}
+            Jak pokazują jednak doświadczenia związków zawodowych, w Polsce
+            prawo do strajku mamy tylko na papierze. Wciąż podlegamy
+            restrykcjom, które Jaruzelski wprowadził w stanie wojennym, żeby
+            uniemożliwić strajki i złamać “Solidarność” lat 80. Nowe władze III
+            RP z chęcią podtrzymały te restrykcje, gdy wprowadzały “nową” ustawę
+            o rozwiązywaniu sporów zbiorowych w 1991 roku.
           </p>
           <p>
             Ustawa ta obowiązuje do dziś i dalej uniemożliwia strajkowanie

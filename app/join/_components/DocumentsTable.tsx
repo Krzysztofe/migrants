@@ -19,9 +19,10 @@ const DocumentsTable = () => {
             <td className="p-10">Jak zbierać podpisy?</td>
             <td>
               <ButtonLink
-                link={"/files/zjednoczeni-deklaracja.odt"}
+                link={"/"}
                 className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
+                download={true}
               >
                 Pobierz{" "}
                 {
@@ -42,9 +43,10 @@ const DocumentsTable = () => {
             </td>
             <td>
               <ButtonLink
-                link={"/files/zjednoczeni-historia.odt"}
+                link={"/files/wstepny-projekt-ustawy-wraz-z-uzasadnieniem.pdf"}
                 className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
+                download={true}
               >
                 Pobierz{" "}
                 {
@@ -63,9 +65,10 @@ const DocumentsTable = () => {
             <td className="p-10">Lista podpisów</td>
             <td>
               <ButtonLink
-                link={"/files/zjednoczeni-deklaracja.odt"}
+                link={"/files/lista-podpisów-ustawa.pdf"}
                 className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
+                download={true}
               >
                 Pobierz{" "}
                 {
@@ -84,9 +87,10 @@ const DocumentsTable = () => {
             <td className="p-10">Klauzula RODO</td>
             <td>
               <ButtonLink
-                link={"/files/zjednoczeni-deklaracja.odt"}
+                link={"/files/klauzula-RODO-ustawa.pdf"}
                 className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
+                download={true}
               >
                 Pobierz{" "}
                 {

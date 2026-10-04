@@ -145,7 +145,7 @@ const JoinPage = () => {
           </p>
 
           <div className="flex flex-col md:flex-row gap-10 mt-20">
-            <div className="border-2 border-gray p-10 flex-1">
+            <div className="border-2 border-gray bg-white p-10 flex-1">
               <Icon icon={"userPlus"} size={50} className={`!bg-accent mb-8`} />
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Dołącz do związku
@@ -154,7 +154,7 @@ const JoinPage = () => {
                 Wstąp do związku zawodowego działającego w Twoim miejscu pracy.
               </p>
             </div>
-            <div className="border-2 border-gray p-10 flex-1">
+            <div className="border-2 border-gray bg-white p-10 flex-1">
               <Icon icon={"flag"} size={50} className={`!bg-accent mb-8`} />
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Załóż związek

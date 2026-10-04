@@ -34,13 +34,13 @@ const SearchForm = ({ initialSearch, currentCategory }: Props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex gap-4 md:w-3xl">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
         <input
           type="text"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           placeholder="Wyszukaj wpisy..."
-          className="border-2 px-4 flex-1"
+          className="border-2 p-4"
         />
 
         <Button message="Szukaj" variant="primary-empty" />
