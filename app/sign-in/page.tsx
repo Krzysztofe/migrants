@@ -55,26 +55,31 @@ const SignInPage = () => {
             </div>
           </div>{" "}
           <div className="flex flex-col lg:flex-row gap-10">
-            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light">
+            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
               <div className="text-accent text-2xl font-extrabold">18+</div>
+
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Ukończone 18 lat
               </h3>
-              <p>Podpis może złożyć każda osoba pełnoletnia.</p>
+              <p className="mt-auto">
+                Podpis może złożyć każda osoba pełnoletnia.
+              </p>
             </div>
-            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light">
+            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
               <div className="text-accent text-2xl font-extrabold">PL</div>
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Obywatelstwo polskie
               </h3>
-              <p>Podpisać się może obywatel lub obywatelka Polski.</p>
+              <p className="mt-auto">
+                Podpisać się może obywatel lub obywatelka Polski.
+              </p>
             </div>
-            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light">
+            <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
               <div className="text-accent text-2xl font-extrabold">LIVE</div>
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Podpis na żywo
               </h3>
-              <p id="2">
+              <p id="2" className="mt-auto">
                 Trzeba się podpisać osobiście, na miejscu, podczas zbiórki.
               </p>
             </div>
