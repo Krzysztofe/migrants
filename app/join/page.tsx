@@ -43,8 +43,7 @@ const JoinPage = () => {
           <div className="md:!w-2/3">
             <h2 className="font-extrabold text-xl flex items-center gap-10">
               {" "}
-              <div className="ml-8 text-accent text-3xl ">1</div> Zbieraj
-              podpisy
+              <div className=" text-accent text-3xl ">1</div> Zbieraj podpisy
             </h2>
 
             <p className="text-lg">
@@ -112,19 +111,25 @@ const JoinPage = () => {
       <section>
         {" "}
         <div className="container mb-30">
-          <div className="bg-black border-t-6 border-accent p-20 sm:p-30 flex flex-col md:flex-row justify-between gap-20">
-            <div className="text-white font-black text-center">
-              <div className="text-3xl">100</div>
-              <p className="text-left">PODPISÓW</p>
+          <div className="bg-black border-t-6 border-accent p-20 sm:p-30 ">
+            <div className="flex flex-col md:flex-row justify-between gap-20">
+              <div className="text-white font-black text-center">
+                <div className="text-3xl">100</div>
+                <p>PODPISÓW</p>
+              </div>
+              <div className="text-white font-black text-center">
+                <div className="text-3xl text-accent-light">20</div>
+                <p>PODPISÓW</p>
+              </div>
+              <div className="text-white font-black text-center">
+                <div className="text-3xl text-accent">5</div>
+                <p>PODPISÓW</p>
+              </div>{" "}
             </div>
-            <div className="text-white font-black text-center">
-              <div className="text-3xl text-accent-light">20</div>
-              <p className="text-left">PODPISÓW</p>
-            </div>
-            <div className="text-white font-black text-center">
-              <div className="text-3xl text-accent">5</div>
-              <p className="text-left">PODPISÓW</p>
-            </div>
+
+            <h3 className="text-xl text-white font-extrabold leading-none mt-20">
+              Każdy podpis zbliża nas do celu!
+            </h3>
           </div>
         </div>
       </section>
@@ -132,8 +137,8 @@ const JoinPage = () => {
         <div className="container">
           <h2 className="font-extrabold text-xl flex items-center gap-10">
             {" "}
-            <div className="ml-8 text-accent text-3xl ">2</div> Dołącz do
-            związku zawodowego w swoim miejscu pracy
+            <div className=" text-accent text-3xl ">2</div> Dołącz do związku
+            zawodowego w swoim miejscu pracy
           </h2>
         </div>
       </section>
