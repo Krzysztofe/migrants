@@ -197,7 +197,7 @@ export default async function HomePage() {
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
               variant="ghost"
             >
-              Wszystkie wpisy{" "}
+              Wszystkie zapowiedzi{" "}
               {
                 <Icon
                   icon={"arrow"}
