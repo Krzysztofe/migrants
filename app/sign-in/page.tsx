@@ -32,10 +32,10 @@ const SignInPage = () => {
         <div className="container">
           <div className="flex flex-col sm:flex-row gap-6 ">
             <ButtonLink link={"#1"} className="w-fit " variant="primary">
-              Gdzie można się podpisać?
+              Kto może się podpisać?
             </ButtonLink>
             <ButtonLink link={"#2"} className="w-fit " variant="primary">
-              Kto może się podpisać?
+              Gdzie można się podpisać?
             </ButtonLink>
           </div>
         </div>
