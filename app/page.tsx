@@ -53,7 +53,7 @@ export default async function HomePage() {
   return (
     <>
       <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
-        <div className="bg-black/50">
+        <div className="bg-black/60">
           <div className="container flex flex gap-10 py-20 ">
             <div className="flex-1 flex flex-col  justify-center">
               <h1 className="text-2xl text-white">
