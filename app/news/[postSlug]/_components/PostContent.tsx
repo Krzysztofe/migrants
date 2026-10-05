@@ -10,6 +10,9 @@ type Props = {
 };
 
 const PostContent = async ({ postSlug, link }: Props) => {
+  const returnMessage =
+    link === "news" ? "Wróć do listy aktualności" : "Wróć do listy wpisów";
+
   const response = await fetch(
     `${process.env.API_BASE_URL}/posts?slug=${postSlug}&_fields=id,slug,date,title,content,author,tags,categories`,
     {
@@ -39,7 +42,7 @@ const PostContent = async ({ postSlug, link }: Props) => {
         variant="ghost"
       >
         <Icon icon="arrow" size={15} className="bg-accent rotate-90" />
-        Wróć do listy aktualności
+        {returnMessage}
       </ButtonLink>
 
       <p className="text-xs text-gray mb-2">
@@ -62,6 +65,7 @@ const PostContent = async ({ postSlug, link }: Props) => {
           [&_ul]:pl-6
           [&_ol]:list-decimal
           [&_ol]:pl-6
+           [&_img]:mb-10
         "
         dangerouslySetInnerHTML={{
           __html: post.content.rendered,

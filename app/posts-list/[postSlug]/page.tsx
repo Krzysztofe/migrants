@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
-import PostContent from "./_components/PostContent";
+import PostContent from "@/app/news/[postSlug]/_components/PostContent";
 
 type Props = {
   params: Promise<{ postSlug: string }>;
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const NewsPage = async ({ params }: Props) => {
+const PostPage = async ({ params }: Props) => {
   const { postSlug } = await params;
 
   return (
@@ -38,11 +38,11 @@ const NewsPage = async ({ params }: Props) => {
           errorMessage="Błąd ładowania wpisu"
           loadingMessage="Ładowanie wpisu"
         >
-          <PostContent postSlug={postSlug} link="news" />
+          <PostContent postSlug={postSlug} link="posts-list" />
         </SuspenseErrorBoundary>
       </div>
     </section>
   );
 };
 
-export default NewsPage;
+export default PostPage;

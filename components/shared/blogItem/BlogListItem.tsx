@@ -12,13 +12,14 @@ type Props = {
         alt_text: string;
       }
     | undefined;
+  listRoot: string;
 };
 
-const BlogListItem = ({ post, image }: Props) => {
+const BlogListItem = ({ post, image, listRoot }: Props) => {
   return (
     <li key={post.id} className="py-4 border-b !border-gray-light">
       <ButtonLink
-        link={`/news/${post.slug}`}
+        link={`${listRoot}/${post.slug}`}
         className="p-10 text-left flex flex-col md:flex-row gap-6 group
         transition duration-200 ease-out
         hover:-translate-y-1

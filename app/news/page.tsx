@@ -3,6 +3,7 @@ import { Post } from "../models/postModel";
 import NewsList from "./_components/NewsList";
 import { Metadata } from "next";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
+import { getPosts } from "../utils/querries/getPosts";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | Aktualności",
@@ -10,7 +11,6 @@ export const metadata: Metadata = {
 
 type Props = {
   searchParams: Promise<{
-    category?: string;
     page?: string;
     search?: string;
   }>;
@@ -19,53 +19,26 @@ type Props = {
 const NewsPage = async ({ searchParams }: Props) => {
   const params = await searchParams;
 
-  const category = params.category ? Number(params.category) : null;
-
+  const category = 6;
   const search = params.search?.trim() || "";
 
   const currentPage = Math.max(Number(params.page) || 1, 1);
 
-  const queryParams = new URLSearchParams({
-    per_page: "5",
-    page: currentPage.toString(),
-    _embed: "true",
-  });
-
-  if (category !== null) {
-    queryParams.set("categories", category.toString());
-  }
-
-  if (search) {
-    queryParams.set("search", search);
-  }
-
   let posts: Post[] = [];
   let totalPages = 0;
-  let fetchFailed = false;
 
   try {
-    const response = await fetch(
-      `${process.env.API_BASE_URL}/posts?${queryParams.toString()}`,
-      {
-        next: {
-          revalidate: 60,
-          tags: ["posts", category ? `posts-cat-${category}` : "posts-all"],
-        },
-      },
-    );
+    const result = await getPosts({
+      category,
+      page: currentPage,
+      search,
+    });
 
-    if (!response.ok) {
-      fetchFailed = true;
-    } else {
-      posts = await response.json();
-      totalPages = Number(response.headers.get("X-WP-TotalPages") || 0);
-    }
+    posts = result.posts;
+    totalPages = result.totalPages;
   } catch (error) {
     console.error("Błąd pobierania postów z WP:", error);
-    fetchFailed = true;
-  }
 
-  if (fetchFailed) {
     return <div>Nie udało się pobrać postów.</div>;
   }
 

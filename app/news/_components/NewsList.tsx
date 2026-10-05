@@ -11,29 +11,6 @@ type Props = {
   search: string;
 };
 
-const categories = [
-  {
-    id: null,
-    name: "Wszystkie",
-  },
-  {
-    id: 1,
-    name: "Szkoły i przedszkola",
-  },
-  {
-    id: 3,
-    name: "Spółki urzędu miasta",
-  },
-  {
-    id: 4,
-    name: "Elbest Security",
-  },
-  {
-    id: 5,
-    name: "Elektrownia Bełchatów",
-  },
-];
-
 const NewsList = ({
   posts,
   currentCategory,
@@ -41,6 +18,8 @@ const NewsList = ({
   totalPages,
   search,
 }: Props) => {
+  const listRoot = currentCategory === 6 ? "/news" : "/posts-list";
+
   const createUrl = (
     category: number | null,
     page: number = 1,
@@ -62,7 +41,7 @@ const NewsList = ({
 
     const query = params.toString();
 
-    return query ? `/news?${query}` : "/news";
+    return query ? `${listRoot}?${query}` : listRoot;
   };
 
   return (
@@ -72,12 +51,19 @@ const NewsList = ({
       <ul className="flex flex-col gap-4">
         {posts.map((post, idx) => {
           const image = post._embedded?.["wp:featuredmedia"]?.[0];
-          return <BlogListItem key={post.id} post={post} image={image} />;
+          return (
+            <BlogListItem
+              key={post.id}
+              post={post}
+              image={image}
+              listRoot={listRoot}
+            />
+          );
         })}
       </ul>
 
       {posts.length === 0 && (
-        <p className="py-10 font-bold text-xl">Nie znaleziono wpisów.</p>
+        <p className="py-10 font-extrabold text-xl">Nie znaleziono wpisów</p>
       )}
 
       {totalPages > 1 && (
