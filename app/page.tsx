@@ -58,7 +58,7 @@ export default async function HomePage() {
             <div className="flex-1 flex flex-col  justify-center">
               <h1 className="text-2xl text-white">
                 DOŚĆ&nbsp;ZAKAZU
-                <span className="block origin-left scale-x-[1.25] w-[80%] text-accent">
+                <span className="block origin-left scale-x-[1.25] w-[80%]">
                   STRAJKÓW
                 </span>
               </h1>
