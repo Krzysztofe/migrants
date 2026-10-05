@@ -17,7 +17,7 @@ type Props = {
 
 const BlogListItem = ({ post, image, listRoot }: Props) => {
   return (
-    <li key={post.id} className="py-4 border-b !border-gray-light">
+    <li key={post.id} className="py-4 border-b !border-gray">
       <ButtonLink
         link={`${listRoot}/${post.slug}`}
         className="p-10 text-left flex flex-col md:flex-row gap-6 group

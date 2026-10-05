@@ -1,4 +1,3 @@
-import BlogListItem from "@/components/shared/blogItem/BlogListItem";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
@@ -6,7 +5,6 @@ import { Metadata } from "next";
 import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import Image from "next/image";
-import FirstBlogItem from "@/app/_components/BlogListHome";
 import BlogListHome from "@/app/_components/BlogListHome";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
 
@@ -79,7 +77,7 @@ export default async function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className=" flex justify-center items-center hidden xl:flex">
+          {/* <div className=" flex justify-center items-center hidden xl:flex">
             <Image
               src="/icons/logo-black.png"
               alt="Logo"
@@ -89,7 +87,7 @@ export default async function HomePage() {
               priority
               unoptimized
             />
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="mt-10">
@@ -135,9 +133,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="">
-        <div className="container pb-12">
+      <section>
+        <div className="container">
           <SideBorder />
+        </div>
+        <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
             <h2 className="text-lg">AKTUALNOŚCI</h2>
             <ButtonLink
@@ -178,8 +178,11 @@ export default async function HomePage() {
         </div>
       </section>
       <section>
-        <div className="container pb-12">
+        <div className="container">
           <SideBorder />
+        </div>
+
+        <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
             <h2 className="text-lg">PRAWO DO STRAJKU TO FIKCJA</h2>
             <ButtonLink

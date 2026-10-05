@@ -2,7 +2,7 @@ import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 import { Post } from "../models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
-import NewsList from "../news/_components/NewsList";
+import NewsList from "../../components/shared/posts/NewsList";
 import { getPosts } from "../utils/querries/getPosts";
 
 export const metadata: Metadata = {

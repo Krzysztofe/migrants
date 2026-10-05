@@ -1,6 +1,6 @@
 import TopSection from "@/components/shared/TopSection";
 import { Post } from "../models/postModel";
-import NewsList from "./_components/NewsList";
+import NewsList from "../../components/shared/posts/NewsList";
 import { Metadata } from "next";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import { getPosts } from "../utils/querries/getPosts";

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
-import PostContent from "@/app/news/[postSlug]/_components/PostContent";
+import PostContent from "@/components/shared/posts/PostContent";
 
 type Props = {
   params: Promise<{ postSlug: string }>;

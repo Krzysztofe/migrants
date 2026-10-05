@@ -1,7 +1,7 @@
 import { Post } from "@/app/models/postModel";
-import BlogListItem from "@/components/shared/blogItem/BlogListItem";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import SearchForm from "./SearchForm";
+import BlogListItem from "./BlogListItem";
 
 type Props = {
   posts: Post[];
