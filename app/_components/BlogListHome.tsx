@@ -57,7 +57,7 @@ const BlogListHome = ({ post, image, idx }: Props) => {
             </h2>
 
             <p>
-              {stripHtml(post.excerpt.rendered).slice(0, isFirst ? 420 : 100)}
+              {stripHtml(post.excerpt.rendered).slice(0, isFirst ? 410 : 100)}
               ...
             </p>
           </div>

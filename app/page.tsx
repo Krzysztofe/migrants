@@ -195,7 +195,7 @@ export default async function HomePage() {
               PRAWO DO STRAJKU W POLSCE TO FIKCJA
             </h2>
             <ButtonLink
-              link={"/news"}
+              link={"/posts-list"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
               variant="ghost"
             >

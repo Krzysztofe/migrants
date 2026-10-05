@@ -25,17 +25,11 @@ const Footer = () => {
           <div className="font-bold text-lg">Kontakt</div>
           <div className="lg:flex gap-16 items-center">
             <div className="[&>*]:mt-6">
-              <ButtonLink
-                link={"https://www.facebook.com/MzzpZjednoczeni"}
-                className="flex gap-2 items-center"
-              >
+              <ButtonLink link={""} className="flex gap-2 items-center">
                 {<Icon icon={"facebook"} size={20} className={`bg-black`} />}
                 strajkuj.pl
               </ButtonLink>
-              <ButtonLink
-                link={"https://www.facebook.com/MzzpZjednoczeni"}
-                className="flex gap-2 items-center"
-              >
+              <ButtonLink link={""} className="flex gap-2 items-center">
                 {<Icon icon={"instagram"} size={20} className={`bg-black`} />}
                 @strajkuj.pl
               </ButtonLink>

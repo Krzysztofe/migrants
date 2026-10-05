@@ -96,7 +96,7 @@ const SignInPage = () => {
                 className="object-cover"
               />{" "}
             </div>{" "}
-            <p className="text-right text-sm">Fot. Julia Różańska</p>
+            <p className="text-right text-xs">Fot. Julia Różańska</p>
           </div>
 
           <div className="text-lg [&>p]:mt-10">
