@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import heroImg from "@/public/images/hero-img.png";
 import Icon from "@/components/shared/Icon";
+import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | Dla członków",
@@ -152,9 +153,12 @@ const SignInPage = () => {
             }
           />
         </div>
-      </section>
-      Chcesz pomóc zbierać podpisy? Dołącz do działań w swoim mieście lub w
-      swoim miejscu pracy.
+      </section>{" "}
+      <CallToAction
+        message="Chcesz pomóc zbierać podpisy?"
+        subtitle="Dołącz do działań w swoim mieście lub w swoim miejscu pracy."
+        buttonMessage="join"
+      />{" "}
     </>
   );
 };

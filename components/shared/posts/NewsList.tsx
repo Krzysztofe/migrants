@@ -18,7 +18,7 @@ const NewsList = ({
   totalPages,
   search,
 }: Props) => {
-  const listRoot = currentCategory === 6 ? "/news" : "/posts-list";
+  const listRoot = currentCategory === 5 ? "/news" : "/posts-list";
 
   const createUrl = (
     category: number | null,
@@ -44,6 +44,7 @@ const NewsList = ({
     return query ? `${listRoot}?${query}` : listRoot;
   };
 
+  console.log("totalPages", totalPages);
   return (
     <>
       <SearchForm initialSearch={search} currentCategory={currentCategory} />

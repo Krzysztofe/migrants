@@ -4,6 +4,7 @@ import { Post } from "../models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import NewsList from "../../components/shared/posts/NewsList";
 import { getPosts } from "../utils/querries/getPosts";
+import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | Nasza działalność ",
@@ -20,7 +21,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
   const params = await searchParams;
   const search = params.search?.trim() || "";
 
-  const category = 5;
+  const category = 6;
   const currentPage = Math.max(Number(params.page) || 1, 1);
 
   let posts: Post[] = [];
@@ -63,7 +64,11 @@ const PostsListPage = async ({ searchParams }: Props) => {
           </div>
         </section>
       </SuspenseErrorBoundary>
-      Prawo do strajku nie może być fikcją
+      <CallToAction
+        message="Prawo do strajku nie może być fikcją"
+        subtitle="Zmieńmy to razem z Tobą"
+        buttonMessage="signIn"
+      />{" "}
     </>
   );
 };

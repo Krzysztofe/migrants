@@ -8,6 +8,7 @@ import TimelineWrapper from "./_components/TimelineWrapper";
 import Image from "next/image";
 import heroImg from "@/public/images/demo-img.jpg";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
+import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | O związku",
@@ -66,7 +67,6 @@ const AboutPage = () => {
         header="Kim jesteśmy i o co walczymy?"
         paragraph="Strajk jest podstawowym demokratycznym prawem i jedynym realnym narzędziem pracowników do obrony przed atakami ze strony rządów i wielkiego biznesu."
       />
-
       <section>
         <div className="container-sm  py-30 [&>p]:mt-10">
           <AccentHeader message="PRAWO TYLKO NA PAPIERZE" />{" "}
@@ -264,6 +264,11 @@ const AboutPage = () => {
           </TimelineWrapper>
         </div>
       </section>
+      <CallToAction
+        message="Prawa zdobywa się tylko w walce"
+        subtitle="Podpisz się pod projektem ustawy i dołącz do działań."
+        buttonMessage="signIn"
+      />{" "}
     </>
   );
 };

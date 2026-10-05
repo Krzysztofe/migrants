@@ -5,6 +5,7 @@ import DocumentsTable from "./_components/DocumentsTable";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
 import { discoverValidationDepths } from "next/dist/server/app-render/instant-validation/instant-validation";
 import Icon from "@/components/shared/Icon";
+import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | Dokumenty",
@@ -167,6 +168,11 @@ const JoinPage = () => {
           </div>
         </div>
       </section>
+      <CallToAction
+        message="Najpierw podpisz się sam(a)"
+        subtitle="Sprawdź, kto może złożyć podpis i gdzie nas znajdziesz."
+        buttonMessage="signIn"
+      />{" "}
     </>
   );
 };
