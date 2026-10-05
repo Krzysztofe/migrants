@@ -136,9 +136,9 @@ export default async function HomePage() {
       </section>
 
       <section className="">
-        <div className="container pb-30">
+        <div className="container pb-12">
           <SideBorder />
-          <div className="lg:flex justify-between gap-4 pb-10 mt-30">
+          <div className="lg:flex justify-between gap-4 pb-10 mt-12">
             <h2 className="text-lg">AKTUALNOŚCI</h2>
             <ButtonLink
               link={"/news"}
@@ -178,9 +178,9 @@ export default async function HomePage() {
         </div>
       </section>
       <section>
-        <div className="container pb-30">
+        <div className="container pb-12">
           <SideBorder />
-          <div className="lg:flex justify-between gap-4 pb-10 mt-30">
+          <div className="lg:flex justify-between gap-4 pb-10 mt-12">
             <h2 className="text-lg">PRAWO DO STRAJKU TO FIKCJA</h2>
             <ButtonLink
               link={"/news"}

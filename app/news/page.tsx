@@ -81,7 +81,7 @@ const NewsPage = async ({ searchParams }: Props) => {
         loadingMessage="Ładowanie aktualności"
       >
         <section>
-          <div className="container">
+          <div className="container mt-20">
             <NewsList
               posts={posts}
               currentCategory={category}
