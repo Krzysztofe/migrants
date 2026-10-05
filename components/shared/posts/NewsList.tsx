@@ -68,7 +68,7 @@ const NewsList = ({
       )}
 
       {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-2 my-10">
+        <div className="flex items-center justify-center gap-2 mt-10 mb-30">
           <ButtonLink
             variant="primary-empty"
             link={createUrl(currentCategory, currentPage - 1, search)}

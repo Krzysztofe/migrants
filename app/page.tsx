@@ -52,32 +52,38 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="bg-[url('/images/hero-img.png')] bg-cover bg-center">
-        <div className="container flex h-[60vh] md:h-[80vh] flex gap-10 py-10 ">
-          <div className="flex-1 flex flex-col  justify-center">
-            <h1 className="text-2xl leading-none ">
-              DOŚĆ&nbsp;ZAKAZU
-              <span className="block origin-left scale-x-[1.25] w-[80%]">
-                STRAJKÓW
-              </span>
-            </h1>
-            <div className="my-6 text-lg text-white lg:w-2/3">
-              Kampania na rzecz zmiany ustawy o rozwiązywaniu sporów zbiorowych.
+      <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
+        <div className="bg-black/50">
+          <div className="container flex h-[60vh] md:h-[80vh] flex gap-10 py-10 ">
+            <div className="flex-1 flex flex-col  justify-center">
+              <h1 className="text-2xl leading-none text-white">
+                DOŚĆ&nbsp;ZAKAZU
+                <span className="block origin-left scale-x-[1.25] w-[80%]">
+                  STRAJKÓW
+                </span>
+              </h1>
+              <div className="my-6 text-lg text-white lg:w-2/3">
+                Kampania na rzecz zmiany ustawy o rozwiązywaniu sporów
+                zbiorowych.
+              </div>
+              <div className="flex  sm:flex-row gap-6 mt-6">
+                <ButtonLink
+                  link={"join"}
+                  className="w-fit "
+                  variant="primary-empty"
+                >
+                  Dołącz
+                </ButtonLink>
+                <ButtonLink
+                  link={"sign-in"}
+                  className="w-fit "
+                  variant="primary"
+                >
+                  Podpisz się
+                </ButtonLink>
+              </div>
             </div>
-            <div className="flex  sm:flex-row gap-6 mt-6">
-              <ButtonLink
-                link={"join"}
-                className="w-fit "
-                variant="primary-empty"
-              >
-                Dołącz
-              </ButtonLink>
-              <ButtonLink link={"sign-in"} className="w-fit " variant="primary">
-                Podpisz się
-              </ButtonLink>
-            </div>
-          </div>
-          {/* <div className=" flex justify-center items-center hidden xl:flex">
+            {/* <div className=" flex justify-center items-center hidden xl:flex">
             <Image
               src="/icons/logo-black.png"
               alt="Logo"
@@ -88,6 +94,7 @@ export default async function HomePage() {
               unoptimized
             />
           </div> */}
+          </div>
         </div>
       </section>
       <section className="mt-10">
