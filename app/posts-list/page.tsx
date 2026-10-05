@@ -44,7 +44,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
   return (
     <>
       <TopSection
-        header="Gdzie nas spotkasz"
+        header="Gdzie nas znajdziesz"
         paragraph="Najnowsze informacje o kampanii dość zakazu strajków."
       />
       <SuspenseErrorBoundary
