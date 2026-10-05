@@ -55,7 +55,7 @@ const SignInPage = () => {
           </div>{" "}
           <div className="flex flex-col lg:flex-row gap-10">
             <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
-              <div className="text-accent text-2xl font-extrabold">18+</div>
+              <div className="text-accent text-xl font-extrabold">18+</div>
 
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Ukończone 18 lat
@@ -65,7 +65,7 @@ const SignInPage = () => {
               </p>
             </div>
             <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
-              <div className="text-accent text-2xl font-extrabold">PL</div>
+              <div className="text-accent text-xl font-extrabold">PL</div>
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Obywatelstwo polskie
               </h3>
@@ -74,7 +74,7 @@ const SignInPage = () => {
               </p>
             </div>
             <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
-              <div className="text-accent text-2xl font-extrabold">LIVE</div>
+              <div className="text-accent text-xl font-extrabold">LIVE</div>
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
                 Podpis na żywo
               </h3>
