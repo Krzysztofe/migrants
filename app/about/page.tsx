@@ -6,7 +6,8 @@ import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 import TimelineWrapper from "./_components/TimelineWrapper";
 import Image from "next/image";
-import heroImg from "@/public/images/demo-img.jpg";
+import demoImg from "@/public/images/demo-img.jpg";
+import parlamentImg from "@/public/images/parlament-img.jpg";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import CallToAction from "@/components/shared/CallToAction";
 
@@ -182,6 +183,12 @@ const AboutPage = () => {
             <h3 className="font-bold text-lg-plus">
               Spotkanie w Zespole Sejmowym ds. Pracy
             </h3>
+            <Image
+              src={parlamentImg}
+              alt="Demonstracja"
+              className="w-full h-auto mt-10"
+            />
+            <div className="text-right text-xs">Fot. Aliaksandr Valodzin</div>
             <p>
               30 kwietnia 2026 uczestniczyliśmy w spotkaniu Zespołu Sejmowego
               ds. Pracy w gronie przedstawicieli związków zawodowych z całej
@@ -222,10 +229,11 @@ const AboutPage = () => {
               Marsz „Dość zakazu strajków”
             </h3>
             <Image
-              src={heroImg}
+              src={demoImg}
               alt="Demonstracja"
               className="w-full h-auto mt-10"
             />
+
             <p>
               1 maja 2026 przeszliśmy ulicami Warszawy pod hasłem „Dość zakazu
               strajków”.

@@ -52,7 +52,7 @@ const Footer = () => {
               <div className=" flex gap-2 items-center">
                 {" "}
                 <Icon icon={"phone"} size={20} className={`bg-black`} />
-                999 999 999
+                514 252 205
               </div>
               <div className=" flex gap-2 items-center">
                 {" "}
