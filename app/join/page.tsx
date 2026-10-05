@@ -8,9 +8,8 @@ import Icon from "@/components/shared/Icon";
 import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | Dokumenty",
+  title: "Dość zakazu strajków | Dołącz",
 };
-
 const JoinPage = () => {
   return (
     <>

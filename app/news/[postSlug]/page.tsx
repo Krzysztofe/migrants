@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | Aktualności",
+  title: "Dość zakazu strajków | Aktualności",
 };
 
 export async function generateStaticParams() {

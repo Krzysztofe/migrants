@@ -11,7 +11,7 @@ import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | O związku",
+  title: "Dość zakazu strajków | O nas",
 };
 
 const headers = [

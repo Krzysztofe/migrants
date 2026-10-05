@@ -7,7 +7,7 @@ import { getPosts } from "../utils/querries/getPosts";
 import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | Aktualności",
+  title: "Dość zakazu strajków | Aktualności",
 };
 
 type Props = {

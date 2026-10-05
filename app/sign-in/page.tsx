@@ -1,15 +1,13 @@
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
+import CallToAction from "@/components/shared/CallToAction";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
-import SideBorder from "@/components/shared/SideBorder";
+import Icon from "@/components/shared/Icon";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 import Image from "next/image";
-import heroImg from "@/public/images/hero-img.png";
-import Icon from "@/components/shared/Icon";
-import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
-  title: "Zjednoczeni | Dla członków",
+  title: "Dość zakazu strajków | Podpisz się",
 };
 
 const cities = [

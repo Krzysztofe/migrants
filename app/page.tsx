@@ -139,7 +139,7 @@ export default async function HomePage() {
         </div>
         <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
-            <h2 className="text-lg">AKTUALNOŚCI</h2>
+            <h2 className="text-lg-plus">AKTUALNOŚCI</h2>
             <ButtonLink
               link={"/news"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
@@ -184,7 +184,7 @@ export default async function HomePage() {
 
         <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
-            <h2 className="text-lg">PRAWO DO STRAJKU TO FIKCJA</h2>
+            <h2 className="text-lg-plus">PRAWO DO STRAJKU TO FIKCJA</h2>
             <ButtonLink
               link={"/news"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
