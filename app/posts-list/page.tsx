@@ -44,7 +44,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
   return (
     <>
       <TopSection
-        header="Prawo do strajku to fikcja"
+        header="Prawo do strajku w Polsce to fikcja"
         paragraph="Na papierze strajk jest legalny, w praktyce przejście całej procedury jest niemal niemożliwe. Zbieramy analizy, wyjaśnienia i historie pracowników."
       />
       <SuspenseErrorBoundary

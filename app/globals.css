@@ -24,7 +24,7 @@
   --text-lg: 2.3rem;
   --text-lg-plus: 2.8rem;
   --text-xl: 4rem;
-  --text-2xl: clamp(4rem, 10vw, 10rem);
+  --text-2xl: clamp(6rem, 15vw, 13rem);
   --text-3xl: 11rem;
 
   --spacing-sm: 2rem;
@@ -82,9 +82,9 @@ body {
 
 h1,
 h2 {
-  font-family: "Haettenschweiler", "Arial Narrow", sans-serif;
-  font-weight: 900;
+  font-family: var(--font-haettenschweiler);
   line-height: 1;
+  letter-spacing: 1;
 }
 
 .container {

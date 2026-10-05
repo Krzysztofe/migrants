@@ -11,7 +11,7 @@ const TopSection = ({ header, paragraph }: Props) => {
   return (
     <section className="text-white bg-accent">
       <div className="container py-10">
-        <h1 className={`text-2xl font-bold ${marginBottom}`}>{header}</h1>
+        <h1 className={`text-2xl ${marginBottom}`}>{header}</h1>
         {paragraph && <p className="md:w-2/3 text-lg">{paragraph}</p>}
       </div>
     </section>

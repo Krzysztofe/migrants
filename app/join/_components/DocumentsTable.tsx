@@ -19,7 +19,7 @@ const DocumentsTable = () => {
             <td className="p-10">Jak zbierać podpisy?</td>
             <td>
               <ButtonLink
-                link={"/"}
+                link={"/files/jak-zbierać-podpisy_.pdf"}
                 className="w-fit h-fit mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
                 download={true}

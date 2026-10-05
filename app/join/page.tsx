@@ -37,9 +37,9 @@ const JoinPage = () => {
       <section id="1">
         <div className="container py-20">
           <div className="md:!w-2/3">
-            <h2 className="font-extrabold text-xl flex items-center gap-10">
+            <h2 className=" text-xl flex items-center gap-10">
               {" "}
-              <div className=" text-accent text-3xl ">1</div> Zbieraj podpisy
+              <div className="text-accent text-3xl ">1</div> Zbieraj podpisy
             </h2>
 
             <p>
@@ -131,7 +131,7 @@ const JoinPage = () => {
       </section>
       <section className="bg-gray-light" id="2">
         <div className="container py-40">
-          <h2 className="font-extrabold text-xl flex items-center gap-10">
+          <h2 className=" text-xl flex items-center gap-10">
             {" "}
             <div className=" text-accent text-3xl ">2</div> Dołącz do związku
             zawodowego w swoim miejscu pracy

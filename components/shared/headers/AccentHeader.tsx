@@ -6,7 +6,7 @@ type Props = {
 const AccentHeader = ({ message, className }: Props) => {
   return (
     <h2
-      className={`h-fit mb-22 pl-10 border-l-10 border-accent text-xl font-extrabold whitespace-normal break-words ${className}`}
+      className={`h-fit mb-22 pl-10 border-l-10 border-accent text-xl whitespace-normal break-words ${className}`}
     >
       {message}
     </h2>

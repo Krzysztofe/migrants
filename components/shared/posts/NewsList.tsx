@@ -64,7 +64,7 @@ const NewsList = ({
       </ul>
 
       {posts.length === 0 && (
-        <p className="py-10 font-extrabold text-xl">Nie znaleziono wpisów</p>
+        <h2 className="py-10 text-xl">Nie znaleziono wpisów</h2>
       )}
 
       {totalPages > 1 && (

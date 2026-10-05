@@ -33,7 +33,7 @@ const BlogListItem = ({ post, image, listRoot }: Props) => {
             {formatDate(post.date)} /{" "}
             {mapBlogCategories[post.categories[0]] ?? "Inne"}
           </p>{" "}
-          <h2 className="font-bold text-xl my-6 group-hover:text-accent transition-colors">
+          <h2 className=" text-xl my-6 group-hover:text-accent transition-colors">
             {post.title.rendered}
           </h2>
           <div

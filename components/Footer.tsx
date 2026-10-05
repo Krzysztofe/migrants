@@ -7,11 +7,13 @@ const Footer = () => {
       <div className="container bg-gray-light  py-26 flex flex-col gap-20 md:flex-row">
         <div className="md:w-1/2">
           <div className="">
-            Stronę strajkuj.pl prowadzimy w gronie osób zaangażowanych w
-            kampanię o wolność strajkowania od wiosny 2026 roku oraz
-            popierających Obywatelską Inicjatywę Ustawodawczą Komitetu. O
-            Komitecie dowiesz się więcej na jego{" "}
-            <ButtonLink
+            Stronę strajkuj.pl prowadzimy jako oddolna grupa działaczy i
+            działaczek związków zawodowych oraz organizacji społecznych, od
+            wiosny 2026 roku zaangażowanych w kampanię na rzecz zniesienia
+            restrykcji na strajk. Od września 2026 aktywnie wspieramy Komitet
+            Inicjatywy Ustawodawczej “Dość zakazów strajku – przywróćmy wolność
+            strajkowania.{" "}
+            {/* <ButtonLink
               link={"https://komitet-seven.vercel.app/"}
               className="!inline-flex items-center gap-4 font-bold border-b border-transparent hover:border-white"
               variant="ghost"
@@ -24,7 +26,7 @@ const Footer = () => {
                   className={`bg-accent -rotate-90`}
                 />
               }
-            </ButtonLink>
+            </ButtonLink> */}
           </div>
         </div>
         <div className="">
