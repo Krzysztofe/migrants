@@ -47,7 +47,7 @@ const NewsPage = async ({ searchParams }: Props) => {
     <>
       <TopSection
         header="Aktualności"
-        paragraph="Najnowsze informacje o kampanii dość zakazku strajków "
+        paragraph="Na papierze strajk jest legalny, w praktyce przejście całej procedury jest niemal niemożliwe. Zbieramy analizy, wyjaśnienia i historie pracowników."
       />
       <SuspenseErrorBoundary
         size="lg"
