@@ -87,14 +87,18 @@ const SignInPage = () => {
       </section>
       <section>
         <div className="container grid md:grid-cols-2 gap-20 my-40">
-          <div className="relative min-h-100">
-            <Image
-              src="/images/collecting-img.jpg"
-              alt="Demonstracja"
-              fill
-              className="object-cover"
-            />
+          <div className="min-h-100">
+            <div className="relative h-full">
+              <Image
+                src="/images/collecting-img.jpg"
+                alt="Demonstracja"
+                fill
+                className="object-cover"
+              />{" "}
+            </div>{" "}
+            <p className="text-right text-sm">Fot. Julia Różańska</p>
           </div>
+
           <div className="text-lg [&>p]:mt-10">
             <h2 className="text-xl">Gdzie nas znajdziesz?</h2>
             <p>
