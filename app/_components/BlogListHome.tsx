@@ -20,7 +20,7 @@ const BlogListHome = ({ post, image, idx }: Props) => {
   return (
     <li
       className={
-        isFirst ? "lg:row-span-2 lg:col-span-3" : "h-[28vh] lg:col-span-2"
+        isFirst ? "lg:row-span-2 lg:col-span-3" : "h-[30vh] lg:col-span-2"
       }
     >
       <ButtonLink
@@ -52,14 +52,15 @@ const BlogListHome = ({ post, image, idx }: Props) => {
           <div className="relative flex flex-col z-10 bg-black/50 p-6 text-white h-full">
             <p className="text-xs text-gray mt-auto">{formatDate(post.date)}</p>
 
-            <h2 className="my-4 text-lg-plus transition-colors duration-200 group-hover:text-red-500">
+            <h2 className="my-4 text-lg transition-colors duration-200 group-hover:text-red-500">
               {post.title.rendered}
             </h2>
-
-            <p>
-              {stripHtml(post.excerpt.rendered).slice(0, isFirst ? 410 : 100)}
-              ...
-            </p>
+            {isFirst && (
+              <p>
+                {stripHtml(post.excerpt.rendered).slice(0, isFirst ? 400 : 100)}
+                ...
+              </p>
+            )}
           </div>
         </div>
       </ButtonLink>

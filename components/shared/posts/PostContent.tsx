@@ -50,7 +50,7 @@ const PostContent = async ({ postSlug, link }: Props) => {
         {mapBlogCategories[post.categories[0]] ?? "Inne"}
       </p>
 
-      <h1 className=" text-2xl">{post.title.rendered}</h1>
+      <h1 className="text-xl">{post.title.rendered}</h1>
 
       <div
         className="
