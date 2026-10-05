@@ -54,11 +54,11 @@ export default async function HomePage() {
     <>
       <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
         <div className="bg-black/50">
-          <div className="container flex h-[60vh] md:h-[80vh] flex gap-10 py-10 ">
+          <div className="container flex flex gap-10 py-20 ">
             <div className="flex-1 flex flex-col  justify-center">
-              <h1 className="text-2xl leading-none text-white">
+              <h1 className="text-2xl text-white">
                 DOŚĆ&nbsp;ZAKAZU
-                <span className="block origin-left scale-x-[1.25] w-[80%]">
+                <span className="block origin-left scale-x-[1.25] w-[80%] text-accent">
                   STRAJKÓW
                 </span>
               </h1>

@@ -24,7 +24,7 @@
   --text-lg: 2.3rem;
   --text-lg-plus: 2.8rem;
   --text-xl: 4rem;
-  --text-2xl: clamp(6rem, 15vw, 13rem);
+  --text-2xl: clamp(6.5rem, 15vw, 13rem);
   --text-3xl: 11rem;
 
   --spacing-sm: 2rem;
@@ -83,7 +83,7 @@ body {
 h1,
 h2 {
   font-family: var(--font-haettenschweiler);
-  line-height: 1;
+  line-height: 0.9;
   letter-spacing: 1;
 }
 

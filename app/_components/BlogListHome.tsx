@@ -52,7 +52,7 @@ const BlogListHome = ({ post, image, idx }: Props) => {
           <div className="relative flex flex-col z-10 bg-black/50 p-6 text-white h-full">
             <p className="text-xs text-gray mt-auto">{formatDate(post.date)}</p>
 
-            <h2 className="my-4  font-bold transition-colors duration-200 group-hover:text-red-500">
+            <h2 className="my-4 text-lg-plus transition-colors duration-200 group-hover:text-red-500">
               {post.title.rendered}
             </h2>
 

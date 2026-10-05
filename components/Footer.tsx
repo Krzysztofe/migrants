@@ -10,23 +10,15 @@ const Footer = () => {
             Stronę strajkuj.pl prowadzimy jako oddolna grupa działaczy i
             działaczek związków zawodowych oraz organizacji społecznych, od
             wiosny 2026 roku zaangażowanych w kampanię na rzecz zniesienia
-            restrykcji na strajk. Od września 2026 aktywnie wspieramy Komitet
-            Inicjatywy Ustawodawczej “Dość zakazów strajku – przywróćmy wolność
-            strajkowania.{" "}
-            {/* <ButtonLink
+            restrykcji na strajk. Od września 2026 aktywnie wspieramy
+            <ButtonLink
               link={"https://komitet-seven.vercel.app/"}
-              className="!inline-flex items-center gap-4 font-bold border-b border-transparent hover:border-white"
+              className="!inline-flex items-center gap-4 text-left font-bold border-b border-transparent hover:text-accent"
               variant="ghost"
             >
-              stronie internetowej{" "}
-              {
-                <Icon
-                  icon={"arrow"}
-                  size={15}
-                  className={`bg-accent -rotate-90`}
-                />
-              }
-            </ButtonLink> */}
+              Komitet Inicjatywy Ustawodawczej “Dość zakazów strajku –
+              przywróćmy wolność strajkowania"
+            </ButtonLink>
           </div>
         </div>
         <div className="">
