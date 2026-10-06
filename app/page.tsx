@@ -49,9 +49,6 @@ export default async function HomePage() {
     console.error("Błąd pobierania wpisów:", error);
   }
 
-  console.log("respNews", news);
-  console.log("publications", publications[0].categories);
-
   return (
     <>
       <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">

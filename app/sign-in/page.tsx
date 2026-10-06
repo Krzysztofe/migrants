@@ -144,7 +144,7 @@ const SignInPage = () => {
             })}
             <div className=" p-10 flex-1 border-black border-2 bg-black text-white h-[19rem]">
               <h3 className="font-extrabold text-lg leading-none mb-16">
-                Brakuje Towjego miasta?
+                Brakuje Twojego miasta?
               </h3>
 
               <p>Napisz do nas</p>
