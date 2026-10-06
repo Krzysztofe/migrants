@@ -146,7 +146,11 @@ const SignInPage = () => {
             className="bg-gray-light py-8 mt-20"
             message={
               <div className="flex items-center">
-                <Icon icon={"clock"} size={50} className={`!bg-accent`} />
+                <Icon
+                  icon={"clock"}
+                  size={50}
+                  className={`!bg-accent shrink-0`}
+                />
                 <div className=" text-lg  ml-6">
                   Niebawem znajdziesz tutaj spis stałych miejsc i terminów
                   zbiórek podpisów w poszczególnych miastach.

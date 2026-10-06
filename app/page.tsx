@@ -40,7 +40,6 @@ export default async function HomePage() {
 
     if (respPublications.ok) {
       publications = await respPublications.json();
-      console.log("", publications.length);
     }
 
     if (respNews.ok) {
@@ -49,6 +48,9 @@ export default async function HomePage() {
   } catch (error) {
     console.error("Błąd pobierania wpisów:", error);
   }
+
+  console.log("respNews", news);
+  console.log("publications", publications[0].categories);
 
   return (
     <>
@@ -170,13 +172,14 @@ export default async function HomePage() {
             <ul className="grid lg:grid-cols-5 gap-8">
               {news.map((post, idx) => {
                 const image = post._embedded?.["wp:featuredmedia"]?.[0];
-
+                const category = post.categories[0];
                 return (
                   <BlogListHome
                     key={post.id}
                     post={post}
                     image={image}
                     idx={idx}
+                    category={category}
                   />
                 );
               })}
@@ -215,13 +218,14 @@ export default async function HomePage() {
             <ul className="grid lg:grid-cols-5 gap-8">
               {publications.map((post, idx) => {
                 const image = post._embedded?.["wp:featuredmedia"]?.[0];
-
+                const category = post.categories[0];
                 return (
                   <BlogListHome
                     key={post.id}
                     post={post}
                     image={image}
                     idx={idx}
+                    category={category}
                   />
                 );
               })}

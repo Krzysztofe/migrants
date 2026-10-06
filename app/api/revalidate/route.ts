@@ -26,11 +26,12 @@ export async function POST(request: NextRequest) {
 
   const { post_type, slug } = body;
 
-  revalidateTag("posts-latest", "max");
-  revalidateTag("posts-all", "max");
+  revalidateTag("posts-category-5", "max");
+  revalidateTag("posts-category-6", "max");
 
   if (slug) {
     revalidatePath(`/news/${slug}`);
+    revalidatePath(`/posts-list/${slug}`);
   }
 
   return NextResponse.json({ revalidated: true, now: Date.now() });

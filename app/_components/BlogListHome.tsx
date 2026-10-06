@@ -12,10 +12,12 @@ type Props = {
       }
     | undefined;
   idx: number;
+  category: number;
 };
 
-const BlogListHome = ({ post, image, idx }: Props) => {
+const BlogListHome = ({ post, image, idx, category }: Props) => {
   const isFirst = !idx;
+  const rootPath = category === 5 ? "/news" : "/posts-list";
 
   return (
     <li
@@ -24,7 +26,7 @@ const BlogListHome = ({ post, image, idx }: Props) => {
       }
     >
       <ButtonLink
-        link={`/news/${post.slug}`}
+        link={`${rootPath}/${post.slug}`}
         className="group flex h-full flex-col gap-6 text-left
                    transition duration-200 ease-out
                    hover:-translate-y-1 hover:shadow-[0_14px_30px_-14px_rgba(0,0,0,0.45)]
