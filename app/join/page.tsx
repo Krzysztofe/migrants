@@ -48,17 +48,6 @@ const JoinPage = () => {
               dokumenty, zebrać podpisy i wysłać je na adres wskazany w
               instrukcji.
             </p>
-            <p className="mt-10">
-              Poniższe dokumenty pochodzą ze strony
-              <ButtonLink
-                link={"/join#1"}
-                className="w-fit mx-2 !inline font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
-                variant="ghost"
-              >
-                Komitetu Inicjatywy Ustawodawczej “Dość zakazów strajku –
-                przywróćmy wolność strajkowania"
-              </ButtonLink>
-            </p>
           </div>
         </div>
       </section>
@@ -66,8 +55,16 @@ const JoinPage = () => {
         <div className="container">
           <DocumentsTable />
           <p className="text-sm">
-            Wszystkie powyższe dokumenty pochodzą ze strony Komitetu Inicjatywy
-            Ustawodawczej.
+            Wszystkie powyższe dokumenty pochodzą ze strony{" "}
+            <ButtonLink
+              link={"https://komitet-seven.vercel.app"}
+              className="w-fit mx-1 !inline font-bold h-fit mt-6 lg:mt-auto flex items-center gap-3 border-b border-transparent hover:text-accent"
+              variant="ghost"
+              target="_blank"
+            >
+              Komitetu Inicjatywy Ustawodawczej “Dość zakazów strajku –
+              przywróćmy wolność strajkowania"
+            </ButtonLink>
           </p>
         </div>
       </section>

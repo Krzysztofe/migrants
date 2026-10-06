@@ -152,12 +152,22 @@ const AboutPage = () => {
           <AccentHeader message="Komitet Inicjatywy Ustawodawczej" />{" "}
           <p>
             We wrześniu 2026 roku zawiązał się Komitet Inicjatywy Ustawodawczej
-            „Dość zakazu strajków – przywróćmy wolność strajkowania”. Ruszyliśmy
-            ze zbiórką podpisów na rzecz Komitetu, bo zaproponowany przez niego
-            projekt zmiany prawnej w obecnej formie spełnia wszystkie nasze
-            postulaty. Grono popierających inicjatywę Komitetu szeroko wykracza
-            już poza KSW: dołączają do niego kolejne związki, organizacje
-            społeczne oraz osoby niezrzeszone.
+            „Dość zakazów strajku – przywróćmy wolność strajkowania”. Ruszyliśmy
+            ze zbiórką podpisów na rzecz Komitetu, bo
+            <ButtonLink
+              link={
+                "https://www.strajkuj.pl/files/wstepny-projekt-ustawy-wraz-z-uzasadnieniem.pdf"
+              }
+              className="w-fit mx-1 !inline font-bold h-fit mt-6 lg:mt-auto flex items-center gap-3 border-b border-transparent hover:text-accent"
+              variant="ghost"
+              target="_blank"
+            >
+              zaproponowany przez niego projekt zmiany prawnej
+            </ButtonLink>
+            w obecnej formie spełnia wszystkie nasze postulaty. Grono
+            popierających inicjatywę Komitetu szeroko wykracza już poza KSW:
+            dołączają do niego kolejne związki, organizacje społeczne oraz osoby
+            niezrzeszone.
           </p>
           <p>
             Jeśli chcemy być traktowani z szacunkiem, potrzebujemy zmiany

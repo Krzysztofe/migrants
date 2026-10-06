@@ -104,7 +104,20 @@ export default async function HomePage() {
         <div className="container">
           <div className=" my-22 lg:flex  gap-10">
             <div className="flex-1 ">
-              <AccentHeader message="KIM JESTEŚMY I O CO WALCZYMY?" />
+              <AccentHeader
+                message="KIM JESTEŚMY I O CO WALCZYMY?"
+                className="!mb-10"
+              />
+
+              <div className="relative h-100">
+                <Image
+                  src="/images/who-we-are-img.JPG"
+                  alt="Demonstracja"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-xs text-right mb-10">Fot. Julia Różańska</p>
             </div>
             <div className="flex-1">
               <p className="">
