@@ -1,11 +1,10 @@
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
+import CallToAction from "@/components/shared/CallToAction";
+import AccentHeader from "@/components/shared/headers/AccentHeader";
+import Icon from "@/components/shared/Icon";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 import DocumentsTable from "./_components/DocumentsTable";
-import AccentHeader from "@/components/shared/headers/AccentHeader";
-import { discoverValidationDepths } from "next/dist/server/app-render/instant-validation/instant-validation";
-import Icon from "@/components/shared/Icon";
-import CallToAction from "@/components/shared/CallToAction";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Dołącz",

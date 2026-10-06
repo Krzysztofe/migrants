@@ -17,7 +17,7 @@ export async function getPosts({
   search = "",
 }: GetPostsParams): Promise<GetPostsResult> {
   const queryParams = new URLSearchParams({
-    per_page: "5",
+    per_page: "20",
     page: page.toString(),
     _embed: "true",
   });
