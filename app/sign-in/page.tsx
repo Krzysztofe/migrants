@@ -5,6 +5,7 @@ import Icon from "@/components/shared/Icon";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Podpisz się",
@@ -76,10 +77,18 @@ const SignInPage = () => {
             <div className="border-accent border-t-8 p-10 flex-1 bg-gray-light flex flex-col">
               <div className="text-accent text-xl font-extrabold">LIVE</div>
               <h3 className="font-extrabold text-lg-plus leading-none mb-8">
-                Podpis na żywo
+                Podpis na papierze
               </h3>
               <p id="2" className="mt-auto">
-                Trzeba się podpisać osobiście, na miejscu, podczas zbiórki.
+                Trzeba się podpisać osobiście podczas zbiórki lub
+                <ButtonLink
+                  link={"/join#1"}
+                  className="w-fit mx-2 !inline font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+                  variant="ghost"
+                >
+                  wydrukować karty
+                </ButtonLink>
+                podpisać i wysłać na wskazany adres.
               </p>
             </div>
           </div>

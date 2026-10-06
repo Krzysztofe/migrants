@@ -13,7 +13,7 @@ const Footer = () => {
             restrykcji na strajk. Od września 2026 aktywnie wspieramy
             <ButtonLink
               link={"https://komitet-seven.vercel.app/"}
-              className="!inline-flex items-center gap-4 text-left font-bold border-b border-transparent hover:text-accent"
+              className="ml-2 !inline items-center gap-4 text-left font-bold border-b border-transparent hover:text-accent"
               variant="ghost"
             >
               Komitet Inicjatywy Ustawodawczej “Dość zakazów strajku –
@@ -25,11 +25,21 @@ const Footer = () => {
           <div className="font-bold text-lg">Kontakt</div>
           <div className="lg:flex gap-16 items-center">
             <div className="[&>*]:mt-6">
-              <ButtonLink link={""} className="flex gap-2 items-center">
+              <ButtonLink
+                link={"https://www.facebook.com/strajkuj.pl.2026"}
+                className="flex gap-2 items-center"
+                target="_blank"
+              >
                 {<Icon icon={"facebook"} size={20} className={`bg-black`} />}
                 strajkuj.pl
               </ButtonLink>
-              <ButtonLink link={""} className="flex gap-2 items-center">
+              <ButtonLink
+                link={
+                  "https://www.instagram.com/strajkuj.pl?stkn=YzAzeGFvanpqZmN3"
+                }
+                className="flex gap-2 items-center"
+                target="_blank"
+              >
                 {<Icon icon={"instagram"} size={20} className={`bg-black`} />}
                 @strajkuj.pl
               </ButtonLink>
