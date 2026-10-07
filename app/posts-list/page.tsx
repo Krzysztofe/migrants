@@ -5,6 +5,7 @@ import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBound
 import NewsList from "../../components/shared/posts/NewsList";
 import { getPosts } from "../utils/querries/getPosts";
 import CallToAction from "@/components/shared/CallToAction";
+import EventsLIst from "@/components/shared/posts/EventsLIst";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Wpisy",
@@ -24,7 +25,8 @@ const PostsListPage = async ({ searchParams }: Props) => {
   const category = 7;
   const currentPage = Math.max(Number(params.page) || 1, 1);
 
-  let posts: Post[] = [];
+  let upcomingEvents: Post[] = [];
+  let pastEvents: Post[] = [];
   let totalPages = 0;
 
   try {
@@ -36,17 +38,25 @@ const PostsListPage = async ({ searchParams }: Props) => {
 
     const today = new Date().toISOString().split("T")[0];
 
-    posts = result.posts
+    const posts = result.posts;
+
+    upcomingEvents = posts
       .filter((post) => {
         const eventDate = post.meta?.event_date;
-
         return eventDate && eventDate >= today;
       })
-      .sort((a, b) => {
-        return (a.meta?.event_date ?? "").localeCompare(
-          b.meta?.event_date ?? "",
-        );
-      });
+      .sort((a, b) =>
+        (a.meta?.event_date ?? "").localeCompare(b.meta?.event_date ?? ""),
+      );
+
+    pastEvents = posts
+      .filter((post) => {
+        const eventDate = post.meta?.event_date;
+        return eventDate && eventDate < today;
+      })
+      .sort((a, b) =>
+        (b.meta?.event_date ?? "").localeCompare(a.meta?.event_date ?? ""),
+      );
 
     totalPages = result.totalPages;
   } catch (error) {
@@ -66,13 +76,10 @@ const PostsListPage = async ({ searchParams }: Props) => {
         loadingMessage="Ładowanie aktualności"
       >
         <section>
-          <div className="container mt-20">
-            <NewsList
-              posts={posts}
-              currentCategory={category}
-              currentPage={currentPage}
-              totalPages={totalPages}
-              search={search}
+          <div className="container mt-20 mb-40">
+            <EventsLIst
+              upcomingEvents={upcomingEvents}
+              pastEvents={pastEvents}
             />
           </div>
         </section>

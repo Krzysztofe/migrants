@@ -7,7 +7,7 @@ import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBound
 import Image from "next/image";
 import BlogListHome from "@/app/_components/BlogListHome";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
-import EventsItem from "./_components/EventsItem";
+import EventsLIst from "@/components/shared/posts/EventsLIst";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków",
@@ -179,7 +179,7 @@ export default async function HomePage() {
         </div>
         <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
-            <h2 className="text-lg-plus">AKTUALNOŚCI</h2>
+            <h2 className="text-xl">AKTUALNOŚCI</h2>
             <ButtonLink
               link={"/news"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
@@ -223,9 +223,9 @@ export default async function HomePage() {
           <SideBorder />
         </div>
 
-        <div className="container-sm pb-12">
-          <div className="lg:flex justify-between gap-4 pb-10 mt-12">
-            <h2 className="text-lg-plus">Gdzie nas spotkasz</h2>
+        <div className="container-sm pb-30">
+          <div className="lg:flex justify-between gap-4 pb-10 mt-12 mb-10">
+            <h2 className="text-xl">Gdzie nas spotkasz</h2>
             <ButtonLink
               link={"/posts-list"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
@@ -246,18 +246,12 @@ export default async function HomePage() {
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
           >
-            <p className="font-extrabold mb-4">Nadchodzące wydarzenia</p>
-            <ul className="grid gap-8">
-              {upcomingEvents.map((post, idx) => {
-                return <EventsItem key={post.id} post={post} />;
-              })}
-            </ul>
-            <p className="font-extrabold mb-4">Nadchodzące wydarzenia</p>
-            <ul className="grid gap-8">
-              {pastEvents.map((post, idx) => {
-                return <EventsItem key={post.id} post={post} />;
-              })}
-            </ul>
+            {
+              <EventsLIst
+                upcomingEvents={upcomingEvents}
+                pastEvents={pastEvents}
+              />
+            }
           </SuspenseErrorBoundary>
         </div>
       </section>
