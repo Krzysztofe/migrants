@@ -11,7 +11,7 @@ type Props = {
 
 const PostContent = async ({ postSlug, link }: Props) => {
   const returnMessage =
-    link === "news" ? "Wróć do listy aktualności" : "Wróć do listy zapowiedzi";
+    link === "news" ? "Wróć do listy aktualności" : "Wróć do listy wydarzeń";
 
   const response = await fetch(
     `${process.env.API_BASE_URL}/posts?slug=${postSlug}&_fields=id,slug,date,title,content,author,tags,categories`,

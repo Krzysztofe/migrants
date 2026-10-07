@@ -109,7 +109,7 @@ const SignInPage = () => {
           </div>
 
           <div className="text-lg [&>p]:mt-10">
-            <h2 className="text-xl">Gdzie nas znajdziesz?</h2>
+            <h2 className="text-xl">Gdzie nas spotkasz?</h2>
             <p>
               Zbieramy podpisy na żywo, tam gdzie spotykają się ludzie
               zaangażowani społecznie:

@@ -225,7 +225,7 @@ export default async function HomePage() {
 
         <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
-            <h2 className="text-lg-plus">Gdzie nas znajdziesz</h2>
+            <h2 className="text-lg-plus">Gdzie nas spotkasz</h2>
             <ButtonLink
               link={"/posts-list"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
@@ -246,13 +246,13 @@ export default async function HomePage() {
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
           >
-            <p>Nadchodzące wydarzenia</p>
+            <p className="font-extrabold mb-4">Nadchodzące wydarzenia</p>
             <ul className="grid gap-8">
               {upcomingEvents.map((post, idx) => {
                 return <EventsItem key={post.id} post={post} />;
               })}
             </ul>
-            <p>Minione wydarzenia</p>
+            <p className="font-extrabold mb-4">Nadchodzące wydarzenia</p>
             <ul className="grid gap-8">
               {pastEvents.map((post, idx) => {
                 return <EventsItem key={post.id} post={post} />;

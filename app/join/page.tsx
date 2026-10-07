@@ -176,7 +176,7 @@ const JoinPage = () => {
       </section>
       <CallToAction
         message="Najpierw podpisz się sam(a)"
-        subtitle="Sprawdź, kto może złożyć podpis i gdzie nas znajdziesz."
+        subtitle="Sprawdź, kto może złożyć podpis i gdzie nas spotkasz."
         buttonMessage="signIn"
       />{" "}
     </>
