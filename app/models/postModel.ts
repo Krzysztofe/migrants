@@ -1,3 +1,9 @@
+type PostMeta = {
+  event_date?: string;
+  event_time?: string;
+  event_location?: string;
+};
+
 export type Post = {
   id: number;
   slug: string;
@@ -18,6 +24,8 @@ export type Post = {
   author: number;
   tags: number[];
   featured_media: number;
+
+  meta?: PostMeta;
 
   _embedded?: {
     ["wp:featuredmedia"]?: {

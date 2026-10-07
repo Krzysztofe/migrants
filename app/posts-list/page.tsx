@@ -21,7 +21,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
   const params = await searchParams;
   const search = params.search?.trim() || "";
 
-  const category = 6;
+  const category = 7;
   const currentPage = Math.max(Number(params.page) || 1, 1);
 
   let posts: Post[] = [];
@@ -34,7 +34,20 @@ const PostsListPage = async ({ searchParams }: Props) => {
       search,
     });
 
-    posts = result.posts;
+    const today = new Date().toISOString().split("T")[0];
+
+    posts = result.posts
+      .filter((post) => {
+        const eventDate = post.meta?.event_date;
+
+        return eventDate && eventDate >= today;
+      })
+      .sort((a, b) => {
+        return (a.meta?.event_date ?? "").localeCompare(
+          b.meta?.event_date ?? "",
+        );
+      });
+
     totalPages = result.totalPages;
   } catch (error) {
     console.error("Błąd pobierania postów z WP:", error);

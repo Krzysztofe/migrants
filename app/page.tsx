@@ -28,7 +28,7 @@ export default async function HomePage() {
         },
       ),
       fetch(
-        `${process.env.API_BASE_URL}/posts?per_page=3&categories=6&_embed`,
+        `${process.env.API_BASE_URL}/posts?per_page=3&categories=7&_embed`,
         {
           next: {
             revalidate: 60,
@@ -40,14 +40,31 @@ export default async function HomePage() {
 
     if (respPublications.ok) {
       publications = await respPublications.json();
-    }
 
+      const today = new Date().toISOString().split("T")[0];
+
+      publications = publications
+        .filter((post) => {
+          const eventDate = post.meta?.event_date;
+
+          return eventDate && eventDate >= today;
+        })
+        .sort((a, b) => {
+          return (a.meta?.event_date ?? "").localeCompare(
+            b.meta?.event_date ?? "",
+          );
+        });
+    }
     if (respNews.ok) {
       news = await respNews.json();
     }
   } catch (error) {
     console.error("Błąd pobierania wpisów:", error);
   }
+
+  console.log("news", news);
+
+  console.log("publications", publications);
 
   return (
     <>
