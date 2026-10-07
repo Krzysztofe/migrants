@@ -30,31 +30,33 @@ const EventsItem = ({ post, comming }: Props) => {
                        group-hover:scale-105 motion-reduce:transform-none flex"
           />
 
-          <div className="relative z-10 flex h-full ">
+          <div className="relative z-10 flex flex-col sm:flex-row h-full ">
             {eventDate && (
               <div
-                className={`py-6 grid gap-2 w-[11rem] shrink-0 border-r
+                className={`py-4 grid  sm:w-[9rem] shrink-0 sm:border-r border-b sm:border-b-0
                   ${comming ? "bg-accent text-white border-accent" : "bg-gray-light text-gray border-gray"} `}
               >
-                <span className="text-lg-plus font-bold text-center">
+                <span className="text-lg font-bold text-center">
                   {eventDate.day}
                 </span>
 
-                <span className="text-center">{eventDate.month}</span>
+                <span className="text-center text-sm font-bold">
+                  {eventDate.month}
+                </span>
 
-                <span className="text-center">{eventDate.weekday}</span>
+                <span className="text-center text-sm">{eventDate.weekday}</span>
               </div>
             )}
             <div
               className={`p-5 flex items-center ${comming ? "text-black" : "text-gray"}`}
             >
               <div>
-                <h2 className="text-xl text-left mb-4">
+                <h2 className="text-lg-plus text-left mb-4">
                   {post.meta?.event_location}
                 </h2>
 
                 <p className="text-left">
-                  {stripHtml(post.excerpt.rendered).slice(0, 100)}
+                  {stripHtml(post.excerpt.rendered).slice(0, 50)}
                   ...
                 </p>
               </div>

@@ -12,7 +12,7 @@ const CallToAction = ({ message, subtitle, buttonMessage }: Props) => {
       <div className="container py-20 flex flex-col lg:flex-row gap-20 justify-between items-center">
         <div className="mr-auto md:w-2/3">
           <h2 className="text-white text-xl mb-10">{message}</h2>
-          <p className="text-gray">{subtitle}</p>
+          <p className="text-gray-light">{subtitle}</p>
         </div>
         {buttonMessage === "join" && (
           <ButtonLink link={"join"} className="mr-auto" variant="primary">

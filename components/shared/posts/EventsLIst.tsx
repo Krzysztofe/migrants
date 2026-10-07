@@ -17,9 +17,9 @@ const EventsLIst = ({ upcomingEvents, pastEvents }: Props) => {
           return <EventsItem key={post.id} post={post} comming={true} />;
         })}
       </ul>
-      <p className=" text-lg-plus font-extrabold mb-4 mt-20 border-b-2 border-gray">
+      <h2 className=" text-lg-plus mb-4 pb-4 mt-20 border-b-2 border-gray">
         Minione
-      </p>
+      </h2>
       <ul className="grid gap-8">
         {pastEvents.map((post) => {
           return <EventsItem key={post.id} post={post} comming={false} />;

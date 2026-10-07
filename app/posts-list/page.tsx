@@ -76,7 +76,7 @@ const PostsListPage = async ({ searchParams }: Props) => {
         loadingMessage="Ładowanie aktualności"
       >
         <section>
-          <div className="container mt-20 mb-40">
+          <div className="container-sm mt-20 mb-40">
             <EventsLIst
               upcomingEvents={upcomingEvents}
               pastEvents={pastEvents}
