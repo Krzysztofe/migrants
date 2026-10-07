@@ -33,18 +33,20 @@ const EventsItem = ({ post, comming }: Props) => {
           <div className="relative z-10 flex flex-col sm:flex-row h-full ">
             {eventDate && (
               <div
-                className={`py-4 grid  sm:w-[9rem] shrink-0 sm:border-r border-b sm:border-b-0
+                className={`py-4  flex sm:grid gap-2 sm:gap-0 items-center justify-center  sm:w-[9rem] shrink-0 sm:border-r border-b sm:border-b-0
                   ${comming ? "bg-accent text-white border-accent" : "bg-gray-light text-gray border-gray"} `}
               >
                 <span className="text-lg font-bold text-center">
                   {eventDate.day}
                 </span>
 
-                <span className="text-center text-sm font-bold">
+                <span className="text-lg text-center sm:text-sm font-bold px-2">
                   {eventDate.month}
                 </span>
 
-                <span className="text-center text-sm">{eventDate.weekday}</span>
+                <span className="text-center text-2xs">
+                  {eventDate.weekday}
+                </span>
               </div>
             )}
             <div
