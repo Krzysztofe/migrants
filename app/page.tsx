@@ -7,17 +7,19 @@ import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBound
 import Image from "next/image";
 import BlogListHome from "@/app/_components/BlogListHome";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
+import EventsItem from "./_components/EventsItem";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków",
 };
 
 export default async function HomePage() {
-  let publications: Post[] = [];
+  let upcomingEvents: Post[] = [];
+  let pastEvents: Post[] = [];
   let news: Post[] = [];
 
   try {
-    const [respNews, respPublications] = await Promise.all([
+    const [respNews, respEvents] = await Promise.all([
       fetch(
         `${process.env.API_BASE_URL}/posts?per_page=3&categories=5&_embed`,
         {
@@ -28,7 +30,7 @@ export default async function HomePage() {
         },
       ),
       fetch(
-        `${process.env.API_BASE_URL}/posts?per_page=3&categories=7&_embed`,
+        `${process.env.API_BASE_URL}/posts?per_page=20&categories=7&_embed`,
         {
           next: {
             revalidate: 60,
@@ -38,22 +40,28 @@ export default async function HomePage() {
       ),
     ]);
 
-    if (respPublications.ok) {
-      publications = await respPublications.json();
+    if (respEvents.ok) {
+      const events: Post[] = await respEvents.json();
 
       const today = new Date().toISOString().split("T")[0];
 
-      publications = publications
+      upcomingEvents = events
         .filter((post) => {
           const eventDate = post.meta?.event_date;
-
           return eventDate && eventDate >= today;
         })
-        .sort((a, b) => {
-          return (a.meta?.event_date ?? "").localeCompare(
-            b.meta?.event_date ?? "",
-          );
-        });
+        .sort((a, b) =>
+          (a.meta?.event_date ?? "").localeCompare(b.meta?.event_date ?? ""),
+        );
+
+      pastEvents = events
+        .filter((post) => {
+          const eventDate = post.meta?.event_date;
+          return eventDate && eventDate < today;
+        })
+        .sort((a, b) =>
+          (b.meta?.event_date ?? "").localeCompare(a.meta?.event_date ?? ""),
+        );
     }
     if (respNews.ok) {
       news = await respNews.json();
@@ -61,10 +69,6 @@ export default async function HomePage() {
   } catch (error) {
     console.error("Błąd pobierania wpisów:", error);
   }
-
-  console.log("news", news);
-
-  console.log("publications", publications);
 
   return (
     <>
@@ -242,19 +246,16 @@ export default async function HomePage() {
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
           >
-            <ul className="grid lg:grid-cols-5 gap-8">
-              {publications.map((post, idx) => {
-                const image = post._embedded?.["wp:featuredmedia"]?.[0];
-                const category = post.categories[0];
-                return (
-                  <BlogListHome
-                    key={post.id}
-                    post={post}
-                    image={image}
-                    idx={idx}
-                    category={category}
-                  />
-                );
+            <p>Nadchodzące wydarzenia</p>
+            <ul className="grid gap-8">
+              {upcomingEvents.map((post, idx) => {
+                return <EventsItem key={post.id} post={post} />;
+              })}
+            </ul>
+            <p>Minione wydarzenia</p>
+            <ul className="grid gap-8">
+              {pastEvents.map((post, idx) => {
+                return <EventsItem key={post.id} post={post} />;
               })}
             </ul>
           </SuspenseErrorBoundary>
