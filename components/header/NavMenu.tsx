@@ -5,6 +5,7 @@ import { menuItems } from "@/data/navLinks";
 import MenuLink from "./MenuLink";
 import Button from "../shared/buttons/Button";
 import { usePathname } from "next/navigation";
+import Icon from "../shared/Icon";
 
 const NavMenu = () => {
   const pathname = usePathname();
@@ -36,7 +37,7 @@ const NavMenu = () => {
             );
 
           return (
-            <Fragment key={item.label}>
+            <ul key={item.label}>
               {"children" in item ? (
                 <li className="relative">
                   <Button
@@ -47,7 +48,12 @@ const NavMenu = () => {
                   `}
                   >
                     {" "}
-                    {item.label}
+                    {item.label}{" "}
+                    <Icon
+                      icon="chevron"
+                      size={20}
+                      className={` transition-transform duration-300 ease-in-out ${isDropdownActive ? "bg-accent" : "bg-white"} `}
+                    />
                   </Button>
 
                   <div
@@ -79,7 +85,7 @@ const NavMenu = () => {
                   href={item.href}
                 />
               )}
-            </Fragment>
+            </ul>
           );
         })}
       </ul>

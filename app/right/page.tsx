@@ -24,7 +24,7 @@ const cities = [
 const RightPage = () => {
   return (
     <>
-      Prawo
+      Prawo - wpisy
       {/* <TopSection
         header="Podpisz się pod wolnością strajkowania!"
         paragraph="Jako oddolna grupa działaczy i działaczek związków zawodowych oraz organizacji społecznych wspieramy Komitet Inicjatywy Ustawodawczej „Dość zakazów strajku – przywróćmy wolność strajkowania” w zbiórce podpisów."
