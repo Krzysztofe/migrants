@@ -72,7 +72,8 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
+      home - wpisy
+      {/* <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
         <div className="bg-black/60">
           <div className="container flex flex gap-10 py-20 ">
             <div className="flex-1 flex flex-col  justify-center">
@@ -103,7 +104,7 @@ export default async function HomePage() {
                 </ButtonLink>
               </div>
             </div>
-            {/* <div className=" flex justify-center items-center hidden xl:flex">
+            <div className=" flex justify-center items-center hidden xl:flex">
             <Image
               src="/icons/logo-black.png"
               alt="Logo"
@@ -113,15 +114,12 @@ export default async function HomePage() {
               priority
               unoptimized
             />
-          </div> */}
+          </div>
           </div>
         </div>
       </section>
       <section className="mt-10">
-        {" "}
-        {/* <div className="container bg-[url('/images/hero-img.png')] bg-cover bg-center h-[40vh]">
-          {" "}
-        </div> */}
+    
         <div className="container">
           <div className=" my-22 lg:flex  gap-10">
             <div className="flex-1 ">
@@ -254,7 +252,7 @@ export default async function HomePage() {
             }
           </SuspenseErrorBoundary>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

@@ -42,8 +42,8 @@ const MobileMenu = () => {
             {navLinks.map(({ text, link }) => (
               <MenuLink
                 key={link}
-                text={text}
-                link={link}
+                label={text}
+                href={link}
                 onClick={() => setOpen(false)}
               />
             ))}

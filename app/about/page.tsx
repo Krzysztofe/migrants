@@ -64,7 +64,8 @@ const btns = [
 const AboutPage = () => {
   return (
     <>
-      <TopSection
+      o nas - statyczna
+      {/* <TopSection
         header="Kim jesteśmy i o co walczymy?"
         paragraph="Strajk jest podstawowym demokratycznym prawem i jedynym realnym narzędziem pracowników do obrony przed atakami ze strony rządów i wielkiego biznesu."
       />
@@ -286,7 +287,7 @@ const AboutPage = () => {
         message="Prawa zdobywa się tylko w walce"
         subtitle="Podpisz się pod projektem ustawy i dołącz do działań."
         buttonMessage="signIn"
-      />{" "}
+      />{" "} */}
     </>
   );
 };

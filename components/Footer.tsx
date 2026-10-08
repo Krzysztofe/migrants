@@ -5,7 +5,8 @@ const Footer = () => {
   return (
     <footer className="bg-gray-light    border-t-6 border-accent">
       <div className="container bg-gray-light  py-26 flex flex-col gap-20 md:flex-row">
-        <div className="md:w-1/2">
+        footer
+        {/* <div className="md:w-1/2">
           <div className="">
             Stronę strajkuj.pl prowadzimy jako oddolna grupa działaczy i
             działaczek związków zawodowych oraz organizacji społecznych, od
@@ -57,7 +58,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

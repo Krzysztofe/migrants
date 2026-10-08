@@ -21,10 +21,11 @@ const cities = [
   "GNIEZNO",
 ];
 
-const SignInPage = () => {
+const RightPage = () => {
   return (
     <>
-      <TopSection
+      Prawo
+      {/* <TopSection
         header="Podpisz się pod wolnością strajkowania!"
         paragraph="Jako oddolna grupa działaczy i działaczek związków zawodowych oraz organizacji społecznych wspieramy Komitet Inicjatywy Ustawodawczej „Dość zakazów strajku – przywróćmy wolność strajkowania” w zbiórce podpisów."
       />
@@ -173,9 +174,9 @@ const SignInPage = () => {
         message="Chcesz pomóc zbierać podpisy?"
         subtitle="Dołącz do działań w swoim mieście lub w swoim miejscu pracy."
         buttonMessage="join"
-      />{" "}
+      />{" "} */}
     </>
   );
 };
 
-export default SignInPage;
+export default RightPage;

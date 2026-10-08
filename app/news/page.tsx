@@ -45,7 +45,8 @@ const NewsPage = async ({ searchParams }: Props) => {
 
   return (
     <>
-      <TopSection
+      aktualności - wpisy
+      {/* <TopSection
         header="Aktualności"
         paragraph="Na papierze strajk jest legalny, w praktyce przejście całej procedury jest niemal niemożliwe. Zbieramy analizy, wyjaśnienia i historie pracowników."
       />
@@ -70,7 +71,7 @@ const NewsPage = async ({ searchParams }: Props) => {
         message="Prawo do strajku nie może być fikcją"
         subtitle="Zmieńmy to razem z Tobą"
         buttonMessage="signIn"
-      />{" "}
+      />{" "} */}
     </>
   );
 };

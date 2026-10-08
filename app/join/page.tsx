@@ -13,6 +13,8 @@ const JoinPage = () => {
   return (
     <>
       {" "}
+      dołącz - statyczna
+      {/* {" "}
       <TopSection header="Dołącz do działań" />
       <section className="bg-accent  pb-32">
         {" "}
@@ -178,7 +180,7 @@ const JoinPage = () => {
         message="Najpierw podpisz się sam(a)"
         subtitle="Sprawdź, kto może złożyć podpis i gdzie nas spotkasz."
         buttonMessage="signIn"
-      />{" "}
+      />{" "} */}
     </>
   );
 };
