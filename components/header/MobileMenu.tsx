@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-
 import Button from "../shared/buttons/Button";
 import Icon from "@/components/shared/Icon";
 import MenuLink from "./MenuLink";
