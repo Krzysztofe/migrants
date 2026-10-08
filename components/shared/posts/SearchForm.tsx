@@ -43,7 +43,7 @@ const SearchForm = ({ initialSearch, currentCategory }: Props) => {
           className="border-2 p-4"
         />
 
-        <Button message="Szukaj" variant="primary-empty" />
+        <Button variant="primary-empty">Szukaj</Button>
       </form>
 
       <p className={`mt-8 ${search ? "visible" : "invisible"}`}>

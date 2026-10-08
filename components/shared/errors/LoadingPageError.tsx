@@ -19,8 +19,9 @@ const LoadingPageError = (props: Props) => {
         onClickAction={() => window.location.reload()}
         className="bg-error text-white px-2"
         variant="ghost"
-        message="Odśwież"
-      />
+      >
+        Odśwież{" "}
+      </Button>
     </div>
   );
 };
