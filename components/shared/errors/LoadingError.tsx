@@ -22,8 +22,10 @@ const LoadingError = (props: Props) => {
           onClickAction={() => window.location.reload()}
           className="!bg-error text-white px-2"
           variant="ghost"
-          message="Odśwież"
-        />
+        >
+          {" "}
+          Odświerz{" "}
+        </Button>
       </div>
     );
 
@@ -38,10 +40,12 @@ const LoadingError = (props: Props) => {
         </p>
         <Button
           onClickAction={() => window.location.reload()}
-          className="!bg-error text-white px-4"
+          className="!bg-error text-white px-2"
           variant="ghost"
-          message="Odśwież"
-        />
+        >
+          {" "}
+          Odświerz{" "}
+        </Button>
       </div>
     );
 };
