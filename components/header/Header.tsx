@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import NavMenu from "./NavMenu";
 import MobileMenu from "./MobileMenu";
 import { FormProvider, useForm } from "react-hook-form";
 import { SelectFieldController } from "../inputs/select-field/SelectFieldController";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import MenuList from "./MenuList";
 
 const categorySelectOptions = [
   { floatingLabel: "Polski", value: "pl" },
@@ -31,12 +31,10 @@ const Header = () => {
 
     const languages = ["pl", "eng", "tur", "esp"];
 
-    // Usuń istniejący prefiks językowy
     if (languages.includes(segments[0])) {
       segments.shift();
     }
 
-    // Polski jest domyślny, więc nie musi mieć prefiksu
     const newPath =
       value === "pl"
         ? `/${segments.join("/")}`
@@ -60,9 +58,9 @@ const Header = () => {
           />
         </Link>
 
-        <div className=" hidden lg:block w-full">
-          <NavMenu />
-        </div>
+        <nav className=" hidden lg:block w-full">
+          <MenuList variant="desktop" />
+        </nav>
 
         <MobileMenu />
       </div>

@@ -62,6 +62,7 @@ export const menuItems: MenuItem[] = [
     label: "O nas",
     href: "/about",
   },
+
   {
     label: "Kontakt",
     href: "/contact",
