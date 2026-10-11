@@ -3,7 +3,7 @@
 import { Control, Controller } from "react-hook-form";
 import InputError from "../InputError";
 import InputCheckboxOther from "./InputCheckboxOther";
-import { OPTION_OTHER } from "@/helpers/inputHelpers";
+// import { OPTION_OTHER } from "@/helpers/inputHelpers";
 import Checkbox from "./Checkbox";
 import InputTexts from "../input-texts/InputTexts";
 
@@ -62,18 +62,18 @@ export default function CheckboxGroupField(props: Props) {
 
             <div className="relative flex flex-col gap-6">
               {props.options.map(({ name, checkboxLabel, optionId = "" }) => {
-                if (optionId === OPTION_OTHER) {
-                  return (
-                    <InputCheckboxOther
-                      key={name}
-                      label={checkboxLabel}
-                      name={name}
-                      selectedValues={selectedValues}
-                      onChange={field.onChange}
-                      isSubmitting={props.isSubmitting}
-                    />
-                  );
-                }
+                // if (optionId === OPTION_OTHER) {
+                //   return (
+                //     <InputCheckboxOther
+                //       key={name}
+                //       label={checkboxLabel}
+                //       name={name}
+                //       selectedValues={selectedValues}
+                //       onChange={field.onChange}
+                //       isSubmitting={props.isSubmitting}
+                //     />
+                //   );
+                // }
 
                 return (
                   <Checkbox

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,8 +47,11 @@ export default function RootLayout({
         >
           Przejdź do treści
         </a>
+        <Suspense>
+          {" "}
+          <Header />
+        </Suspense>
 
-        <Header />
         <main id="main-content">{children}</main>
         <Footer />
       </body>

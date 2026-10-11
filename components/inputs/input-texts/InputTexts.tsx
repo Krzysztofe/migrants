@@ -1,5 +1,4 @@
 import InputIndicators from "./InputIndicators";
-import InputDescription from "./FormDescription";
 
 type Props = {
   label?: string;
@@ -28,10 +27,6 @@ const InputTexts = ({
             <InputIndicators {...{ required, unique, hidden }} />
           </div>
         </legend>
-      )}
-
-      {hasDescription && (
-        <InputDescription description={description} variant="published" />
       )}
     </div>
   );

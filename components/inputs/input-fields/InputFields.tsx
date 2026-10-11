@@ -1,15 +1,14 @@
 "use client";
 
-import { FieldErrors, UseFormRegister, Path } from "react-hook-form";
-import { DataLoader, InputError } from "../../index";
+import { UseFormRegister, Path } from "react-hook-form";
 import TextareaField from "./TextareaField";
 import InputField from "./InputField";
 import FloatingLabel from "./FloatingLabel";
-import { InputData, InputType } from "@/enums";
+// import { InputData, InputType } from "@/enums";
 import InputTexts from "../input-texts/InputTexts";
 
 type Props = {
-  inputsData: InputData[];
+  inputsData: any[];
   errorMsg?: any;
   register?: UseFormRegister<any>;
   onChange?: (name: string, value: string, meta?: any) => void | Promise<void>;
@@ -35,7 +34,7 @@ const InputFields = (props: Props) => {
           hidden,
         } = inputData;
 
-        const isTextArea = type === InputType.SUPER_TEXT;
+        const isTextArea = type === "textarea";
 
         return (
           <div

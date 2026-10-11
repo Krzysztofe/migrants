@@ -1,11 +1,11 @@
 import { UseFormRegister } from "react-hook-form";
-import DataLoader from "../../loaders/DataLoader";
 import InputError from "../InputError";
 import FloatingLabel from "./FloatingLabel";
-import { InputData } from "@/enums";
+// import { InputData } from "@/enums";
+import DataLoader from "@/components/shared/loaders/DataLoader";
 
 type Props = {
-  inputData: InputData;
+  inputData: any;
   register?: UseFormRegister<any>;
   onChange?: (name: string, value: string) => void;
   isLoading?: Record<string, boolean>;

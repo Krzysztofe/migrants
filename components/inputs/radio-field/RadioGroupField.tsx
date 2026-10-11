@@ -1,6 +1,6 @@
 "use client";
 
-import { OPTION_OTHER } from "@/helpers/inputHelpers";
+// import { OPTION_OTHER } from "@/helpers/inputHelpers";
 import { useFormContext } from "react-hook-form";
 import { useState, useRef } from "react";
 import InputError from "../InputError";
@@ -39,14 +39,14 @@ const RadioGroupField = (props: Props) => {
   const errorMsg = (errors[props.name]?.message as string) || "";
 
   const radioLabels = props.options
-    .filter((o) => o.value !== OPTION_OTHER)
+    .filter((o) => o.value !== "other")
     .map((o) => o.label);
 
   const isRadioValue = radioLabels.includes(value);
 
   const getRadioIndices = () =>
     props.options
-      .map((opt, i) => (opt.value !== OPTION_OTHER ? i : -1))
+      .map((opt, i) => (opt.value !== "other" ? i : -1))
       .filter((i) => i !== -1);
 
   const navigateToOption = (offset: number) => {
@@ -85,7 +85,7 @@ const RadioGroupField = (props: Props) => {
         aria-invalid={!!errorMsg}
       >
         {props.options.map((option, idx) => {
-          const isOther = option.value === OPTION_OTHER;
+          const isOther = option.value === "other";
           const isChecked = !isOther && value === option.label;
           const optionId = `${props.name}-option-${idx}`;
 

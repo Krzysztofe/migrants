@@ -4,7 +4,7 @@ import CountHeader from "@/components/shared/headers/CountHeader";
 import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
-import TimelineWrapper from "./_components/TimelineWrapper";
+// import TimelineWrapper from "./_components/TimelineWrapper";
 import Image from "next/image";
 import demoImg from "@/public/images/demo-img.jpg";
 import parlamentImg from "@/public/images/parlament-img.jpg";
