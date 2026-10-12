@@ -1,6 +1,6 @@
 import { Post } from "@/app/models/postModel";
 import { formatDate } from "@/app/utils/formatDate";
-import ButtonLink from "../../components/shared/buttons/ButtonLink";
+import ButtonLink from "../../../components/shared/buttons/ButtonLink";
 import { stripHtml } from "@/app/utils/stripHtml";
 
 type Props = {

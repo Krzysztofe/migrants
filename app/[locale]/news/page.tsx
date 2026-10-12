@@ -1,10 +1,6 @@
-import TopSection from "@/components/shared/TopSection";
-import { Post } from "../models/postModel";
-import NewsList from "../../components/shared/posts/NewsList";
 import { Metadata } from "next";
-import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
-import { getPosts } from "../utils/querries/getPosts";
-import CallToAction from "@/components/shared/CallToAction";
+import { Post } from "@/app/models/postModel";
+import { getPosts } from "@/app/utils/querries/getPosts";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Aktualności",

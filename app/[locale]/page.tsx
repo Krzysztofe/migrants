@@ -2,18 +2,22 @@ import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
 import { Metadata } from "next";
-import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import Image from "next/image";
-import BlogListHome from "@/app/_components/BlogListHome";
+import BlogListHome from "@/app/[locale]/_components/BlogListHome";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
 import EventsLIst from "@/components/shared/posts/EventsLIst";
+import { useTranslations } from "next-intl";
+import { Post } from "../models/postModel";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków",
 };
 
 export default async function HomePage() {
+  const t = await getTranslations("home");
+
   let upcomingEvents: Post[] = [];
   let pastEvents: Post[] = [];
   let news: Post[] = [];
@@ -72,6 +76,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <h1>{t("header")}</h1>
       home - wpisy
       {/* <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
         <div className="bg-black/60">

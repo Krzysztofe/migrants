@@ -1,0 +1,14 @@
+import createMiddleware from "next-intl/middleware";
+
+export default createMiddleware({
+  locales: ["pl", "en", "es", "tu"],
+  defaultLocale: "pl",
+});
+
+export const config = {
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  //   matcher: ["/", "/(de|en)/:path*"]
+  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+};

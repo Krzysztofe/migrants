@@ -1,0 +1,10 @@
+{
+  "home": {
+    "header": "title",
+    "subheader": "subtitle"
+  },
+  "about": {
+    "header": "",
+    "subheader": ""
+  }
+}

@@ -4,7 +4,6 @@ import AccentHeader from "@/components/shared/headers/AccentHeader";
 import Icon from "@/components/shared/Icon";
 import TopSection from "@/components/shared/TopSection";
 import { Metadata } from "next";
-import DocumentsTable from "./_components/DocumentsTable";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Dołącz",
