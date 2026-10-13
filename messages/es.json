@@ -1,8 +1,67 @@
 {
-  "home": {
-    "header": "hiszpanski tytuł",
-    "subheader": "hiszpanski podtytuł"
+  "header": {
+    "heroHeader": "Personas migrantes",
+    "heroSubheader": "Subtítulo",
+    "heroBtn": "Contactar con el sindicato"
   },
+  "footer": {
+    "contact": "Contacto",
+    "header": "Sobre esta página web",
+    "subheader": "La creación de esta página web está financiada en el marco de la iniciativa «Juntos podemos más», dentro del «Programa Ministerial de Activación de Personas Extranjeras para 2026», coordinado por el Ministerio de Familia, Trabajo y Política Social. La financiación cubre la creación de la página web, pero no los servicios de las organizaciones a las que dirigen los enlaces.",
+    "ministryMessage": "Financiado con fondos del Fondo de Trabajo en el marco del Programa Ministerial de Activación de Personas Extranjeras para 2026",
+    "ministryLink": "Información oficial sobre el programa"
+  },
+
+  "home": {
+    "heroHeader": "Personas migrantes",
+    "heroSubheader": "Subtítulo",
+    "heroBtn": "Contactar con el sindicato",
+    "news": "Noticias",
+    "newsBtn": "Todas las noticias",
+    "upcoming": "Próximos eventos",
+    "upcomingBtn": "Todos los próximos eventos"
+  },
+
+  "LabourLawPage": {
+    "header": "Derechos laborales",
+    "subHeader": "El alcance de la protección depende del tipo de contrato y de las condiciones reales en las que se realiza el trabajo."
+  },
+
+  "ResidencePage": {
+    "header": "Residencia y trámites administrativos",
+    "subHeader": "Información aplicable en toda Polonia. La normativa nacional se aplica en todos los voivodatos; las citas, los contactos y la asistencia para la vivienda dependen del lugar de residencia."
+  },
+
+  "HousingPage": {
+    "header": "Vivienda",
+    "subHeader": "Antes de firmar un contrato o realizar un pago, infórmate sobre las condiciones del alquiler."
+  },
+
+  "ComunityPage": {
+    "header": "Encuentra una comunidad y apoyo fiable.",
+    "subHeader": "Se trata de organizaciones y recursos existentes. El proyecto que financia esta página web no crea un servicio de asesoramiento independiente.",
+    "columns": {
+      "1": {
+        "header": "Iniciativa Obrera",
+        "subHeader": "Encuentra un contacto local, solicita apoyo en cuestiones laborales o descubre cómo afiliarte al sindicato.",
+        "btnMsg": "Contactos locales del sindicato",
+        "link": "https://ozzip.pl/kontakty-lokalne"
+      },
+      "2": {
+        "header": "Asistencia jurídica gratuita en Polonia",
+        "subHeader": "Encuentra un punto de atención en el directorio nacional. Consulta directamente con el centro elegido los requisitos para recibir asistencia, el procedimiento para concertar una cita y los idiomas disponibles.",
+        "btnMsg": "Encontrar asistencia jurídica",
+        "link": "https://www.gov.pl/web/nieodplatna-pomoc/pomoc-dla-cudzoziemcow."
+      },
+      "3": {
+        "header": "Normativa nacional · autoridades locales",
+        "subHeader": "Información aplicable en toda Polonia. La normativa nacional se aplica en todos los voivodatos; las citas, los contactos y la asistencia para la vivienda dependen del lugar de residencia.",
+        "btnMsg": "Oficina de Extranjería",
+        "link": "https://www.gov.pl/web/udsc/urzedy-wojewodzkie--kontakt"
+      }
+    }
+  },
+
   "about": {
     "header": "",
     "subheader": ""

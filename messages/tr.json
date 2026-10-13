@@ -1,8 +1,67 @@
 {
-  "home": {
-    "header": "tytuł turecki",
-    "subheader": "podtytuł"
+  "header": {
+    "heroHeader": "Göçmenler",
+    "heroSubheader": "Alt başlık",
+    "heroBtn": "Sendikayla iletişime geçin"
   },
+  "footer": {
+    "contact": "İletişim",
+    "header": "Web sitesi hakkında",
+    "subheader": "Bu web sitesinin oluşturulması, Aile, Çalışma ve Sosyal Politika Bakanlığı tarafından koordine edilen “Birlikte Daha Fazlasını Yapabiliriz” girişimi ve “2026 Yılı Yabancı Uyrukluların Aktifleştirilmesine Yönelik Bakanlık Programı” kapsamında finanse edilmektedir. Finansman, web sitesinin oluşturulmasını kapsar; bağlantı verilen kuruluşların sunduğu hizmetleri kapsamaz.",
+    "ministryMessage": "2026 Yılı Yabancı Uyrukluların Aktifleştirilmesine Yönelik Bakanlık Programı kapsamında Çalışma Fonu kaynaklarıyla finanse edilmiştir",
+    "ministryLink": "Program hakkında resmî bilgiler"
+  },
+
+  "home": {
+    "heroHeader": "Göçmenler",
+    "heroSubheader": "Alt başlık",
+    "heroBtn": "Sendikayla iletişime geçin",
+    "news": "Haberler",
+    "newsBtn": "Tüm haberler",
+    "upcoming": "Yaklaşan etkinlikler",
+    "upcomingBtn": "Tüm yaklaşan etkinlikler"
+  },
+
+  "LabourLawPage": {
+    "header": "İşçi hakları",
+    "subHeader": "Hukuki korumanın kapsamı, sözleşmenin türüne ve işin fiilen gerçekleştirildiği koşullara bağlıdır."
+  },
+
+  "ResidencePage": {
+    "header": "Oturum ve resmî işlemler",
+    "subHeader": "Polonya'nın tamamı için geçerli bilgiler. Ulusal mevzuat tüm voyvodalıklarda geçerlidir; randevular, iletişim bilgileri ve konut yardımı ikamet edilen yere bağlıdır."
+  },
+
+  "HousingPage": {
+    "header": "Konut",
+    "subHeader": "Bir sözleşme imzalamadan veya ödeme yapmadan önce kira koşullarını öğrenin."
+  },
+
+  "ComunityPage": {
+    "header": "Bir topluluk ve güvenilir destek bulun.",
+    "subHeader": "Bunlar mevcut kuruluşlar ve kaynaklardır. Web sitesini finanse eden proje, ayrı bir danışmanlık hizmeti oluşturmaz.",
+    "columns": {
+      "1": {
+        "header": "İşçi İnisiyatifi",
+        "subHeader": "Yerel bir iletişim noktası bulun, işçi hakları konusunda destek isteyin veya sendikaya nasıl üye olabileceğinizi öğrenin.",
+        "btnMsg": "Sendikanın yerel iletişim bilgileri",
+        "link": "https://ozzip.pl/kontakty-lokalne"
+      },
+      "2": {
+        "header": "Polonya'da ücretsiz hukuki yardım",
+        "subHeader": "Ulusal listedeki bir yardım noktasını bulun. Yardım alma koşullarını, randevu prosedürünü ve sunulan dilleri doğrudan seçtiğiniz merkezden öğrenin.",
+        "btnMsg": "Hukuki yardım bulun",
+        "link": "https://www.gov.pl/web/nieodplatna-pomoc/pomoc-dla-cudzoziemcow."
+      },
+      "3": {
+        "header": "Ulusal mevzuat · yerel makamlar",
+        "subHeader": "Polonya'nın tamamı için geçerli bilgiler. Ulusal mevzuat tüm voyvodalıklarda geçerlidir; randevular, iletişim bilgileri ve konut yardımı ikamet edilen yere bağlıdır.",
+        "btnMsg": "Yabancılar Dairesi",
+        "link": "https://www.gov.pl/web/udsc/urzedy-wojewodzkie--kontakt"
+      }
+    }
+  },
+
   "about": {
     "header": "",
     "subheader": ""

@@ -1,8 +1,67 @@
 {
-  "home": {
-    "header": "title",
-    "subheader": "subtitle"
+  "header": {
+    "heroHeader": "Migrant Workers",
+    "heroSubheader": "Subtitle",
+    "heroBtn": "Contact the Trade Union"
   },
+  "footer": {
+    "contact": "Contact",
+    "header": "About This Website",
+    "subheader": "The creation of this website is funded under the “Together We Can Do More” initiative, as part of the “Ministerial Programme for the Activation of Foreign Nationals for 2026”, coordinated by the Ministry of Family, Labour and Social Policy. The funding covers the creation of the website, not the services provided by the organisations linked to it.",
+    "ministryMessage": "Funded by the Labour Fund under the Ministerial Programme for the Activation of Foreign Nationals for 2026",
+    "ministryLink": "Official programme information"
+  },
+
+  "home": {
+    "heroHeader": "Migrant Workers",
+    "heroSubheader": "Subtitle",
+    "heroBtn": "Contact the Trade Union",
+    "news": "Latest News",
+    "newsBtn": "All News",
+    "upcoming": "Upcoming Events",
+    "upcomingBtn": "All Upcoming Events"
+  },
+
+  "LabourLawPage": {
+    "header": "Workers' Rights",
+    "subHeader": "The scope of protection depends on the type of contract and the actual conditions under which the work is performed."
+  },
+
+  "ResidencePage": {
+    "header": "Residence and Administrative Formalities",
+    "subHeader": "Information applicable throughout Poland. National regulations apply in all voivodeships; appointments, contacts and housing assistance depend on your place of residence."
+  },
+
+  "HousingPage": {
+    "header": "Housing",
+    "subHeader": "Before signing a contract or making a payment, make sure you understand the rental terms."
+  },
+
+  "ComunityPage": {
+    "header": "Find a Community and Reliable Support.",
+    "subHeader": "These are existing organisations and resources. The project funding this website does not establish a separate advice service.",
+    "columns": {
+      "1": {
+        "header": "Workers' Initiative",
+        "subHeader": "Find a local contact, ask about workers' support or learn how to join the trade union.",
+        "btnMsg": "Local Trade Union Contacts",
+        "link": "https://ozzip.pl/kontakty-lokalne"
+      },
+      "2": {
+        "header": "Free Legal Aid in Poland",
+        "subHeader": "Find a service point in the national directory. Check eligibility requirements, appointment procedures and available languages directly with your chosen service point.",
+        "btnMsg": "Find Legal Aid",
+        "link": "https://www.gov.pl/web/nieodplatna-pomoc/pomoc-dla-cudzoziemcow."
+      },
+      "3": {
+        "header": "National Regulations · Local Authorities",
+        "subHeader": "Information applicable throughout Poland. National regulations apply in all voivodeships; appointments, contacts and housing assistance depend on your place of residence.",
+        "btnMsg": "Office for Foreigners",
+        "link": "https://www.gov.pl/web/udsc/urzedy-wojewodzkie--kontakt"
+      }
+    }
+  },
+
   "about": {
     "header": "",
     "subheader": ""
