@@ -1,0 +1,10 @@
+{
+  "home": {
+    "header": "tytuł rosyjski",
+    "subheader": "podtytuł"
+  },
+  "about": {
+    "header": "",
+    "subheader": ""
+  }
+}
