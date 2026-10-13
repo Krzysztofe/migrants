@@ -112,3 +112,6 @@ h3 {
 .btn-primary-empty {
   @apply border border-font bg-white border-2 font-bold px-12 py-5 hover:!bg-font hover:text-white;
 }
+.btn-underline {
+  @apply w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent;
+}

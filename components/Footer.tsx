@@ -1,64 +1,47 @@
 import ButtonLink from "./shared/buttons/ButtonLink";
 import Icon from "./shared/Icon";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
-const Footer = () => {
+const Footer = async () => {
+  const t = await getTranslations("footer");
+
   return (
     <footer className="bg-gray-light    border-t-6 border-accent">
       <div className="container bg-gray-light  py-26 flex flex-col gap-20 md:flex-row">
-        footer
-        {/* <div className="md:w-1/2">
-          <div className="">
-            Stronę strajkuj.pl prowadzimy jako oddolna grupa działaczy i
-            działaczek związków zawodowych oraz organizacji społecznych, od
-            wiosny 2026 roku zaangażowanych w kampanię na rzecz zniesienia
-            restrykcji na strajk. Od września 2026 aktywnie wspieramy
-            <ButtonLink
-              link={"https://komitet-seven.vercel.app/"}
-              className="ml-2 !inline items-center gap-4 text-left font-bold border-b border-transparent hover:text-accent"
-              variant="ghost"
-            >
-              Komitet Inicjatywy Ustawodawczej “Dość zakazów strajku –
-              przywróćmy wolność strajkowania"
-            </ButtonLink>
-          </div>
+        <div>
+          <h2 className="md:w-1/2">{t("header")}</h2>
+          <p className="mt-10">{t("subheader")}</p>
         </div>
         <div className="">
-          <div className="font-bold text-lg">Kontakt</div>
-          <div className="lg:flex gap-16 items-center">
-            <div className="[&>*]:mt-6">
-              <ButtonLink
-                link={"https://www.facebook.com/strajkuj.pl.2026"}
-                className="flex gap-2 items-center"
-                target="_blank"
-              >
-                {<Icon icon={"facebook"} size={20} className={`bg-black`} />}
-                strajkuj.pl
-              </ButtonLink>
-              <ButtonLink
-                link={
-                  "https://www.instagram.com/strajkuj.pl?stkn=YzAzeGFvanpqZmN3"
-                }
-                className="flex gap-2 items-center"
-                target="_blank"
-              >
-                {<Icon icon={"instagram"} size={20} className={`bg-black`} />}
-                @strajkuj.pl
-              </ButtonLink>
-            </div>
-            <div className="[&>*]:mt-6">
-              <div className=" flex gap-2 items-center">
-                {" "}
-                <Icon icon={"phone"} size={20} className={`bg-black`} />
-                514 252 205
-              </div>
-              <div className=" flex gap-2 items-center">
-                {" "}
-                <Icon icon={"envelope"} size={20} className={`bg-black`} />
-                strajkuj.pl@proton.me
-              </div>
-            </div>
+          <div className="mt-10 w-full">
+            <Image
+              src="/images/ministry.png"
+              alt="Logo ministerstwa"
+              width={1200}
+              height={400}
+              className="h-auto w-full"
+              sizes="100vw"
+            />
           </div>
-        </div> */}
+          <p className="mt-10">{t("ministryMessage")}</p>
+          <ButtonLink
+            target="_blank"
+            link={
+              "https://www.gov.pl/web/rodzina/ogloszenie-konkursu-ofert-razem-mozemy-wiecej-w-ramach-resortowego-programu-aktywizacyjnego-dla-cudzoziemcow-na-rok-2026"
+            }
+            variant="underline"
+          >
+            {t("ministryLink")}
+            {
+              <Icon
+                icon={"arrow"}
+                size={15}
+                className={`bg-accent -rotate-90`}
+              />
+            }
+          </ButtonLink>
+        </div>
       </div>
     </footer>
   );

@@ -1,7 +1,20 @@
 {
+  "header": {
+    "heroHeader": "Migranici",
+    "heroSubheader": "Podtytuł",
+    "heroBtn": "Kontakt ze związkiem"
+  },
+  "footer": {
+    "header": "O stronie",
+    "subheader": "Utworzenie strony jest finansowane w ramach „Razem Możemy Więcej”, w ramach „Resortowego Programu Aktywizacyjnego dla Cudzoziemców na rok 2026”, koordynowanego przez Ministerstwo Rodziny, Pracy i Polityki Społecznej. Finansowanie obejmuje utworzenie strony, a nie usługi organizacji, do których prowadzą odnośniki.",
+    "ministryMessage": "Sfinansowano ze środków Funduszu Pracy w ramach Resortowego Programu Aktywizacyjnego dla Cudzoziemców na rok 2026",
+    "ministryLink": "Oficjalne informacje o programie"
+  },
+
   "home": {
-    "header": "tytuł",
-    "subheader": "podtytuł"
+    "heroHeader": "Migranici",
+    "heroSubheader": "Podtytuł",
+    "heroBtn": "Kontakt ze związkiem"
   },
   "about": {
     "header": "",

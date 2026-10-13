@@ -4,6 +4,7 @@ const VARIANTS = {
   primary: "btn-primary",
   "primary-empty": "btn-primary-empty",
   ghost: "",
+  underline: "btn-underline",
 };
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
   target?: string;
   rel?: string;
   className?: string;
-  variant?: "primary" | "primary-empty" | "ghost";
+  variant?: "primary" | "primary-empty" | "ghost" | "underline";
   ariaLabel?: string;
   ariaCurrent?: "page";
   download?: boolean;

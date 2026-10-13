@@ -76,54 +76,46 @@ export default async function HomePage() {
 
   return (
     <>
-      <h1>{t("header")}</h1>
-      home - wpisy
-      {/* <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
+      <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center">
         <div className="bg-black/60">
           <div className="container flex flex gap-10 py-20 ">
             <div className="flex-1 flex flex-col  justify-center">
-              <h1 className="text-2xl text-white">
-                DOŚĆ&nbsp;ZAKAZU
-                <span className="block origin-left scale-x-[1.25] w-[80%]">
-                  STRAJKÓW
-                </span>
-              </h1>
+              <h1 className="text-2xl text-white">{t("heroHeader")}</h1>
               <div className="my-6 text-lg text-white lg:w-2/3">
-                Kampania na rzecz zmiany ustawy o rozwiązywaniu sporów
-                zbiorowych.
+                {t("heroSubheader")}
               </div>
               <div className="flex  sm:flex-row gap-6 mt-6">
                 <ButtonLink
-                  link={"join"}
+                  link={"contact"}
                   className="w-fit "
                   variant="primary-empty"
                 >
-                  Dołącz
+                  {t("heroBtn")}
                 </ButtonLink>
-                <ButtonLink
+                {/* <ButtonLink
                   link={"sign-in"}
                   className="w-fit "
                   variant="primary"
                 >
                   Podpisz się
-                </ButtonLink>
+                </ButtonLink> */}
               </div>
             </div>
             <div className=" flex justify-center items-center hidden xl:flex">
-            <Image
-              src="/icons/logo-black.png"
-              alt="Logo"
-              width={150}
-              height={100}
-              className="w-[400px] h-auto"
-              priority
-              unoptimized
-            />
-          </div>
+              <Image
+                src="/icons/logo-black.png"
+                alt="Logo"
+                width={150}
+                height={100}
+                className="w-[400px] h-auto"
+                priority
+                unoptimized
+              />
+            </div>
           </div>
         </div>
       </section>
-      <section className="mt-10">
+      {/* <section className="mt-10">
     
         <div className="container">
           <div className=" my-22 lg:flex  gap-10">
@@ -174,8 +166,8 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-
+      </section> */}
+      {/* 
       <section>
         <div className="container">
           <SideBorder />
@@ -257,7 +249,7 @@ export default async function HomePage() {
             }
           </SuspenseErrorBoundary>
         </div>
-      </section> */}
+      </section>  */}
     </>
   );
 }
