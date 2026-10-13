@@ -5,6 +5,7 @@
     "heroBtn": "Kontakt ze związkiem"
   },
   "footer": {
+    "contact": "Kontakt",
     "header": "O stronie",
     "subheader": "Utworzenie strony jest finansowane w ramach „Razem Możemy Więcej”, w ramach „Resortowego Programu Aktywizacyjnego dla Cudzoziemców na rok 2026”, koordynowanego przez Ministerstwo Rodziny, Pracy i Polityki Społecznej. Finansowanie obejmuje utworzenie strony, a nie usługi organizacji, do których prowadzą odnośniki.",
     "ministryMessage": "Sfinansowano ze środków Funduszu Pracy w ramach Resortowego Programu Aktywizacyjnego dla Cudzoziemców na rok 2026",
@@ -14,8 +15,32 @@
   "home": {
     "heroHeader": "Migranici",
     "heroSubheader": "Podtytuł",
-    "heroBtn": "Kontakt ze związkiem"
+    "heroBtn": "Kontakt ze związkiem",
+    "news": "Aktualności",
+    "newsBtn": "Wszystkie aktualności",
+    "upcoming": "Zapowiedzi",
+    "upcomingBtn": "Wszystkie zapowiedzi"
   },
+
+  "LabourLawPage": {
+    "header": "Prawa pracownicze",
+    "subHeader": "Zakres ochrony zależy od umowy i rzeczywistych warunków wykonywania pracy."
+  },
+  "ResidencePage": {
+    "header": "Pobyt i formalności",
+    "subHeader": "Informacje dla całej Polski. Przepisy krajowe obowiązują we wszystkich województwach; wizyty, kontakty i pomoc mieszkaniowa zależą od miejsca zamieszkania."
+  },
+
+  "HousingPage": {
+    "header": "Mieszkanie",
+    "subHeader": "Zanim podpiszesz umowę lub zapłacisz, poznaj warunki najmu."
+  },
+
+  "ComunityPage": {
+    "header": "Znajdź społeczność i wiarygodne wsparcie.",
+    "subHeader": "To istniejące organizacje i zasoby. Projekt finansujący stronę nie tworzy odrębnego punktu porad."
+  },
+
   "about": {
     "header": "",
     "subheader": ""

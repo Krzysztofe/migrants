@@ -39,7 +39,7 @@ const MenuList = ({ variant, handleCloseMenu }: Props) => {
     <>
       {openSubMenu && variant === "desktop" && (
         <div
-          className="fixed inset-0 z-10 bg-black/50"
+          className="fixed inset-0 z-10"
           onClick={closeSubMenu}
           aria-hidden="true"
         />

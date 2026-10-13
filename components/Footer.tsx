@@ -8,6 +8,7 @@ const Footer = async () => {
 
   return (
     <footer className="bg-gray-light    border-t-6 border-accent">
+      <div className="container">{t(`contact`)} </div>
       <div className="container bg-gray-light  py-26 flex flex-col gap-20 md:flex-row">
         <div>
           <h2 className="md:w-1/2">{t("header")}</h2>

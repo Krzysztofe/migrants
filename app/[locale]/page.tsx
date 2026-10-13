@@ -115,41 +115,39 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      {/* <section className="mt-10">
-    
+      <section className="mt-10">
         <div className="container">
           <div className=" my-22 lg:flex  gap-10">
             <div className="flex-1 ">
               <AccentHeader
-                message="KIM JESTEŚMY I O CO WALCZYMY?"
+                message="Twoje prawa nie mają granic."
                 className="!mb-10"
               />
 
-              <div className="relative h-100">
+              {/* <div className="relative h-100">
                 <Image
                   src="/images/who-we-are-img.JPG"
                   alt="Demonstracja"
                   fill
                   className="object-cover"
                 />
-              </div>
-              <p className="text-xs text-right mb-10">Fot. Julia Różańska</p>
+              </div> */}
+              {/* <p className="text-xs text-right mb-10">Fot. Julia Różańska</p> */}
             </div>
             <div className="flex-1">
               <p className="">
-                Strajk jest podstawowym demokratycznym prawem i jedynym realnym
-                narzędziem pracowników do obrony przed atakami ze strony rządów
-                i wielkiego biznesu.
+                Zrozum swoją umowę, poznaj sposoby reagowania na problemy w
+                pracy i znajdź sprawdzone informacje o życiu w Polsce.
               </p>
-              <p className="mt-8">
+              {/* <p className="mt-8">
                 Jak pokazują jednak doświadczenia związków zawodowych, w Polsce
                 prawo do strajku mamy tylko na papierze. Wciąż podlegamy
                 restrykcjom, które Jaruzelski wprowadził w stanie wojennym, żeby
                 uniemożliwić strajki i złamać “Solidarność” lat 80. Nowe władze
                 III RP z chęcią podtrzymały te restrykcje, gdy wprowadzały
                 “nową” ustawę o rozwi...
-              </p>
-              <ButtonLink
+              </p> */}
+              {/* <ButtonLink
                 link={"/about"}
                 className="w-fit mt-8 h-fit font-bold text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
                 variant="ghost"
@@ -162,25 +160,21 @@ export default async function HomePage() {
                     className={`bg-accent -rotate-90 font-bold`}
                   />
                 }
-              </ButtonLink>
+              </ButtonLink> */}
             </div>
           </div>
         </div>
-      </section> */}
-      {/* 
+      </section>
+
       <section>
         <div className="container">
           <SideBorder />
         </div>
         <div className="container-sm pb-12">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12">
-            <h2 className="text-xl">AKTUALNOŚCI</h2>
-            <ButtonLink
-              link={"/news"}
-              className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
-              variant="ghost"
-            >
-              Wszystkie aktualności{" "}
+            <h2 className="text-xl">{t(`news`)}</h2>
+            <ButtonLink link={"/news"} variant="underline">
+              {t(`newsBtn`)}
               {
                 <Icon
                   icon={"arrow"}
@@ -190,7 +184,7 @@ export default async function HomePage() {
               }
             </ButtonLink>
           </div>
-          <SuspenseErrorBoundary
+          {/* <SuspenseErrorBoundary
             size="lg"
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
@@ -210,7 +204,7 @@ export default async function HomePage() {
                 );
               })}
             </ul>
-          </SuspenseErrorBoundary>
+          </SuspenseErrorBoundary> */}
         </div>
       </section>
       <section>
@@ -220,13 +214,13 @@ export default async function HomePage() {
 
         <div className="container-sm pb-30">
           <div className="lg:flex justify-between gap-4 pb-10 mt-12 mb-10">
-            <h2 className="text-xl">Gdzie nas spotkasz</h2>
+            <h2 className="text-xl">{t(`upcoming`)}</h2>
             <ButtonLink
-              link={"/posts-list"}
+              link={"/upcoming"}
               className="w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
               variant="ghost"
             >
-              Wszystkie zapowiedzi{" "}
+              {t(`upcomingBtn`)}
               {
                 <Icon
                   icon={"arrow"}
@@ -236,7 +230,7 @@ export default async function HomePage() {
               }
             </ButtonLink>
           </div>
-          <SuspenseErrorBoundary
+          {/* <SuspenseErrorBoundary
             size="lg"
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
@@ -247,9 +241,9 @@ export default async function HomePage() {
                 pastEvents={pastEvents}
               />
             }
-          </SuspenseErrorBoundary>
+          </SuspenseErrorBoundary> */}
         </div>
-      </section>  */}
+      </section>
     </>
   );
 }

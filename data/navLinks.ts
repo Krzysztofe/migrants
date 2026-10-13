@@ -59,14 +59,14 @@ export const menuItems: MenuItem[] = [
     href: "/upcoming",
   },
   {
+    label: "Społeczność",
+    href: "/comunity",
+  },
+  {
     label: "O nas",
     href: "/about",
   },
 
-  {
-    label: "Kontakt",
-    href: "/contact",
-  },
   {
     label: "Wezwanie",
     href: "/wezwanie",
