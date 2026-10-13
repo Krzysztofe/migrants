@@ -54,21 +54,21 @@ const columnsData = [
     header: "columns.1.header",
     subHeader: "columns.1.subHeader",
     btnMsg: "columns.1.btnMsg",
-    link: "columns.1.link",
+    link: "https://ozzip.pl/kontakty-lokalne",
   },
   {
     id: "2",
     header: "columns.2.header",
     subHeader: "columns.2.subHeader",
     btnMsg: "columns.2.btnMsg",
-    link: "columns.2.link",
+    link: "https://www.gov.pl/web/nieodplatna-pomoc/pomoc-dla-cudzoziemcow.",
   },
   {
     id: "3",
     header: "columns.3.header",
     subHeader: "columns.3.subHeader",
     btnMsg: "columns.3.btnMsg",
-    link: "columns.3.link",
+    link: "https://www.gov.pl/web/udsc/urzedy-wojewodzkie--kontakt",
   },
 ];
 

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ButtonLink from "./buttons/ButtonLink";
+import Icon from "./Icon";
 
 type Column = {
   id: string;
@@ -26,8 +27,13 @@ const Columns = async ({ columns }: Props) => {
               {t(header)}
             </h3>
             <p className="mt-auto">{t(subHeader)}</p>
-            <ButtonLink target="_blank" link={t(link)} variant="underline">
+            <ButtonLink target="_blank" link={link} variant="underline">
               {t(btnMsg)}
+              <Icon
+                icon={"arrow"}
+                size={15}
+                className={`bg-accent -rotate-90`}
+              />
             </ButtonLink>
           </div>
         );

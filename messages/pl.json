@@ -43,20 +43,17 @@
       "1": {
         "header": "Inicjatywa Pracownicza",
         "subHeader": "Znajdź lokalny kontakt, zapytaj o wsparcie pracownicze lub dowiedz się, jak dołączyć do związku.",
-        "btnMsg": "Lokalne kontakty związku",
-        "link": "https://ozzip.pl/kontakty-lokalne"
+        "btnMsg": "Lokalne kontakty związku"
       },
       "2": {
         "header": "Nieodpłatna pomoc prawna w Polsce",
         "subHeader": "Znajdź punkt w krajowym wykazie. Sprawdź warunki uzyskania pomocy, zapisy i dostępne języki bezpośrednio w wybranym punkcie.",
-        "btnMsg": "Znajdź pomoc",
-        "link": "https://www.gov.pl/web/nieodplatna-pomoc/pomoc-dla-cudzoziemcow."
+        "btnMsg": "Znajdź pomoc"
       },
       "3": {
         "header": "Przepisy krajowe · urzędy lokalne",
         "subHeader": "Informacje dla całej Polski. Przepisy krajowe obowiązują we wszystkich województwach; wizyty, kontakty i pomoc mieszkaniowa zależą od miejsca zamieszkania.",
-        "btnMsg": "Urząd do Spraw Cudzoziemców",
-        "link": "https://www.gov.pl/web/udsc/urzedy-wojewodzkie--kontakt"
+        "btnMsg": "Urząd do Spraw Cudzoziemców"
       }
     }
   },
