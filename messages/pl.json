@@ -1,4 +1,20 @@
 {
+  "navigation": {
+    "labourLaw": "Prawa pracownicze",
+    "lifeInPoland": "Życie w Polsce",
+    "residence": "Pobyt i sprawy migracyjne",
+    "housing": "Mieszkanie",
+    "life": "Życie codzienne",
+    "steps": "Pierwsze kroki",
+    "right": "Prawo",
+    "library": "Materiały",
+    "join": "Dołącz",
+    "news": "Aktualności",
+    "upcoming": "Zapowiedzi",
+    "community": "Społeczność",
+    "about": "O nas",
+    "callToAction": "Wezwanie"
+  },
   "header": {
     "heroHeader": "Migranici",
     "heroSubheader": "Podtytuł",

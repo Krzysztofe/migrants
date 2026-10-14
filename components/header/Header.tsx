@@ -1,25 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import LanguageSelect from "./LanguageSelect";
 import MenuList from "./MenuList";
 import MobileMenu from "./MobileMenu";
 
-const categorySelectOptions = [
-  { floatingLabel: "Polski", value: "pl" },
-  { floatingLabel: "English", value: "en" },
-  { floatingLabel: "Español", value: "es" },
-  { floatingLabel: "Українська", value: "ru" },
-  { floatingLabel: "Türkçe", value: "tr" },
-  { floatingLabel: "ქართული", value: "ka" },
-];
-
-type HeaderFormValues = {
-  language: string;
-};
-
-const Header = () => {
+const Header = async () => {
   return (
     <header className="sticky top-0 z-20 border-b-6 border-accent bg-black">
       <div className="container flex items-center justify-between py-4">

@@ -1,4 +1,20 @@
 {
+  "navigation": {
+    "labourLaw": "Трудовые права",
+    "lifeInPoland": "Жизнь в Польше",
+    "residence": "Проживание и миграционные вопросы",
+    "housing": "Жильё",
+    "life": "Повседневная жизнь",
+    "steps": "Первые шаги",
+    "right": "Право",
+    "library": "Материалы",
+    "join": "Присоединиться",
+    "news": "Новости",
+    "upcoming": "Анонсы",
+    "community": "Сообщество",
+    "about": "О нас",
+    "callToAction": "Призыв"
+  },
   "header": {
     "heroHeader": "Мигранты",
     "heroSubheader": "Подзаголовок",

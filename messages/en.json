@@ -1,4 +1,20 @@
 {
+  "navigation": {
+    "labourLaw": "Workers' Rights",
+    "lifeInPoland": "Life in Poland",
+    "residence": "Residence and Migration Matters",
+    "housing": "Housing",
+    "life": "Everyday Life",
+    "steps": "First Steps",
+    "right": "Law",
+    "library": "Resources",
+    "join": "Join Us",
+    "news": "News",
+    "upcoming": "Announcements",
+    "community": "Community",
+    "about": "About Us",
+    "callToAction": "Call to Action"
+  },
   "header": {
     "heroHeader": "Migrant Workers",
     "heroSubheader": "Subtitle",

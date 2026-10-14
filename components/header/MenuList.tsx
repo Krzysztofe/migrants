@@ -2,10 +2,11 @@
 
 import { menuItems } from "@/data/navLinks";
 import MenuLink from "./MenuLink";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import Button from "../shared/buttons/Button";
 import { useState } from "react";
 import Icon from "@/components/shared/Icon";
+import { useTranslations } from "next-intl";
 
 type Props = {
   variant: "desktop" | "mobile";
@@ -15,6 +16,7 @@ type Props = {
 const MenuList = ({ variant, handleCloseMenu }: Props) => {
   const pathname = usePathname();
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const t = useTranslations("navigation");
 
   const closeSubMenu = () => {
     setOpenSubMenu(null);
@@ -74,7 +76,8 @@ const MenuList = ({ variant, handleCloseMenu }: Props) => {
                       isDropdownActive ? "!text-accent" : "hover:scale-110"
                     }`}
                   >
-                    {item.label}
+                    {t(item.label)}
+                    {/* {item.label} */}
 
                     <Icon
                       icon="chevron"
@@ -96,7 +99,7 @@ const MenuList = ({ variant, handleCloseMenu }: Props) => {
                         {item.children.map((child) => (
                           <MenuLink
                             key={child.label}
-                            label={child.label}
+                            label={t(child.label)}
                             href={child.href}
                             onClick={handleLinkClick}
                           />
@@ -107,7 +110,7 @@ const MenuList = ({ variant, handleCloseMenu }: Props) => {
                 </>
               ) : (
                 <MenuLink
-                  label={item.label}
+                  label={t(item.label)}
                   href={item.href}
                   onClick={handleLinkClick}
                 />

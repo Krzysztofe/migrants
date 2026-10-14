@@ -13,62 +13,62 @@ export type MenuItem =
 
 export const menuItems: MenuItem[] = [
   {
-    label: "Prawa pracownicze",
+    label: "labourLaw",
     href: "/labour-law",
   },
   {
-    label: "Życie w Polsce",
+    label: "lifeInPoland",
     children: [
       {
-        label: "Pobyt i sprawy migracyjne",
+        label: "residence",
         href: "/residence",
       },
       {
-        label: "Mieszkanie",
+        label: "housing",
         href: "/housing",
       },
       {
-        label: "Życie codzienne",
+        label: "life",
         href: "/life",
       },
       {
-        label: "Pierwsze kroki",
+        label: "steps",
         href: "/steps",
       },
       {
-        label: "Prawo",
+        label: "right",
         href: "/right",
       },
       {
-        label: "Materiały",
+        label: "library",
         href: "/library",
       },
     ],
   },
   {
-    label: "Dołącz",
+    label: "join",
     href: "/join",
   },
 
   {
-    label: "Aktualności",
+    label: "news",
     href: "/news",
   },
   {
-    label: "Zapowiedzi",
+    label: "upcoming",
     href: "/upcoming",
   },
   {
-    label: "Społeczność",
+    label: "community",
     href: "/comunity",
   },
   {
-    label: "O nas",
+    label: "about",
     href: "/about",
   },
 
   {
-    label: "Wezwanie",
+    label: "callToAction",
     href: "/wezwanie",
   },
 ];

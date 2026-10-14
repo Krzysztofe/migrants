@@ -1,4 +1,20 @@
 {
+  "navigation": {
+    "labourLaw": "Derechos laborales",
+    "lifeInPoland": "La vida en Polonia",
+    "residence": "Residencia y trámites migratorios",
+    "housing": "Vivienda",
+    "life": "Vida cotidiana",
+    "steps": "Primeros pasos",
+    "right": "Derecho",
+    "library": "Materiales",
+    "join": "Únete",
+    "news": "Noticias",
+    "upcoming": "Próximos anuncios",
+    "community": "Comunidad",
+    "about": "Sobre nosotros",
+    "callToAction": "Llamamiento"
+  },
   "header": {
     "heroHeader": "Personas migrantes",
     "heroSubheader": "Subtítulo",

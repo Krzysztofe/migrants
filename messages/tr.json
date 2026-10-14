@@ -1,4 +1,20 @@
 {
+  "navigation": {
+    "labourLaw": "İşçi Hakları",
+    "lifeInPoland": "Polonya'da Yaşam",
+    "residence": "Oturum ve Göç İşlemleri",
+    "housing": "Konut",
+    "life": "Günlük Yaşam",
+    "steps": "İlk Adımlar",
+    "right": "Hukuk",
+    "library": "Materyaller",
+    "join": "Bize Katılın",
+    "news": "Haberler",
+    "upcoming": "Duyurular",
+    "community": "Topluluk",
+    "about": "Hakkımızda",
+    "callToAction": "Çağrı"
+  },
   "header": {
     "heroHeader": "Göçmenler",
     "heroSubheader": "Alt başlık",
