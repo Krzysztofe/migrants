@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import { Post } from "@/app/models/postModel";
 import { getPosts } from "@/app/utils/querries/getPosts";
+import TopSection from "@/components/shared/TopSection";
+import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
+import NewsList from "@/components/shared/posts/NewsList";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Aktualności",
@@ -41,11 +44,7 @@ const NewsPage = async ({ searchParams }: Props) => {
 
   return (
     <>
-      aktualności - wpisy
-      {/* <TopSection
-        header="Aktualności"
-        paragraph="Na papierze strajk jest legalny, w praktyce przejście całej procedury jest niemal niemożliwe. Zbieramy analizy, wyjaśnienia i historie pracowników."
-      />
+      <TopSection header="Aktualności" paragraph="aktualnosci" />
       <SuspenseErrorBoundary
         size="lg"
         errorMessage="Błąd ładowania aktualności"
@@ -63,7 +62,7 @@ const NewsPage = async ({ searchParams }: Props) => {
           </div>
         </section>
       </SuspenseErrorBoundary>
-      <CallToAction
+      {/* <CallToAction
         message="Prawo do strajku nie może być fikcją"
         subtitle="Zmieńmy to razem z Tobą"
         buttonMessage="signIn"

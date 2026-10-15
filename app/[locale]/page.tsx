@@ -7,7 +7,6 @@ import Image from "next/image";
 import BlogListHome from "@/app/[locale]/_components/BlogListHome";
 import AccentHeader from "@/components/shared/headers/AccentHeader";
 import EventsLIst from "@/components/shared/posts/EventsLIst";
-import { useTranslations } from "next-intl";
 import { Post } from "../models/postModel";
 import { getTranslations } from "next-intl/server";
 
@@ -28,7 +27,7 @@ export default async function HomePage() {
         `${process.env.API_BASE_URL}/posts?per_page=3&categories=5&_embed`,
         {
           next: {
-            revalidate: 60,
+            revalidate: 360,
             tags: ["posts-category-5"],
           },
         },
@@ -37,7 +36,7 @@ export default async function HomePage() {
         `${process.env.API_BASE_URL}/posts?per_page=20&categories=7&_embed`,
         {
           next: {
-            revalidate: 60,
+            revalidate: 360,
             tags: ["posts-category-6"],
           },
         },
@@ -184,7 +183,7 @@ export default async function HomePage() {
               }
             </ButtonLink>
           </div>
-          {/* <SuspenseErrorBoundary
+          <SuspenseErrorBoundary
             size="lg"
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
@@ -204,7 +203,7 @@ export default async function HomePage() {
                 );
               })}
             </ul>
-          </SuspenseErrorBoundary> */}
+          </SuspenseErrorBoundary>
         </div>
       </section>
       <section>
@@ -230,7 +229,7 @@ export default async function HomePage() {
               }
             </ButtonLink>
           </div>
-          {/* <SuspenseErrorBoundary
+          <SuspenseErrorBoundary
             size="lg"
             errorMessage="Błąd ładowania wpisów"
             loadingMessage="Ładowanie aktualności"
@@ -241,7 +240,7 @@ export default async function HomePage() {
                 pastEvents={pastEvents}
               />
             }
-          </SuspenseErrorBoundary> */}
+          </SuspenseErrorBoundary>
         </div>
       </section>
     </>

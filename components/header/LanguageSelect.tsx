@@ -40,7 +40,18 @@ const LanguageSelect = () => {
   const handleLanguageChange = (_name: string, value: string) => {
     if (!locales.includes(value as Locale)) return;
 
-    router.replace(pathname, { locale: value });
+    let cleanPathname = pathname;
+    const localePattern = new RegExp(`^/(?:${locales.join("|")})(?=/|$)`);
+
+    while (localePattern.test(cleanPathname)) {
+      cleanPathname = cleanPathname.replace(localePattern, "");
+    }
+
+    if (!cleanPathname) {
+      cleanPathname = "/";
+    }
+
+    router.replace(cleanPathname, { locale: value });
   };
 
   return (

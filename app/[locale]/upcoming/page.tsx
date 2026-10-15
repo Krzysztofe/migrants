@@ -1,5 +1,94 @@
-const Page = () => {
-  return <div>zapowiedzi - wpisy</div>;
+import TopSection from "@/components/shared/TopSection";
+import { Metadata } from "next";
+
+import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
+
+import CallToAction from "@/components/shared/CallToAction";
+import EventsLIst from "@/components/shared/posts/EventsLIst";
+import { Post } from "@/app/models/postModel";
+import { getPosts } from "@/app/utils/querries/getPosts";
+
+export const metadata: Metadata = {
+  title: "Dość zakazu strajków | Wpisy",
 };
 
-export default Page;
+type Props = {
+  searchParams: Promise<{
+    page?: string;
+    search?: string;
+  }>;
+};
+
+const PostsListPage = async ({ searchParams }: Props) => {
+  const params = await searchParams;
+  const search = params.search?.trim() || "";
+
+  const category = 7;
+  const currentPage = Math.max(Number(params.page) || 1, 1);
+
+  let upcomingEvents: Post[] = [];
+  let pastEvents: Post[] = [];
+  let totalPages = 0;
+
+  try {
+    const result = await getPosts({
+      category,
+      page: currentPage,
+      search,
+    });
+
+    const today = new Date().toISOString().split("T")[0];
+
+    const posts = result.posts;
+
+    upcomingEvents = posts
+      .filter((post) => {
+        const eventDate = post.meta?.event_date;
+        return eventDate && eventDate >= today;
+      })
+      .sort((a, b) =>
+        (a.meta?.event_date ?? "").localeCompare(b.meta?.event_date ?? ""),
+      );
+
+    pastEvents = posts
+      .filter((post) => {
+        const eventDate = post.meta?.event_date;
+        return eventDate && eventDate < today;
+      })
+      .sort((a, b) =>
+        (b.meta?.event_date ?? "").localeCompare(a.meta?.event_date ?? ""),
+      );
+
+    totalPages = result.totalPages;
+  } catch (error) {
+    console.error("Błąd pobierania postów z WP:", error);
+
+    return <div>Nie udało się pobrać postów.</div>;
+  }
+  return (
+    <>
+      <TopSection header="Wydarzenia" paragraph="wydarzenia" />
+      <SuspenseErrorBoundary
+        size="lg"
+        errorMessage="Błąd ładowania aktualności"
+        loadingMessage="Ładowanie aktualności"
+      >
+        <section>
+          <div className="container-sm mt-20 mb-40">
+            <EventsLIst
+              upcomingEvents={upcomingEvents}
+              pastEvents={pastEvents}
+            />
+          </div>
+        </section>
+      </SuspenseErrorBoundary>
+      <CallToAction
+        message="Prawo do strajku nie może być fikcją"
+        subtitle="Zmieńmy to razem z Tobą"
+        buttonMessage="signIn"
+      />{" "}
+    </>
+  );
+};
+
+export default PostsListPage;
