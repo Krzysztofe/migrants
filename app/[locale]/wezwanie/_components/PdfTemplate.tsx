@@ -2,6 +2,7 @@
 
 import { useFormContext, useFormState, useWatch } from "react-hook-form";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
+import { ContractEditor } from "./DocumentEditor";
 
 const PdfTemplate = () => {
   const { control } = useFormContext<WageFormSchema>();
@@ -12,7 +13,7 @@ const PdfTemplate = () => {
 
   const { errors } = useFormState({ control });
 
-  const validValues = Object.fromEntries(
+  const validValues: Partial<WageFormSchema> = Object.fromEntries(
     Object.entries(formValues).filter(([name, value]) => {
       const hasError = !!errors[name as keyof WageFormSchema];
 
@@ -21,9 +22,9 @@ const PdfTemplate = () => {
   );
 
   return (
-    <div className="flex-1">
+    <div className="flex-1  min-w-0">
       <p className="text-bold">Twoje pismo</p>
-      <pre>{JSON.stringify(validValues, null, 2)}</pre>
+      <ContractEditor formData={validValues} />
     </div>
   );
 };

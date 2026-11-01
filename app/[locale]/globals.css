@@ -105,13 +105,50 @@ h3 {
   padding-inline: 2rem;
 }
 
+/* btns */
+
 .btn-primary {
-  @apply border border-white border-2 bg-accent font-bold px-4 md:px-12 py-5 text-white hover:!bg-white hover:text-accent;
+  @apply border border-accent bg-accent px-12 py-2 text-white hover:!bg-white hover:text-accent;
 }
 
-.btn-primary-empty {
-  @apply border border-font bg-white border-2 font-bold px-12 py-5 hover:!bg-font hover:text-white;
+.btn-primary-rounded {
+  @apply rounded-sm border border-accent bg-accent px-4 py-2 text-sm text-white hover:bg-white hover:text-accent md:px-8;
 }
+
+.btn-empty-white {
+  @apply rounded-sm border border-white px-4 py-2 text-sm text-white hover:bg-white md:px-8;
+}
+
+.btn-empty-acccent {
+  @apply rounded-sm border border-accent px-4 py-2 text-sm text-accent hover:bg-accent hover:text-white md:px-8;
+}
+
 .btn-underline {
-  @apply w-fit font-bold h-fit mt-6 lg:mt-auto text-accent flex items-center gap-3 border-b border-transparent hover:border-accent;
+  @apply border-b border-transparent text-accent hover:border-b-accent;
+}
+
+.docx-preview-container {
+  width: 100%;
+  min-width: 0;
+}
+
+.docx-preview-container .docx-wrapper {
+  background: transparent !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.docx-preview-container .docx-wrapper > section.docx {
+  background: white !important;
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 20px !important;
+  flex-shrink: 0;
+  padding: 0 !important;
+}
+
+.docx-placeholder {
+  color: #dc2626 !important;
+  font-weight: 600;
 }

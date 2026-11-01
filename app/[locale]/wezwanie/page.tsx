@@ -3,7 +3,7 @@ import WageForm from "./_components/WageForm";
 
 export const metadata = { title: "Wezwanie do zapłaty" };
 
-export default function Page() {
+export default function PageWezwanie() {
   return (
     <>
       <section>
@@ -28,6 +28,15 @@ export default function Page() {
         <div className="container flex flex-col gap-8 md:flex-row md:justify-between">
           <WageForm />
           {/* <PdfTemplate /> */}
+        </div>
+      </section>
+      <section>
+        <div className="container mt-8">
+          Formularz pomaga przygotować pismo, ale nie jest poradą prawną.
+          Roszczenia o wynagrodzenie przedawniają się po 3 latach. Jeśli
+          pracodawca nie zapłaci w terminie, możesz złożyć pozew do sądu pracy
+          (przy umowie o pracę) albo do sądu cywilnego (przy umowie zlecenia lub
+          o dzieło) i zawiadomić Państwową Inspekcję Pracy.
         </div>
       </section>
     </>
