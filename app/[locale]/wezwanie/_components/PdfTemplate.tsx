@@ -2,7 +2,7 @@
 
 import { useFormContext, useFormState, useWatch } from "react-hook-form";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
-import { ContractEditor } from "./DocumentEditor";
+import ContractEditor from "./DocumentEditor";
 
 const PdfTemplate = () => {
   const { control } = useFormContext<WageFormSchema>();
