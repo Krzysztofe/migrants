@@ -3,14 +3,16 @@ import InputIndicators from "./InputIndicators";
 type Props = {
   label?: string;
   description?: string;
+  name?: string;
   required?: boolean;
   unique?: boolean;
   hidden?: boolean;
 };
 
-const InputTexts = ({
+const InputLabel = ({
   label,
   description,
+  name,
   required,
   unique,
   hidden,
@@ -21,15 +23,18 @@ const InputTexts = ({
   return (
     <div>
       {hasLabel && (
-        <legend className="mb-4 mr-6 font-semibold">
-          <div className="flex">
-            {label}
+        <label
+          htmlFor={name}
+          className="block pb-1 pl-3 transition-colors duration-200 group-focus-within:text-accent"
+        >
+          {label}
+          <span className="inline-flex align-super text-sm">
             <InputIndicators {...{ required, unique, hidden }} />
-          </div>
-        </legend>
+          </span>
+        </label>
       )}
     </div>
   );
 };
 
-export default InputTexts;
+export default InputLabel;

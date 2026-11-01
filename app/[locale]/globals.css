@@ -12,7 +12,7 @@
   --color-bg-light: rgb(251 251 251);
 
   --color-font: #000000;
-  --color-gray: #5c5c5c;
+  --color-gray-primary: #a89d9d;
   --color-gray-light: #f4f4f4;
   --color-gray-dark: #5c5c5c;
   --color-error: rgb(231 0 0);
@@ -31,7 +31,7 @@
   --spacing-md: 3.2rem;
   --spacing-lg: 5rem;
 
-  --radius-sm: 1rem;
+  --radius-sm: 0.5rem;
   --radius-md: 1.8rem;
   --radius-lg: 3.5rem;
 

@@ -1,13 +1,37 @@
 import { UseFormRegister } from "react-hook-form";
 import InputError from "../InputError";
-import FloatingLabel from "./FloatingLabel";
-// import { InputData } from "@/enums";
 import DataLoader from "@/components/shared/loaders/DataLoader";
 
+export enum InputType {
+  TEXT = "text",
+  SUPER_TEXT = "superText" /* ? */,
+  EMAIL = "email",
+  DATE = "date",
+  NUMBER = "number",
+  PESEL = "pesel",
+  CHECKBOX = "checkbox",
+  SINGLE_SELECT = "singleSelect",
+  PARAGRAPH = "paragraph",
+}
+
+export type InputData = {
+  label?: string;
+  name: string;
+  placeholder?: string;
+  type: InputType | "password";
+  defaultValue?: string;
+  description?: string;
+  required?: boolean;
+  unique?: boolean;
+  dataAttribut?: string;
+  labelClassName?: string;
+  hidden?: boolean;
+};
+
 type Props = {
-  inputData: any;
+  inputData: InputData;
   register?: UseFormRegister<any>;
-  onChange?: (name: string, value: string) => void;
+  onChange?: (name: string, value: string) => void | Promise<void>;
   isLoading?: Record<string, boolean>;
   isSubmitting?: boolean;
   default?: Record<string, string>;
@@ -16,41 +40,39 @@ type Props = {
 };
 
 const InputField = (props: Props) => {
-  const { name, floatingLabel, type, required, placeholder, defaultValue } =
+  const { name, label, type, required, placeholder, defaultValue } =
     props.inputData;
   const inputDefaultValue = props.default?.[name] ?? defaultValue ?? "";
 
+  const registration = props.register?.(name);
+
   return (
-    <div className={`relative flex-1`}>
+    <div className="group relative">
       <input
         id={name}
         name={name}
         type={type}
-        aria-label={`${floatingLabel || name}`}
-        placeholder={floatingLabel ? " " : placeholder}
+        aria-label={`${label || label || name}`}
+        placeholder={placeholder}
         defaultValue={inputDefaultValue}
         disabled={props.isLoading?.[name] || props.isSubmitting}
         aria-required={required}
         aria-invalid={!!props.error}
         aria-describedby={props.error ? `${name}-error` : undefined}
-        className={`peer w-full rounded-sm border p-2 focus:border-accent focus:outline-none ${props.error ? "border-red" : "border-default"} ${
+        className={`peer w-full rounded-sm border border-gray p-3 text-base focus:border-accent focus:outline-none ${props.error ? "border-red" : "border-default"} ${
           props.isLoading?.[name] || props.isSubmitting
             ? "cursor-not-allowed opacity-50"
             : ""
         } `}
-        {...(props.register && props.register(name))}
+        {...registration}
         onChange={(e) => {
-          props.register?.(name).onChange(e);
-          props.onChange?.(name, e.target.value);
+          if (props.onChange) {
+            void props.onChange(name, e.target.value);
+          } else {
+            void registration?.onChange(e);
+          }
         }}
       />
-      {floatingLabel && (
-        <FloatingLabel
-          name={name}
-          floatingLabel={floatingLabel}
-          required={required || false}
-        />
-      )}
 
       {props.isLoading?.[name] && (
         <div className="absolute right-3 top-1/2 -translate-y-1/2">
