@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 import { useState, useRef } from "react";
 import InputError from "../InputError";
 import InputRadioOther from "./InputRadioOther";
-import InputTexts from "../input-texts/InputTexts";
+import InputLabel from "../input-texts/InputLabel";
 
 type Option = {
   label: string;
@@ -71,7 +71,7 @@ const RadioGroupField = (props: Props) => {
 
   return (
     <div className="flex flex-col text-sm">
-      <InputTexts
+      <InputLabel
         label={props.label}
         description={props.description}
         required={props.required}
