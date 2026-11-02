@@ -24,11 +24,13 @@ const numberValidation = z
 const emailValidation = z
   .string()
   .trim()
-  .min(1, { message: "Adres e-mail jest wymagany" })
   .pipe(
-    z.email({
-      error: "Podaj prawidłowy adres e-mail",
-    }),
+    z.union([
+      z.literal(""),
+      z.email({
+        error: "Podaj prawidłowy adres e-mail",
+      }),
+    ]),
   );
 
 const bankAccountValidation = z
@@ -54,7 +56,7 @@ export const wageFormSchema = z
     // user
     name: textValidation,
     surname: textValidation,
-    phone: textValidation,
+    phone: optionalText,
     email: emailValidation,
     userCity: textValidation,
     userStreet: optionalText,

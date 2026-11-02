@@ -38,11 +38,11 @@ const RadioGroupField = (props: Props) => {
   const value = watch(props.name);
   const errorMsg = (errors[props.name]?.message as string) || "";
 
-  const radioLabels = props.options
+  const radioValues = props.options
     .filter((o) => o.value !== "other")
-    .map((o) => o.label);
+    .map((o) => o.value);
 
-  const isRadioValue = radioLabels.includes(value);
+  const isRadioValue = radioValues.includes(value);
 
   const getRadioIndices = () =>
     props.options
@@ -86,7 +86,7 @@ const RadioGroupField = (props: Props) => {
       >
         {props.options.map((option, idx) => {
           const isOther = option.value === "other";
-          const isChecked = !isOther && value === option.label;
+          const isChecked = !isOther && value === option.value;
           const optionId = `${props.name}-option-${idx}`;
 
           return (
@@ -111,7 +111,7 @@ const RadioGroupField = (props: Props) => {
                     id={optionId}
                     type="radio"
                     name={props.name}
-                    value={option.label}
+                    value={option.value}
                     checked={isChecked}
                     tabIndex={focusedIndex === idx ? 0 : -1}
                     aria-label={`Wybierz ${option.label}`}
@@ -120,7 +120,7 @@ const RadioGroupField = (props: Props) => {
                     }
                     className="peer sr-only"
                     onChange={() =>
-                      setValue(props.name, option.label, {
+                      setValue(props.name, option.value, {
                         shouldDirty: true,
                         shouldValidate: true,
                       })

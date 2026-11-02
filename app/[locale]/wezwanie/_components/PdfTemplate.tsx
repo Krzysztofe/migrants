@@ -1,38 +1,51 @@
 "use client";
 
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
-import { useFormContext, useWatch } from "react-hook-form";
+import { useFormContext, useWatch, useFormState } from "react-hook-form";
 import { RefObject } from "react";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
+import { formatDateWithDots } from "@/utils/date";
 
+const dateFields: (keyof WageFormSchema)[] = [
+  "date",
+  "contractStartDate",
+  "workStart",
+  "workEnd",
+];
 type Props = {
   previewRef: RefObject<HTMLDivElement | null>;
 };
 
 const PdfTemplate = ({ previewRef }: Props) => {
   const { control } = useFormContext<WageFormSchema>();
-
-  const formValues = useWatch({
-    control,
-  });
+  const formValues = useWatch({ control });
+  const { errors } = useFormState({ control });
 
   const value = (field: keyof WageFormSchema) => {
     const fieldValue = formValues[field];
+    const hasError = !!errors[field];
 
-    return typeof fieldValue === "string" && fieldValue.trim()
+    return !hasError && typeof fieldValue === "string" && fieldValue.trim()
       ? fieldValue
       : "";
   };
 
   const PreviewValue = ({ field }: { field: keyof WageFormSchema }) => {
     const fieldValue = value(field);
+    const isDate = dateFields.includes(field);
+
+    const displayValue = fieldValue
+      ? isDate
+        ? formatDateWithDots(fieldValue)
+        : fieldValue
+      : isDate
+        ? formatDateWithDots(emptyPlaceholders[field])
+        : emptyPlaceholders[field];
 
     return fieldValue ? (
-      <span>{fieldValue}</span>
+      <span>{displayValue}</span>
     ) : (
-      <span className="font-medium italic text-red-600">
-        [{emptyPlaceholders[field]}]
-      </span>
+      <span className="font-medium italic text-error">{displayValue}</span>
     );
   };
 
@@ -52,7 +65,7 @@ const PdfTemplate = ({ previewRef }: Props) => {
             <PreviewValue field="name" /> <PreviewValue field="surname" />
           </p>
           <p>
-            <PreviewValue field="userStreet" />{" "}
+            ul. <PreviewValue field="userStreet" />{" "}
             <PreviewValue field="userHouseNomber" />
             {value("userFlatNomber") && (
               <>
@@ -65,9 +78,12 @@ const PdfTemplate = ({ previewRef }: Props) => {
             <PreviewValue field="userPostCode" />{" "}
             <PreviewValue field="userCity" />
           </p>
-          <p>
-            tel. <PreviewValue field="phone" />
-          </p>
+          {value("phone") && (
+            <p>
+              tel. <PreviewValue field="phone" />
+            </p>
+          )}
+
           {value("email") && (
             <p>
               e-mail <PreviewValue field="email" />
@@ -118,7 +134,9 @@ const PdfTemplate = ({ previewRef }: Props) => {
           <p className="indent-8">
             Należność proszę uregulować w nieprzekraczalnym terminie 7 dni od
             dnia otrzymania niniejszego pisma. Kwotę należy uiścić na rachunek
-            bankowy nr <PreviewValue field="accountNumber" />.
+            bankowy: <PreviewValue field="name" />{" "}
+            <PreviewValue field="surname" />, nr{" "}
+            <PreviewValue field="accountNumber" />.
           </p>
 
           <p>Odpowiedź na niniejsze pismo proszę przesłać na mój adres:</p>

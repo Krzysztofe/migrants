@@ -4,6 +4,7 @@ import InputFields from "@/components/inputs/input-fields/InputFields";
 import Button from "@/components/shared/buttons/Button";
 import Card from "@/components/shared/Card";
 import {
+  contractSelectOptions,
   dataAccount,
   dataInputsContract,
   dataInputsEmployer,
@@ -21,6 +22,8 @@ import { useState } from "react";
 import { FormProvider, Path, useForm } from "react-hook-form";
 import CardHeader from "./CardHeader";
 import WageDocumentEditor from "./WageDocumentEditor";
+import { SelectFieldController } from "@/components/inputs/select-field/SelectFieldController";
+import RadioGroupField from "@/components/inputs/radio-field/RadioGroupField";
 
 const WageForm = () => {
   const [isEmail, setIsEmail] = useState(false);
@@ -150,6 +153,14 @@ const WageForm = () => {
         </Card>
         <Card>
           <CardHeader message="Umowa" />
+
+          <RadioGroupField
+            name={"contractType"}
+            options={contractSelectOptions}
+            errorMsg={errors}
+            hidden={true}
+          />
+
           <InputFields
             inputsData={dataInputsContract}
             register={register}

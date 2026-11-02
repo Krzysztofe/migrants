@@ -58,7 +58,7 @@ export const dataInputsUserAdress = [
     type: InputType.TEXT,
   },
   {
-    label: "Nr domu",
+    label: "Nr budynku",
     name: "userHouseNomber",
     placeholder: "10",
     type: InputType.TEXT,
@@ -87,7 +87,7 @@ export const dataAccount = [
 
 export const dataInputsEmployer = [
   {
-    label: "Nazwa firmy",
+    label: "Nazwa przedsiębiorstwa",
     name: "companyName",
     placeholder: "Anna",
     type: InputType.TEXT,
@@ -105,7 +105,7 @@ export const dataInputsEmployer = [
     type: InputType.TEXT,
   },
   {
-    label: "Nr domu",
+    label: "Nr budynku",
     name: "companyHouseNomber",
     placeholder: "10",
     type: InputType.TEXT,
@@ -126,17 +126,21 @@ export const dataInputsEmployer = [
 
 export const dataInputsContract = [
   {
-    label: "Rodzaj umowy ",
-    name: "contractType",
-    placeholder: "26 cyfr",
-    type: InputType.TEXT,
-  },
-  {
     label: "Data zawarcia umowy",
     name: "contractStartDate",
-    placeholder: "26 cyfr",
-    type: InputType.TEXT,
+    type: InputType.DATE,
   },
+];
+
+export const contractSelectOptions = [
+  { label: "Umowa zlecenia", value: "umowy zlecenia" },
+  { label: "Umowa o pracę", value: "umowy o pracę" },
+  { label: "Umowa o dzieło", value: "umowy o dzieło" },
+  {
+    label: "Bez pisemnej umowy (praca na czarno)",
+    value: "pracy na czarno",
+  },
+  { label: "Inna (wpisz jaka)", value: "other" },
 ];
 
 export const dataInputsWage: InputData[] = [
