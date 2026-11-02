@@ -2,7 +2,7 @@
 
 import { useFormContext, useFormState, useWatch } from "react-hook-form";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
-import ContractEditor from "./DocumentEditor";
+import DocumentEditor from "./DocumentEditor";
 
 const PdfTemplate = () => {
   const { control } = useFormContext<WageFormSchema>();
@@ -24,7 +24,7 @@ const PdfTemplate = () => {
   return (
     <div className="flex-1  min-w-0">
       <p className="text-bold">Twoje pismo</p>
-      <ContractEditor formData={validValues} />
+      <DocumentEditor formData={validValues} />
     </div>
   );
 };

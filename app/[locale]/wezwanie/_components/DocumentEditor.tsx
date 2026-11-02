@@ -907,9 +907,11 @@
 
 "use client";
 
-import { useRef } from "react";
-import { useFormContext, useWatch } from "react-hook-form";
+import { useEffect, useRef, useState } from "react";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
+import PizZip from "pizzip";
+import Docxtemplater from "docxtemplater";
+import { renderAsync } from "docx-preview";
 
 type Props = {
   formData: Partial<WageFormSchema>;
@@ -942,8 +944,81 @@ const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
   money: "Kwota",
 };
 
-const ContractEditor = ({ formData }: Props) => {
+const fields = Object.keys(emptyPlaceholders) as (keyof WageFormSchema)[];
+
+type DocumentData = Record<keyof WageFormSchema, string>;
+
+function getDocumentData(formData: Partial<WageFormSchema>): DocumentData {
+  return Object.fromEntries(
+    fields.map((field) => [field, formData[field]?.trim() ?? ""]),
+  ) as DocumentData;
+}
+
+function createDocumentBlob(
+  template: ArrayBuffer,
+  data: Record<string, string>,
+): Blob {
+  const zip = new PizZip(template.slice(0));
+
+  const doc = new Docxtemplater(zip, {
+    paragraphLoop: true,
+    linebreaks: true,
+  });
+
+  doc.render(data);
+
+  return doc.getZip().generate({
+    type: "blob",
+    mimeType:
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  });
+}
+
+const DocumentEditor = ({ formData }: Props) => {
   const previewRef = useRef<HTMLDivElement>(null);
+
+  const [template, setTemplate] = useState<ArrayBuffer | null>(null);
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [isExportingPdf, setIsExportingPdf] = useState(false);
+
+  // Aktualne dane dokumentu
+  const documentData = getDocumentData(formData);
+
+  //   // Pobranie szablonu DOCX
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadTemplate() {
+      try {
+        const response = await fetch(
+          "/templates/wezwanie-do-zaplaty-template.docx",
+        );
+
+        if (!response.ok) {
+          throw new Error("Nie udało się pobrać szablonu.");
+        }
+
+        const buffer = await response.arrayBuffer();
+
+        if (!cancelled) {
+          setTemplate(buffer);
+        }
+      } catch (error) {
+        console.error(error);
+
+        if (!cancelled) {
+          setError("Nie udało się załadować dokumentu.");
+        }
+      }
+    }
+
+    loadTemplate();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const value = (field: keyof WageFormSchema) => {
     const fieldValue = formData[field];
@@ -951,6 +1026,13 @@ const ContractEditor = ({ formData }: Props) => {
     return typeof fieldValue === "string" && fieldValue.trim()
       ? fieldValue
       : "";
+  };
+
+  // Pobieranie wartości lub placeholdera
+  const getValue = (field: keyof WageFormSchema) => {
+    const value = formData[field]?.trim();
+
+    return value || `[${emptyPlaceholders[field]}]`;
   };
 
   const PreviewValue = ({ field }: { field: keyof WageFormSchema }) => {
@@ -971,6 +1053,140 @@ const ContractEditor = ({ formData }: Props) => {
     await navigator.clipboard.writeText(previewRef.current.innerText);
   };
 
+  const handleExportWord = () => {
+    if (!template) return;
+
+    try {
+      setError("");
+
+      const blob = createDocumentBlob(template, documentData);
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "wezwanie-do-zaplaty.docx";
+      link.click();
+
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error(error);
+      setError("Nie udało się wygenerować dokumentu Word.");
+    }
+  };
+
+  //   // Eksport PDF na podstawie wygenerowanego DOCX
+  const handleExportPdf = async () => {
+    if (!template || isExportingPdf) return;
+
+    let exportContainer: HTMLDivElement | null = null;
+
+    setIsExportingPdf(true);
+    setError("");
+
+    try {
+      const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
+        import("html2canvas"),
+        import("jspdf"),
+      ]);
+
+      // Najpierw generujemy DOCX z aktualnymi danymi
+      const docxBlob = createDocumentBlob(template, documentData);
+
+      // Tymczasowy kontener tylko do eksportu PDF
+      exportContainer = document.createElement("div");
+
+      exportContainer.style.position = "fixed";
+      exportContainer.style.left = "-10000px";
+      exportContainer.style.top = "0";
+      exportContainer.style.width = "900px";
+      exportContainer.style.background = "#ffffff";
+
+      document.body.appendChild(exportContainer);
+
+      // Renderowanie wygenerowanego DOCX
+      await renderAsync(docxBlob, exportContainer, exportContainer, {
+        className: "docx",
+        inWrapper: true,
+        breakPages: true,
+        ignoreWidth: false,
+        ignoreHeight: false,
+      });
+
+      const pages = Array.from(
+        exportContainer.querySelectorAll<HTMLElement>(
+          ".docx-wrapper > section.docx",
+        ),
+      ).filter(
+        (page) =>
+          page.innerText.trim().length > 0 ||
+          page.querySelector("img, svg, canvas"),
+      );
+
+      if (!pages.length) {
+        throw new Error("Dokument nie zawiera treści.");
+      }
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+      // Każda strona DOCX zostaje osobną stroną PDF
+      for (let i = 0; i < pages.length; i++) {
+        const page = pages[i];
+
+        const canvas = await html2canvas(page, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+          logging: false,
+          scrollX: 0,
+          scrollY: 0,
+        });
+
+        const ratio = Math.min(
+          pdfWidth / canvas.width,
+          pdfHeight / canvas.height,
+        );
+
+        const width = canvas.width * ratio;
+        const height = canvas.height * ratio;
+
+        const x = (pdfWidth - width) / 2;
+        const y = (pdfHeight - height) / 2;
+
+        if (i > 0) {
+          pdf.addPage();
+        }
+
+        pdf.addImage(
+          canvas.toDataURL("image/jpeg", 0.95),
+          "JPEG",
+          x,
+          y,
+          width,
+          height,
+        );
+
+        canvas.width = 0;
+        canvas.height = 0;
+      }
+
+      pdf.save("wezwanie-do-zaplaty.pdf");
+    } catch (error) {
+      console.error(error);
+      setError("Nie udało się wygenerować dokumentu PDF.");
+    } finally {
+      exportContainer?.remove();
+      setIsExportingPdf(false);
+    }
+  };
+
   return (
     <div className="w-full">
       <div className="mb-4 flex flex-wrap justify-end gap-2">
@@ -982,6 +1198,38 @@ const ContractEditor = ({ formData }: Props) => {
           Kopiuj tekst
         </button>
       </div>
+
+      <div className="flex flex-wrap gap-3">
+        <button
+          type="button"
+          onClick={handleCopyText}
+          className="rounded-md border border-accent px-5 py-3 text-accent transition-colors hover:bg-accent/10"
+        >
+          {copied ? "Skopiowano!" : "Kopiuj treść pisma"}
+        </button>
+
+        <button
+          type="button"
+          onClick={handleExportWord}
+          disabled={!template}
+          className="rounded-md bg-accent px-5 py-3 text-white disabled:opacity-50"
+        >
+          Pobierz Word
+        </button>
+
+        <button
+          type="button"
+          onClick={handleExportPdf}
+          disabled={!template || isExportingPdf}
+          className="rounded-md bg-accent px-5 py-3 text-white transition-colors hover:bg-accent-dark disabled:opacity-50"
+        >
+          {isExportingPdf ? "Generowanie PDF..." : "Pobierz PDF"}
+        </button>
+      </div>
+
+      {error && <p className="text-red-600">{error}</p>}
+
+      {!template && !error && <p>Przygotowywanie dokumentu...</p>}
 
       <article
         ref={previewRef}
@@ -1097,4 +1345,4 @@ const ContractEditor = ({ formData }: Props) => {
   );
 };
 
-export default ContractEditor;
+export default DocumentEditor;
