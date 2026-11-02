@@ -23,6 +23,7 @@ import {
   dataInputsUserAdress,
   dataInputsWage,
 } from "@/lib/dataCollections/wageFormInputsData";
+import DocumentEditor from "./DocumentEditor";
 
 const WageForm = () => {
   const [isEmail, setIsEmail] = useState(false);
@@ -84,6 +85,14 @@ const WageForm = () => {
   const handleSwitchinputs = (value: boolean) => {
     setIsEmail(value);
   };
+
+  // const validValues: Partial<WageFormSchema> = Object.fromEntries(
+  //   Object.entries(formValues).filter(([name, value]) => {
+  //     const hasError = !!errors[name as keyof WageFormSchema];
+
+  //     return !hasError && typeof value === "string" && value.trim() !== "";
+  //   }),
+  // );
 
   return (
     <FormProvider {...methods}>
@@ -169,7 +178,10 @@ const WageForm = () => {
           />
         </Card>
       </form>
-      <PdfTemplate />
+      <div className="md:sticky md:top-[20rem] h-fit">
+        {/* <PdfTemplate /> */}
+        <DocumentEditor />
+      </div>
     </FormProvider>
   );
 };

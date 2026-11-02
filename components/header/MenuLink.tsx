@@ -14,7 +14,7 @@ const MenuLink = ({ label, href, onClick }: Props) => {
   const isActive = pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <li onClick={onClick} className="flex justify-center">
+    <div onClick={onClick} className="flex justify-center">
       <ButtonLink
         link={href}
         className={`inline-block relative font-semibold text-white transition-transform duration-200 !px-2
@@ -23,7 +23,7 @@ const MenuLink = ({ label, href, onClick }: Props) => {
       >
         {label}
       </ButtonLink>
-    </li>
+    </div>
   );
 };
 

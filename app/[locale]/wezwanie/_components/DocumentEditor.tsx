@@ -465,7 +465,6 @@
 // import { useEffect, useRef, useState } from "react";
 // import Docxtemplater from "docxtemplater";
 // import PizZip from "pizzip";
-// import { renderAsync } from "docx-preview";
 // import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
 
 // const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
@@ -912,12 +911,15 @@ import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
 import PizZip from "pizzip";
 import Docxtemplater from "docxtemplater";
 import { renderAsync } from "docx-preview";
+import { useFormContext, useFormState, useWatch } from "react-hook-form";
+import PdfTemplate from "./PdfTemplate";
+import CopyTextBtn from "./CopyTextBtn";
 
 type Props = {
   formData: Partial<WageFormSchema>;
 };
 
-const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
+export const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
   place: "Miejscowość",
   date: "Data",
   name: "Imię nadawcy",
@@ -974,16 +976,32 @@ function createDocumentBlob(
   });
 }
 
-const DocumentEditor = ({ formData }: Props) => {
+const DocumentEditor = () => {
   const previewRef = useRef<HTMLDivElement>(null);
 
   const [template, setTemplate] = useState<ArrayBuffer | null>(null);
   const [error, setError] = useState("");
-  const [copied, setCopied] = useState(false);
+
   const [isExportingPdf, setIsExportingPdf] = useState(false);
 
+  const { control } = useFormContext<WageFormSchema>();
+
+  const formValues = useWatch({
+    control,
+  });
+
+  const { errors } = useFormState({ control });
+
+  const validValues: Partial<WageFormSchema> = Object.fromEntries(
+    Object.entries(formValues).filter(([name, value]) => {
+      const hasError = !!errors[name as keyof WageFormSchema];
+
+      return !hasError && typeof value === "string" && value.trim() !== "";
+    }),
+  );
+
   // Aktualne dane dokumentu
-  const documentData = getDocumentData(formData);
+  const documentData = getDocumentData(validValues);
 
   //   // Pobranie szablonu DOCX
   useEffect(() => {
@@ -1021,7 +1039,7 @@ const DocumentEditor = ({ formData }: Props) => {
   }, []);
 
   const value = (field: keyof WageFormSchema) => {
-    const fieldValue = formData[field];
+    const fieldValue = formValues[field];
 
     return typeof fieldValue === "string" && fieldValue.trim()
       ? fieldValue
@@ -1029,23 +1047,11 @@ const DocumentEditor = ({ formData }: Props) => {
   };
 
   // Pobieranie wartości lub placeholdera
-  const getValue = (field: keyof WageFormSchema) => {
-    const value = formData[field]?.trim();
+  // const getValue = (field: keyof WageFormSchema) => {
+  //   const value = formValues[field]?.trim();
 
-    return value || `[${emptyPlaceholders[field]}]`;
-  };
-
-  const PreviewValue = ({ field }: { field: keyof WageFormSchema }) => {
-    const fieldValue = value(field);
-
-    return fieldValue ? (
-      <span>{fieldValue}</span>
-    ) : (
-      <span className="font-medium italic text-red-600">
-        [{emptyPlaceholders[field]}]
-      </span>
-    );
-  };
+  //   return value || `[${emptyPlaceholders[field]}]`;
+  // };
 
   const handleCopyText = async () => {
     if (!previewRef.current) return;
@@ -1200,13 +1206,7 @@ const DocumentEditor = ({ formData }: Props) => {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          onClick={handleCopyText}
-          className="rounded-md border border-accent px-5 py-3 text-accent transition-colors hover:bg-accent/10"
-        >
-          {copied ? "Skopiowano!" : "Kopiuj treść pisma"}
-        </button>
+        <CopyTextBtn previewRef={previewRef} />
 
         <button
           type="button"
@@ -1230,117 +1230,7 @@ const DocumentEditor = ({ formData }: Props) => {
       {error && <p className="text-red-600">{error}</p>}
 
       {!template && !error && <p>Przygotowywanie dokumentu...</p>}
-
-      <article
-        ref={previewRef}
-        className="mx-auto w-full max-w-[794px] bg-white px-5 py-8 text-[14px] leading-relaxed text-black shadow-md sm:px-12 sm:py-12 md:px-[80px] md:py-[70px]"
-      >
-        {/* Miejscowość i data */}
-        <p className="mb-8 text-right">
-          <PreviewValue field="place" />, <PreviewValue field="date" />
-        </p>
-
-        {/* Nadawca */}
-        <div className="mb-6">
-          <p>
-            <PreviewValue field="name" /> <PreviewValue field="surname" />
-          </p>
-          <p>
-            <PreviewValue field="userStreet" />{" "}
-            <PreviewValue field="userHouseNomber" />
-            {value("userFlatNomber") && (
-              <>
-                {" "}
-                / <PreviewValue field="userFlatNomber" />
-              </>
-            )}
-          </p>
-          <p>
-            <PreviewValue field="userPostCode" />{" "}
-            <PreviewValue field="userCity" />
-          </p>
-        </div>
-
-        {/* Adresat */}
-        <div className="mb-10 text-right">
-          <p>
-            <PreviewValue field="companyName" />
-          </p>
-          <p>
-            <PreviewValue field="companyStreet" />{" "}
-            <PreviewValue field="companyHouseNomber" />
-            {value("companyFlatNomber") && (
-              <>
-                {" "}
-                / <PreviewValue field="companyFlatNomber" />
-              </>
-            )}
-          </p>
-          <p>
-            <PreviewValue field="companyPostCode" />{" "}
-            <PreviewValue field="companyCity" />
-          </p>
-        </div>
-
-        {/* Tytuł */}
-        <h2 className="mb-8 text-center text-base font-bold uppercase">
-          OSTATECZNE PRZEDSĄDOWE WEZWANIE DO ZAPŁATY
-        </h2>
-
-        {/* Treść */}
-        <div className="space-y-5 text-justify">
-          <p className="indent-8">
-            Niniejszym, w imieniu własnym, wzywam Państwa do zapłaty kwoty{" "}
-            <PreviewValue field="money" /> zł (słownie:{" "}
-            <span className="font-medium italic text-red-600">
-              [Kwota słownie]
-            </span>
-            ), tytułem zaległego wynagrodzenia z tytułu{" "}
-            <PreviewValue field="contractType" /> zawartej w dniu{" "}
-            <PreviewValue field="contractStartDate" /> roku. Wynagrodzenie to
-            jest należne za <PreviewValue field="hours" /> godzin,
-            przepracowanych przeze mnie w okresie od dnia{" "}
-            <PreviewValue field="workStart" /> roku do dnia{" "}
-            <PreviewValue field="workEnd" /> roku.
-          </p>
-
-          <p className="indent-8">
-            Należność proszę uregulować w nieprzekraczalnym terminie 7 dni od
-            dnia otrzymania niniejszego pisma. Kwotę należy uiścić na rachunek
-            bankowy nr <PreviewValue field="accountNumber" />.
-          </p>
-
-          <p>Odpowiedź na niniejsze pismo proszę przesłać na mój adres:</p>
-
-          <p>
-            <PreviewValue field="name" />, <PreviewValue field="surname" />,{" "}
-            <PreviewValue field="userCity" />
-          </p>
-
-          <p className="indent-8">
-            Jednocześnie informuję, iż nieuregulowanie należności w wyżej
-            wskazanym terminie spowoduje skierowanie sprawy do sądu, co narazi
-            Państwa firmę na dodatkowe koszty związane z koniecznością
-            prowadzenia postępowania sądowego, a następnie egzekucyjnego.
-          </p>
-
-          <p className="indent-8">
-            Dodatkowo skierowany zostanie wniosek o objęcie niniejszej sprawy
-            nadzorem przez Ogólnopolski Związek Zawodowy Inicjatywa Pracownicza.
-          </p>
-
-          <p className="indent-8">
-            Niniejsze pismo należy traktować jako próbę polubownego rozwiązania
-            sporu w rozumieniu art. 187 §1 punkt 3 k.p.c.
-          </p>
-        </div>
-
-        {/* Zakończenie */}
-        <div className="mt-12 text-right">
-          <p>Z poważaniem,</p>
-          <p className="mt-6">……………………………</p>
-        </div>
-      </article>
+      <PdfTemplate previewRef={previewRef} />
     </div>
   );
 };

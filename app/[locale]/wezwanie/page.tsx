@@ -27,7 +27,6 @@ export default function PageWezwanie() {
       <section className="mt-8">
         <div className="container flex flex-col gap-8 md:flex-row md:justify-between">
           <WageForm />
-          {/* <PdfTemplate /> */}
         </div>
       </section>
       <section>
@@ -40,11 +39,5 @@ export default function PageWezwanie() {
         </div>
       </section>
     </>
-
-    // <iframe
-    //   src="/wezwanie.html"
-    //   title="Formularz wezwania do zapłaty"
-    //   style={{ width: "100%", height: "100vh", border: 0 }}
-    // />
   );
 }
