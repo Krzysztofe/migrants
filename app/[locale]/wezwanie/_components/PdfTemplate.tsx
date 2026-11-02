@@ -59,7 +59,7 @@ const PdfTemplate = ({ previewRef }: Props) => {
   const moneyInWords = money ? numberToPolishWords(money) : "";
 
   return (
-    <div className=" mt-8">
+    <div className="mt-8">
       <article
         id="print-area"
         ref={previewRef}
@@ -93,11 +93,9 @@ const PdfTemplate = ({ previewRef }: Props) => {
             </p>
           )}
 
-          {value("email") && (
-            <p>
-              e-mail <PreviewValue field="email" />
-            </p>
-          )}
+          <p>
+            <PreviewValue field="email" />
+          </p>
         </div>
 
         <div className="mb-10 text-right">

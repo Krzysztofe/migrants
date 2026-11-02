@@ -79,7 +79,7 @@ export const wageFormSchema = z
 
     // contract
     contractType: textValidation,
-    contractStartDate: optionalDate,
+    contractStartDate: dateValidation,
 
     // work numbers
     workStart: dateValidation,

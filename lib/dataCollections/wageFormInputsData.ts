@@ -143,6 +143,7 @@ export const dataInputsContract = [
     label: "Data zawarcia umowy",
     name: "contractStartDate",
     type: InputType.DATE,
+    required: true,
   },
 ];
 
