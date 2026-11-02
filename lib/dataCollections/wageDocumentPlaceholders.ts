@@ -1,10 +1,13 @@
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
 
-export const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
+export const emptyPlaceholders: Record<
+  Exclude<keyof WageFormSchema, "contactType">,
+  string
+> = {
   place: "Miejscowość",
   date: "Data",
-  name: "Imię nadawcy",
-  surname: "Nazwisko nadawcy",
+  name: "Imię",
+  surname: "Nazwisko",
   phone: "Telefon",
   email: "Email",
   userCity: "Miejscowość",
@@ -14,7 +17,7 @@ export const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
   userPostCode: "Kod pocztowy",
   accountNumber: "Numer rachunku bankowego",
   companyName: "Nazwa przedsiębiorstwa",
-  companyCity: "Miejscowość firmy",
+  companyCity: "Miejscowość",
   companyStreet: "Ulica",
   companyHouseNomber: "Nr budynku",
   companyFlatNomber: "Nr lokalu",

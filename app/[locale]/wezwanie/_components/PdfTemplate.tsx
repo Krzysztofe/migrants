@@ -31,7 +31,11 @@ const PdfTemplate = ({ previewRef }: Props) => {
       : "";
   };
 
-  const PreviewValue = ({ field }: { field: keyof WageFormSchema }) => {
+  const PreviewValue = ({
+    field,
+  }: {
+    field: Exclude<keyof WageFormSchema, "contactType">;
+  }) => {
     const fieldValue = value(field);
     const isDate = dateFields.includes(field);
 
@@ -125,9 +129,9 @@ const PdfTemplate = ({ previewRef }: Props) => {
             Niniejszym, w imieniu własnym, wzywam Państwa do zapłaty kwoty{" "}
             <PreviewValue field="money" /> zł (słownie:{" "}
             <span
-              className={moneyInWords ? "" : "font-medium italic text-red-600"}
+              className={moneyInWords ? "" : "font-medium italic text-error"}
             >
-              {moneyInWords || "[Kwota słownie]"}
+              {moneyInWords || "Kwota słownie"}
             </span>
             ), tytułem zaległego wynagrodzenia z tytułu{" "}
             <PreviewValue field="contractType" /> zawartej w dniu{" "}
