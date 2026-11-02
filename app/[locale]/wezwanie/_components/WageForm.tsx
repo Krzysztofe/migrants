@@ -155,7 +155,7 @@ const WageForm = () => {
             name={"contractType"}
             options={contractOptions}
             errorMsg={errors}
-            hidden={false}
+            required={true}
           />
 
           <InputFields

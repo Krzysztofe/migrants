@@ -22,7 +22,7 @@ type Props = {
   className?: string;
   optionClass?: string;
   errorMsg?: any;
-  hidden: boolean;
+  hidden?: boolean;
 };
 
 const RadioGroupField = (props: Props) => {

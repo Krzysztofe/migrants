@@ -9,11 +9,13 @@ export const dataInputsHeader = [
     name: "place",
     placeholder: "Warszawa",
     type: InputType.TEXT,
+    required: true,
   },
   {
     label: "Data pisma",
     name: "date",
     type: InputType.DATE,
+    required: true,
   },
 ];
 
@@ -23,12 +25,14 @@ export const dataInputsUser = [
     name: "name",
     placeholder: "Anna",
     type: InputType.TEXT,
+    required: true,
   },
   {
     label: "Nazwisko",
     name: "surname",
     placeholder: "Kowalska",
     type: InputType.TEXT,
+    required: true,
   },
   {
     label: "Telefon",
@@ -41,6 +45,7 @@ export const dataInputsUser = [
     name: "email",
     placeholder: "wwww@ww.pl",
     type: InputType.EMAIL,
+    required: true,
   },
 ];
 
@@ -55,6 +60,7 @@ export const dataInputsUserAdress = [
     name: "userCity",
     placeholder: "Warszawa",
     type: InputType.TEXT,
+    required: true,
   },
   {
     label: "Ulica",
@@ -87,6 +93,7 @@ export const dataAccount = [
     name: "accountNumber",
     placeholder: "26 cyfr",
     type: InputType.TEXT,
+    required: true,
   },
 ];
 
@@ -94,14 +101,16 @@ export const dataInputsEmployer = [
   {
     label: "Nazwa przedsiębiorstwa",
     name: "companyName",
-    placeholder: "Anna",
+    placeholder: "Firma",
     type: InputType.TEXT,
+    required: true,
   },
   {
     label: "Miejscowość siedziby firmy",
     name: "companyCity",
     placeholder: "Kowalska",
     type: InputType.TEXT,
+    required: true,
   },
   {
     label: "Ulica",
@@ -153,22 +162,26 @@ export const dataInputsWage: InputData[] = [
     label: "Okres pracy od",
     name: "workStart",
     type: InputType.DATE,
+    required: true,
   },
   {
     label: "do",
     name: "workEnd",
     type: InputType.DATE,
+    required: true,
   },
   {
     label: "Nieopłacone godziny ",
     name: "hours",
     placeholder: "100",
     type: InputType.NUMBER,
+    required: true,
   },
   {
     label: "Zaległa kwota (zł)",
     name: "money",
     placeholder: "100",
     type: InputType.NUMBER,
+    required: true,
   },
 ];
