@@ -145,21 +145,27 @@ const PdfTemplate = ({ previewRef }: Props) => {
             <PreviewValue field="surname" />, nr{" "}
             <PreviewValue field="accountNumber" />.
           </p>
-
-          <p className="indent-8">
-            Odpowiedź na niniejsze pismo proszę przesłać na mój adres:&nbsp;
-            <PreviewValue field="name" /> <PreviewValue field="surname" />, ul.{" "}
-            <PreviewValue field="userStreet" />{" "}
-            <PreviewValue field="userHouseNomber" />
-            {value("userFlatNomber") && (
-              <>
-                {" "}
-                / <PreviewValue field="userFlatNomber" />
-              </>
-            )}{" "}
-            <PreviewValue field="userPostCode" />{" "}
-            <PreviewValue field="userCity" />
-          </p>
+          {value("contactType") === "adress" ? (
+            <p className="indent-8">
+              Odpowiedź na niniejsze pismo proszę przesłać na mój adres:&nbsp;
+              <PreviewValue field="name" /> <PreviewValue field="surname" />,
+              ul. <PreviewValue field="userStreet" />{" "}
+              <PreviewValue field="userHouseNomber" />
+              {value("userFlatNomber") && (
+                <>
+                  {" "}
+                  / <PreviewValue field="userFlatNomber" />
+                </>
+              )}{" "}
+              <PreviewValue field="userPostCode" />{" "}
+              <PreviewValue field="userCity" />
+            </p>
+          ) : (
+            <p className="indent-8">
+              Odpowiedź na niniejsze pismo proszę przesłać drogą elektroniczną
+              na mój adres e-mail: <PreviewValue field="email" />.
+            </p>
+          )}
 
           <p className="indent-8">
             Jednocześnie informuję, iż nieuregulowanie należności w wyżej

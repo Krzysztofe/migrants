@@ -70,7 +70,7 @@ const RadioGroupField = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col text-sm">
+    <div className="">
       <InputLabel
         label={props.label}
         description={props.description}

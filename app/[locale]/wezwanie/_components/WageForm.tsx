@@ -151,10 +151,11 @@ const WageForm = () => {
           <CardHeader message="Umowa" />
 
           <RadioGroupField
+            label="Rodzaj umowy"
             name={"contractType"}
             options={contractOptions}
             errorMsg={errors}
-            hidden={true}
+            hidden={false}
           />
 
           <InputFields
