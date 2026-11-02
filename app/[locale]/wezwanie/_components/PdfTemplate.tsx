@@ -37,11 +37,11 @@ const PdfTemplate = ({ previewRef }: Props) => {
   };
 
   return (
-    <div className="flex-1  min-w-0">
+    <div className=" mt-8">
       <article
         id="print-area"
         ref={previewRef}
-        className="mx-auto w-full max-w-[794px] bg-white px-5 py-8 text-[14px] leading-relaxed text-black shadow-md sm:px-12"
+        className="mx-auto box-shadow  w-full max-w-[794px] bg-white px-5 py-8 text-[14px] leading-relaxed text-black  sm:px-12"
       >
         <p className="mb-8 text-right">
           <PreviewValue field="place" />, <PreviewValue field="date" />
@@ -65,6 +65,14 @@ const PdfTemplate = ({ previewRef }: Props) => {
             <PreviewValue field="userPostCode" />{" "}
             <PreviewValue field="userCity" />
           </p>
+          <p>
+            tel. <PreviewValue field="phone" />
+          </p>
+          {value("email") && (
+            <p>
+              e-mail <PreviewValue field="email" />
+            </p>
+          )}
         </div>
 
         <div className="mb-10 text-right">

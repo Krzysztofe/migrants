@@ -127,6 +127,10 @@ h3 {
   @apply border-b border-transparent text-accent hover:border-b-accent;
 }
 
+.box-shadow {
+  box-shadow: 0px 0px 21px -14px rgba(0, 0, 0, 0.75);
+}
+
 /* .docx-preview-container {
   width: 100%;
   min-width: 0;
