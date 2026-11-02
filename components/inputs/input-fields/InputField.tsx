@@ -51,6 +51,8 @@ const InputField = (props: Props) => {
       <input
         id={name}
         name={name}
+        inputMode={type === "number" ? "numeric" : undefined}
+        // maxLength={type === "number" ? 6 : undefined}
         type={type}
         aria-label={`${label || label || name}`}
         placeholder={placeholder}
@@ -59,7 +61,7 @@ const InputField = (props: Props) => {
         aria-required={required}
         aria-invalid={!!props.error}
         aria-describedby={props.error ? `${name}-error` : undefined}
-        className={`peer w-full rounded-sm border border-gray p-3 text-base focus:border-accent focus:outline-none ${props.error ? "border-red" : "border-default"} ${
+        className={`peer w-full rounded-sm border border-gray-primary p-3 text-base focus:border-accent focus:outline-none ${props.error ? "border-red" : "border-default"} ${
           props.isLoading?.[name] || props.isSubmitting
             ? "cursor-not-allowed opacity-50"
             : ""

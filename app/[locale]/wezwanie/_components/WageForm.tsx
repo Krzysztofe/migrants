@@ -4,7 +4,7 @@ import InputFields from "@/components/inputs/input-fields/InputFields";
 import Button from "@/components/shared/buttons/Button";
 import Card from "@/components/shared/Card";
 import {
-  contractSelectOptions,
+  contractOptions,
   dataAccount,
   dataInputsContract,
   dataInputsEmployer,
@@ -12,6 +12,7 @@ import {
   dataInputsUser,
   dataInputsUserAdress,
   dataInputsWage,
+  contactTypeOptions,
 } from "@/lib/dataCollections/wageFormInputsData";
 import {
   WageFormSchema,
@@ -19,15 +20,13 @@ import {
 } from "@/lib/zod-schema/wageFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { FormProvider, Path, useForm } from "react-hook-form";
+import { FormProvider, Path, useForm, useWatch } from "react-hook-form";
 import CardHeader from "./CardHeader";
 import WageDocumentEditor from "./WageDocumentEditor";
 import { SelectFieldController } from "@/components/inputs/select-field/SelectFieldController";
 import RadioGroupField from "@/components/inputs/radio-field/RadioGroupField";
 
 const WageForm = () => {
-  const [isEmail, setIsEmail] = useState(false);
-
   const methods = useForm<WageFormSchema>({
     resolver: zodResolver(wageFormSchema),
     defaultValues: {
@@ -43,6 +42,7 @@ const WageForm = () => {
       userHouseNomber: "",
       userFlatNomber: "",
       userPostCode: "",
+      contactType: "email",
       accountNumber: "",
 
       companyName: "",
@@ -71,6 +71,13 @@ const WageForm = () => {
     setError,
   } = methods;
 
+  const contactType = useWatch({
+    control: methods.control,
+    name: "contactType",
+  });
+
+  const isEmail = contactType === "email";
+
   const handleInputChange = (name: string, value: string) => {
     console.log("name", name);
     console.log("value", value);
@@ -80,10 +87,6 @@ const WageForm = () => {
       shouldTouch: true,
       shouldValidate: true,
     });
-  };
-
-  const handleSwitchinputs = (value: boolean) => {
-    setIsEmail(value);
   };
 
   return (
@@ -109,24 +112,17 @@ const WageForm = () => {
           />
 
           <p className="text-bold mb-4">
-            Zaznacz, w jakiej formie chcesz uzyskać odpowiedź
+            W jakiej formie chcesz uzyskać odpowiedź
           </p>
 
-          <div className="flex flex-col gap-4 md:flex-row">
-            <Button
-              variant="empty-accent"
-              onClickAction={() => handleSwitchinputs(false)}
-            >
-              E-mail
-            </Button>
-            <Button
-              variant="empty-accent"
-              onClickAction={() => handleSwitchinputs(true)}
-            >
-              Na adres fizyczny
-            </Button>
-          </div>
-          {isEmail && (
+          <RadioGroupField
+            name={"contactType"}
+            options={contactTypeOptions}
+            errorMsg={errors}
+            hidden={true}
+          />
+
+          {!isEmail && (
             <InputFields
               inputsData={dataInputsUserAdress}
               register={register}
@@ -156,7 +152,7 @@ const WageForm = () => {
 
           <RadioGroupField
             name={"contractType"}
-            options={contractSelectOptions}
+            options={contractOptions}
             errorMsg={errors}
             hidden={true}
           />

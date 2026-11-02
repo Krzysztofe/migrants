@@ -11,14 +11,17 @@ const numberValidation = z
   .string()
   .trim()
   .min(1, { message: "To pole jest wymagane" })
-  .refine((value) => /^[1-9]\d*(\.\d+)?$/.test(value), {
+  .refine((value) => /^\d+$/.test(value), {
+    message: "Dozwolone są wyłącznie liczby caukowite",
+  })
+  .refine((value) => /^[1-9]\d*$/.test(value), {
     message: "Liczba nie może zaczynać się od zera",
   })
   .refine((value) => Number(value) > 0, {
     message: "Wartość musi być większa od 0",
   })
-  .refine((value) => value.replace(".", "").length <= 9, {
-    message: "Maksymalnie 9 cyfr",
+  .refine((value) => value.length <= 6, {
+    message: "Maksymalnie 6 cyfr",
   });
 
 const emailValidation = z
@@ -63,6 +66,7 @@ export const wageFormSchema = z
     userHouseNomber: optionalText,
     userFlatNomber: optionalText,
     userPostCode: optionalText,
+    contactType: textValidation,
     accountNumber: bankAccountValidation,
 
     // company

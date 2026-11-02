@@ -44,6 +44,11 @@ export const dataInputsUser = [
   },
 ];
 
+export const contactTypeOptions = [
+  { label: "E-mail", value: "email" },
+  { label: "Na adres fizyczny", value: "adress" },
+];
+
 export const dataInputsUserAdress = [
   {
     label: "Miejscowość",
@@ -132,7 +137,7 @@ export const dataInputsContract = [
   },
 ];
 
-export const contractSelectOptions = [
+export const contractOptions = [
   { label: "Umowa zlecenia", value: "umowy zlecenia" },
   { label: "Umowa o pracę", value: "umowy o pracę" },
   { label: "Umowa o dzieło", value: "umowy o dzieło" },

@@ -5,6 +5,7 @@ import { useFormContext, useWatch, useFormState } from "react-hook-form";
 import { RefObject } from "react";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import { formatDateWithDots } from "@/utils/date";
+import { numberToPolishWords } from "@/app/utils/numberToPolishWords";
 
 const dateFields: (keyof WageFormSchema)[] = [
   "date",
@@ -48,6 +49,10 @@ const PdfTemplate = ({ previewRef }: Props) => {
       <span className="font-medium italic text-error">{displayValue}</span>
     );
   };
+
+  const money = value("money");
+
+  const moneyInWords = money ? numberToPolishWords(money) : "";
 
   return (
     <div className=" mt-8">
@@ -119,8 +124,10 @@ const PdfTemplate = ({ previewRef }: Props) => {
           <p className="indent-8">
             Niniejszym, w imieniu własnym, wzywam Państwa do zapłaty kwoty{" "}
             <PreviewValue field="money" /> zł (słownie:{" "}
-            <span className="font-medium italic text-red-600">
-              [Kwota słownie]
+            <span
+              className={moneyInWords ? "" : "font-medium italic text-red-600"}
+            >
+              {moneyInWords || "[Kwota słownie]"}
             </span>
             ), tytułem zaległego wynagrodzenia z tytułu{" "}
             <PreviewValue field="contractType" /> zawartej w dniu{" "}
@@ -139,10 +146,18 @@ const PdfTemplate = ({ previewRef }: Props) => {
             <PreviewValue field="accountNumber" />.
           </p>
 
-          <p>Odpowiedź na niniejsze pismo proszę przesłać na mój adres:</p>
-
-          <p>
-            <PreviewValue field="name" />, <PreviewValue field="surname" />,{" "}
+          <p className="indent-8">
+            Odpowiedź na niniejsze pismo proszę przesłać na mój adres:&nbsp;
+            <PreviewValue field="name" /> <PreviewValue field="surname" />, ul.{" "}
+            <PreviewValue field="userStreet" />{" "}
+            <PreviewValue field="userHouseNomber" />
+            {value("userFlatNomber") && (
+              <>
+                {" "}
+                / <PreviewValue field="userFlatNomber" />
+              </>
+            )}{" "}
+            <PreviewValue field="userPostCode" />{" "}
             <PreviewValue field="userCity" />
           </p>
 
