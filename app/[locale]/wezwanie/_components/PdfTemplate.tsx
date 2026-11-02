@@ -6,6 +6,7 @@ import { RefObject } from "react";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import { formatDateWithDots } from "@/utils/date";
 import { numberToPolishWords } from "@/app/utils/numberToPolishWords";
+import { useWageLanguage } from "@/context/WageLanguageContext";
 
 const dateFields: (keyof WageFormSchema)[] = [
   "date",
@@ -18,6 +19,7 @@ type Props = {
 };
 
 const PdfTemplate = ({ previewRef }: Props) => {
+  const { translations } = useWageLanguage();
   const { control } = useFormContext<WageFormSchema>();
   const formValues = useWatch({ control });
   const { errors } = useFormState({ control });
@@ -44,8 +46,8 @@ const PdfTemplate = ({ previewRef }: Props) => {
         ? formatDateWithDots(fieldValue)
         : fieldValue
       : isDate
-        ? formatDateWithDots(emptyPlaceholders[field])
-        : emptyPlaceholders[field];
+        ? formatDateWithDots(translations.placeholders[field])
+        : translations.placeholders[field];
 
     return fieldValue ? (
       <span>{displayValue}</span>

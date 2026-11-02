@@ -78,37 +78,24 @@ const WageForm = () => {
 
   const isEmail = contactType === "email";
 
-  const handleInputChange = (name: string, value: string) => {
-    console.log("name", name);
-    console.log("value", value);
-
-    setValue(name as Path<WageFormSchema>, value, {
-      shouldDirty: true,
-      shouldTouch: true,
-      shouldValidate: true,
-    });
-  };
-
   return (
     <FormProvider {...methods}>
       <form className="lg:w-[42rem] grid gap-8">
         <Card>
-          <CardHeader message="Pismo" />
+          <CardHeader message="PISMO" />
           <InputFields
             inputsData={dataInputsHeader}
             register={register}
             errorMsg={errors}
-            // onChange={handleInputChange}
           />
         </Card>
 
         <Card>
-          <CardHeader message="Twoje dane" />
+          <CardHeader message="TWOJE DANE" />
           <InputFields
             inputsData={dataInputsUser}
             register={register}
             errorMsg={errors}
-            // onChange={handleInputChange}
           />
 
           <p className="text-bold mb-4">
@@ -127,7 +114,6 @@ const WageForm = () => {
               inputsData={dataInputsUserAdress}
               register={register}
               errorMsg={errors}
-              // onChange={handleInputChange}
             />
           )}
 
@@ -135,20 +121,18 @@ const WageForm = () => {
             inputsData={dataAccount}
             register={register}
             errorMsg={errors}
-            // onChange={handleInputChange}
           />
         </Card>
         <Card>
-          <CardHeader message="Pracodawca / Zleceniodawca" />
+          <CardHeader message="PRACODAWCA / ZLECENIODAWCA" />
           <InputFields
             inputsData={dataInputsEmployer}
             register={register}
             errorMsg={errors}
-            // onChange={handleInputChange}
           />
         </Card>
         <Card>
-          <CardHeader message="Umowa" />
+          <CardHeader message="UMOWA" />
 
           <RadioGroupField
             label="Rodzaj umowy"
@@ -162,16 +146,14 @@ const WageForm = () => {
             inputsData={dataInputsContract}
             register={register}
             errorMsg={errors}
-            // onChange={handleInputChange}
           />
         </Card>
         <Card>
-          <CardHeader message="Zaległa wypłata" />
+          <CardHeader message="ZALEGŁA WYPŁATA" />
           <InputFields
             inputsData={dataInputsWage}
             register={register}
             errorMsg={errors}
-            // onChange={handleInputChange}
           />
         </Card>
       </form>
