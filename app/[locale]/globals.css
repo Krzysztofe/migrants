@@ -127,7 +127,7 @@ h3 {
   @apply border-b border-transparent text-accent hover:border-b-accent;
 }
 
-.docx-preview-container {
+/* .docx-preview-container {
   width: 100%;
   min-width: 0;
 }
@@ -151,4 +151,4 @@ h3 {
 .docx-placeholder {
   color: #dc2626 !important;
   font-weight: 600;
-}
+} */

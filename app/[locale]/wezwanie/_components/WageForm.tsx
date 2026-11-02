@@ -1,19 +1,8 @@
 "use client";
 
-import Card from "@/components/shared/Card";
-import CardHeader from "./CardHeader";
-import { FormProvider, useForm, Path } from "react-hook-form";
-import { InputType } from "@/components/inputs/input-fields/InputField";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  WageFormSchema,
-  wageFormSchema,
-} from "@/lib/zod-schema/wageFormSchema";
 import InputFields from "@/components/inputs/input-fields/InputFields";
-import PdfTemplate from "./PdfTemplate";
 import Button from "@/components/shared/buttons/Button";
-import { az } from "zod/locales";
-import { useState } from "react";
+import Card from "@/components/shared/Card";
 import {
   dataAccount,
   dataInputsContract,
@@ -23,7 +12,15 @@ import {
   dataInputsUserAdress,
   dataInputsWage,
 } from "@/lib/dataCollections/wageFormInputsData";
-import DocumentEditor from "./DocumentEditor";
+import {
+  WageFormSchema,
+  wageFormSchema,
+} from "@/lib/zod-schema/wageFormSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { FormProvider, Path, useForm } from "react-hook-form";
+import CardHeader from "./CardHeader";
+import WageDocumentEditor from "./WageDocumentEditor";
 
 const WageForm = () => {
   const [isEmail, setIsEmail] = useState(false);
@@ -86,17 +83,9 @@ const WageForm = () => {
     setIsEmail(value);
   };
 
-  // const validValues: Partial<WageFormSchema> = Object.fromEntries(
-  //   Object.entries(formValues).filter(([name, value]) => {
-  //     const hasError = !!errors[name as keyof WageFormSchema];
-
-  //     return !hasError && typeof value === "string" && value.trim() !== "";
-  //   }),
-  // );
-
   return (
     <FormProvider {...methods}>
-      <form className="md:w-1/4 grid gap-8">
+      <form className="lg:w-[42rem] grid gap-8">
         <Card>
           <CardHeader message="Pismo" />
           <InputFields
@@ -122,13 +111,13 @@ const WageForm = () => {
 
           <div className="flex flex-col gap-4 md:flex-row">
             <Button
-              variant="primary"
+              variant="empty-accent"
               onClickAction={() => handleSwitchinputs(false)}
             >
               E-mail
             </Button>
             <Button
-              variant="primary"
+              variant="empty-accent"
               onClickAction={() => handleSwitchinputs(true)}
             >
               Na adres fizyczny
@@ -179,8 +168,7 @@ const WageForm = () => {
         </Card>
       </form>
       <div className="md:sticky md:top-[20rem] h-fit">
-        {/* <PdfTemplate /> */}
-        <DocumentEditor />
+        <WageDocumentEditor />
       </div>
     </FormProvider>
   );

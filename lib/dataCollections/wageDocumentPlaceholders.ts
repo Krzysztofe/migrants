@@ -1,0 +1,28 @@
+import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
+
+export const emptyPlaceholders: Record<keyof WageFormSchema, string> = {
+  place: "Miejscowość",
+  date: "Data",
+  name: "Imię nadawcy",
+  surname: "Nazwisko nadawcy",
+  phone: "Telefon",
+  email: "Email",
+  userCity: "Miejscowość",
+  userStreet: "Ulica",
+  userHouseNomber: "Nr budynku",
+  userFlatNomber: "Nr lokalu",
+  userPostCode: "Kod pocztowy",
+  accountNumber: "Numer rachunku bankowego",
+  companyName: "Nazwa przedsiębiorstwa",
+  companyCity: "Miejscowość firmy",
+  companyStreet: "Ulica firmy",
+  companyHouseNomber: "Nr budynku firmy",
+  companyFlatNomber: "Nr lokalu firmy",
+  companyPostCode: "Kod pocztowy firmy",
+  contractType: "Rodzaj umowy",
+  contractStartDate: "Data zawarcia umowy",
+  workStart: "Data rozpoczęcia",
+  workEnd: "Data zakończenia",
+  hours: "Liczba godzin",
+  money: "Kwota",
+};

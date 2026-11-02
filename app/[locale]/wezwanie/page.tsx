@@ -25,17 +25,19 @@ export default function PageWezwanie() {
       </section>
 
       <section className="mt-8">
-        <div className="container flex flex-col gap-8 md:flex-row md:justify-between">
+        <div className="container flex flex-col gap-8 lg:flex-row">
           <WageForm />
         </div>
       </section>
       <section>
-        <div className="container mt-8">
-          Formularz pomaga przygotować pismo, ale nie jest poradą prawną.
-          Roszczenia o wynagrodzenie przedawniają się po 3 latach. Jeśli
-          pracodawca nie zapłaci w terminie, możesz złożyć pozew do sądu pracy
-          (przy umowie o pracę) albo do sądu cywilnego (przy umowie zlecenia lub
-          o dzieło) i zawiadomić Państwową Inspekcję Pracy.
+        <div className="container my-20">
+          <p className="md:w-[80rem] ">
+            Formularz pomaga przygotować pismo, ale nie jest poradą prawną.
+            Roszczenia o wynagrodzenie przedawniają się po 3 latach. Jeśli
+            pracodawca nie zapłaci w terminie, możesz złożyć pozew do sądu pracy
+            (przy umowie o pracę) albo do sądu cywilnego (przy umowie zlecenia
+            lub o dzieło) i zawiadomić Państwową Inspekcję Pracy.
+          </p>
         </div>
       </section>
     </>

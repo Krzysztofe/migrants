@@ -1,9 +1,9 @@
 "use client";
 
-import { useFormContext, useFormState, useWatch } from "react-hook-form";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
-import DocumentEditor, { emptyPlaceholders } from "./DocumentEditor";
+import { useFormContext, useWatch } from "react-hook-form";
 import { RefObject } from "react";
+import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 
 type Props = {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -39,15 +39,14 @@ const PdfTemplate = ({ previewRef }: Props) => {
   return (
     <div className="flex-1  min-w-0">
       <article
+        id="print-area"
         ref={previewRef}
-        className="mx-auto w-full max-w-[794px] bg-white px-5 py-8 text-[14px] leading-relaxed text-black shadow-md sm:px-12 sm:py-12 md:px-[80px] md:py-[70px]"
+        className="mx-auto w-full max-w-[794px] bg-white px-5 py-8 text-[14px] leading-relaxed text-black shadow-md sm:px-12"
       >
-        {/* Miejscowość i data */}
         <p className="mb-8 text-right">
           <PreviewValue field="place" />, <PreviewValue field="date" />
         </p>
 
-        {/* Nadawca */}
         <div className="mb-6">
           <p>
             <PreviewValue field="name" /> <PreviewValue field="surname" />
@@ -68,7 +67,6 @@ const PdfTemplate = ({ previewRef }: Props) => {
           </p>
         </div>
 
-        {/* Adresat */}
         <div className="mb-10 text-right">
           <p>
             <PreviewValue field="companyName" />
@@ -89,12 +87,10 @@ const PdfTemplate = ({ previewRef }: Props) => {
           </p>
         </div>
 
-        {/* Tytuł */}
         <h2 className="mb-8 text-center text-base font-bold uppercase">
           OSTATECZNE PRZEDSĄDOWE WEZWANIE DO ZAPŁATY
         </h2>
 
-        {/* Treść */}
         <div className="space-y-5 text-justify">
           <p className="indent-8">
             Niniejszym, w imieniu własnym, wzywam Państwa do zapłaty kwoty{" "}
@@ -142,12 +138,15 @@ const PdfTemplate = ({ previewRef }: Props) => {
           </p>
         </div>
 
-        {/* Zakończenie */}
         <div className="mt-12 text-right">
           <p>Z poważaniem,</p>
           <p className="mt-6">……………………………</p>
         </div>
       </article>
+      <p className="mt-8 mx-auto w-full max-w-[794px]">
+        Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi
+        związku. Plik Word możesz po zapisaniu dowolnie poprawić.
+      </p>
     </div>
   );
 };
