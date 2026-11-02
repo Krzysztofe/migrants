@@ -1,4 +1,5 @@
 import Button from "@/components/shared/buttons/Button";
+import { useWageLanguage } from "@/context/WageLanguageContext";
 import { useState } from "react";
 import { RefObject } from "react";
 
@@ -7,7 +8,9 @@ type Props = {
 };
 
 const CopyTextBtn = ({ previewRef }: Props) => {
-  const [copied, setCopied] = useState(false);
+  const { translations } = useWageLanguage();
+  const { copyContent, copied } = translations;
+  const [icCopied, setCopied] = useState(false);
 
   const handleCopyText = async () => {
     if (!previewRef.current) return;
@@ -27,7 +30,7 @@ const CopyTextBtn = ({ previewRef }: Props) => {
 
   return (
     <Button type="button" onClickAction={handleCopyText} variant="empty-accent">
-      {copied ? "Skopiowano" : "Kopiuj treść pisma"}
+      {icCopied ? copied : copyContent}
     </Button>
   );
 };

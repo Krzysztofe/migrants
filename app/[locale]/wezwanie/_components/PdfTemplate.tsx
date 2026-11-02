@@ -20,6 +20,7 @@ type Props = {
 
 const PdfTemplate = ({ previewRef }: Props) => {
   const { translations } = useWageLanguage();
+  const { templateSubtitle, placeholders } = translations;
   const { control } = useFormContext<WageFormSchema>();
   const formValues = useWatch({ control });
   const { errors } = useFormState({ control });
@@ -46,8 +47,8 @@ const PdfTemplate = ({ previewRef }: Props) => {
         ? formatDateWithDots(fieldValue)
         : fieldValue
       : isDate
-        ? formatDateWithDots(translations.placeholders[field])
-        : translations.placeholders[field];
+        ? formatDateWithDots(placeholders[field])
+        : placeholders[field];
 
     return fieldValue ? (
       <span>{displayValue}</span>
@@ -196,10 +197,7 @@ const PdfTemplate = ({ previewRef }: Props) => {
           <p className="mt-6">……………………………</p>
         </div>
       </article>
-      <p className="mt-8 mx-auto w-full max-w-[794px]">
-        Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi
-        związku. Plik Word możesz po zapisaniu dowolnie poprawić.
-      </p>
+      <p className="mt-8 mx-auto w-full max-w-[794px]">{templateSubtitle}</p>
     </div>
   );
 };

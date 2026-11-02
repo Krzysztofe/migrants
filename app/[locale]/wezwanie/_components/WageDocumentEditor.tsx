@@ -10,12 +10,16 @@ import PdfTemplate from "./PdfTemplate";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import Card from "@/components/shared/Card";
 import Button from "@/components/shared/buttons/Button";
+import { useWageLanguage } from "@/context/WageLanguageContext";
 
 type DocumentField = keyof typeof emptyPlaceholders;
 
 const fields = Object.keys(emptyPlaceholders) as DocumentField[];
 
 const WageDocumentEditor = () => {
+  const { translations } = useWageLanguage();
+  const { downloadWord, downloadPDF, fillFields, placeholders } = translations;
+
   const { trigger, getValues, getFieldState } =
     useFormContext<WageFormSchema>();
 
@@ -80,10 +84,9 @@ const WageDocumentEditor = () => {
           onClickAction={handleDocxDownload}
           disabled={isExportingDocx || isExportingPdf}
           variant="primary-rounded"
+          isLoading={isExportingDocx}
         >
-          {isExportingDocx
-            ? "Generowanie Word..."
-            : "Pobierz jako Word (.docx)"}
+          {downloadWord}
         </Button>
 
         <Button
@@ -91,14 +94,15 @@ const WageDocumentEditor = () => {
           onClickAction={handlePdfDownload}
           disabled={isExportingPdf || isExportingDocx}
           variant="primary-rounded"
+          isLoading={isExportingPdf}
         >
-          {isExportingPdf ? "Generowanie PDF..." : "Pobierz PDF"}
+          {downloadPDF}
         </Button>
       </div>
 
       {invalidFields.length > 0 && (
         <Card className="mt-4 rounded-md !border-error text-error">
-          <p className="mb-2 font-semibold">Uzupełnij następujące pola:</p>
+          <p className="mb-2 font-semibold">{fillFields}</p>
 
           <ul className="list-inside list-disc">
             {invalidFields.map((field) => (

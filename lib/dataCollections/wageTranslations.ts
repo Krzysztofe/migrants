@@ -29,6 +29,15 @@ export const wageTranslations = {
       hours: "Liczba godzin",
       money: "Kwota",
     },
+    copyContent: "Kopiuj treść pisma",
+    copied: "Skopiowano",
+    downloadWord: "Pobierz jako Word (.docx)",
+    downloadPDF: "Pobierz PDF",
+    fillFields: "Uzupełnij następujące pola:",
+    templateSubtitle:
+      "Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi związku. Plik Word możesz po zapisaniu dowolnie poprawić.",
+    warning:
+      "Formularz pomaga przygotować pismo, ale nie jest poradą prawną. Roszczenia o wynagrodzenie przedawniają się po 3 latach. Jeśli pracodawca nie zapłaci w terminie, możesz złożyć pozew do sądu pracy (przy umowie o pracę) albo do sądu cywilnego (przy umowie zlecenia lub o dzieło) i zawiadomić Państwową Inspekcję Pracy.",
   },
   en: {
     title: "Pre-court payment demand",
@@ -61,6 +70,15 @@ export const wageTranslations = {
       hours: "Number of hours",
       money: "Amount",
     },
+    copyContent: "Copy letter content",
+    copied: "Copied",
+    downloadWord: "Download as Word (.docx)",
+    downloadPDF: "Download PDF",
+    fillFields: "Please complete the following fields:",
+    templateSubtitle:
+      "Sections highlighted in color need to be completed. The content follows the trade union's template. You can edit the Word document freely after saving it.",
+    warning:
+      "This form helps you prepare a letter but does not constitute legal advice. Claims for unpaid wages become time-barred after 3 years. If your employer fails to pay within the specified deadline, you can file a claim with the labour court (for an employment contract) or the civil court (for a contract of mandate or a contract for specific work), and notify the National Labour Inspectorate.",
   },
 } as const;
 
