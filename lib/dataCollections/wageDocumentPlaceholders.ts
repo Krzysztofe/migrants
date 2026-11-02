@@ -17,7 +17,7 @@ export const emptyPlaceholders: Record<
   userPostCode: "Kod pocztowy",
   accountNumber: "Numer rachunku bankowego",
   companyName: "Nazwa przedsiębiorstwa",
-  companyCity: "Miejscowość siedziby firmy",
+  companyCity: "Miejscowość siedziby przedsiębiorstwa",
   companyStreet: "Ulica",
   companyHouseNomber: "Nr budynku",
   companyFlatNomber: "Nr lokalu",
@@ -27,5 +27,5 @@ export const emptyPlaceholders: Record<
   workStart: "Okres pracy od",
   workEnd: "do",
   hours: "Neopłacone godziny",
-  money: "Kwota",
+  money: "Zaległa kwota",
 };

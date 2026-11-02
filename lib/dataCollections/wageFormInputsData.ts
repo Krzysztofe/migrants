@@ -47,6 +47,13 @@ export const dataInputsUser = [
     type: InputType.EMAIL,
     required: true,
   },
+  {
+    label: "Miejscowość zmieszkania",
+    name: "userCity",
+    placeholder: "Warszawa",
+    type: InputType.TEXT,
+    required: true,
+  },
 ];
 
 export const contactTypeOptions = [
@@ -55,13 +62,6 @@ export const contactTypeOptions = [
 ];
 
 export const dataInputsUserAdress = [
-  {
-    label: "Miejscowość",
-    name: "userCity",
-    placeholder: "Warszawa",
-    type: InputType.TEXT,
-    required: true,
-  },
   {
     label: "Ulica",
     name: "userStreet",
@@ -89,7 +89,7 @@ export const dataInputsUserAdress = [
 ];
 export const dataAccount = [
   {
-    label: "Numer konta bankowego ",
+    label: "Numer rachunku bankowego",
     name: "accountNumber",
     placeholder: "26 cyfr",
     type: InputType.TEXT,
@@ -106,7 +106,7 @@ export const dataInputsEmployer = [
     required: true,
   },
   {
-    label: "Miejscowość siedziby firmy",
+    label: "Miejscowość siedziby przedsiębiorstwa",
     name: "companyCity",
     placeholder: "Kowalska",
     type: InputType.TEXT,

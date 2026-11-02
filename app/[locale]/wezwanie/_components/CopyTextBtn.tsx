@@ -1,3 +1,4 @@
+import Button from "@/components/shared/buttons/Button";
 import { useState } from "react";
 import { RefObject } from "react";
 
@@ -25,13 +26,9 @@ const CopyTextBtn = ({ previewRef }: Props) => {
   };
 
   return (
-    <button
-      type="button"
-      onClick={handleCopyText}
-      className="rounded-md border border-accent px-5 py-3 text-accent transition-colors hover:bg-accent/10"
-    >
+    <Button type="button" onClickAction={handleCopyText} variant="empty-accent">
       {copied ? "Skopiowano" : "Kopiuj treść pisma"}
-    </button>
+    </Button>
   );
 };
 

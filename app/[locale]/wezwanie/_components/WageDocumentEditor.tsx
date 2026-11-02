@@ -9,6 +9,7 @@ import CopyTextBtn from "./CopyTextBtn";
 import PdfTemplate from "./PdfTemplate";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import Card from "@/components/shared/Card";
+import Button from "@/components/shared/buttons/Button";
 
 type DocumentField = keyof typeof emptyPlaceholders;
 
@@ -74,25 +75,25 @@ const WageDocumentEditor = () => {
       <div className="flex flex-wrap gap-3">
         <CopyTextBtn previewRef={previewRef} />
 
-        <button
+        <Button
           type="button"
-          onClick={handleDocxDownload}
+          onClickAction={handleDocxDownload}
           disabled={isExportingDocx || isExportingPdf}
-          className="rounded-md bg-accent px-5 py-3 text-white disabled:opacity-50"
+          variant="primary-rounded"
         >
           {isExportingDocx
             ? "Generowanie Word..."
             : "Pobierz jako Word (.docx)"}
-        </button>
+        </Button>
 
-        <button
+        <Button
           type="button"
-          onClick={handlePdfDownload}
+          onClickAction={handlePdfDownload}
           disabled={isExportingPdf || isExportingDocx}
-          className="rounded-md bg-accent px-5 py-3 text-white transition-colors hover:bg-accent-dark disabled:opacity-50"
+          variant="primary-rounded"
         >
           {isExportingPdf ? "Generowanie PDF..." : "Pobierz PDF"}
-        </button>
+        </Button>
       </div>
 
       {invalidFields.length > 0 && (
