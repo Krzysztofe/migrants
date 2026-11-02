@@ -53,7 +53,7 @@ const PdfTemplate = ({ previewRef }: Props) => {
     return fieldValue ? (
       <span>{displayValue}</span>
     ) : (
-      <span className="font-medium px-1 text-error bg-error/10">
+      <span className="font-medium px-1 text-error bg-gray-light">
         {displayValue}
       </span>
     );

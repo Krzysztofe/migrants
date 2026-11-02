@@ -112,7 +112,7 @@ const WageDocumentEditor = () => {
         </Card>
       )}
 
-      {error && <p className="mt-3 text-error">{error}</p>}
+      {error && <p className="mt-3 text-error tetx-sm">{error}</p>}
 
       <PdfTemplate previewRef={previewRef} />
     </div>
