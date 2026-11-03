@@ -111,7 +111,7 @@ export const getdataInputsAccount = (
     {
       label: translations.accountNumber,
       name: "accountNumber",
-      placeholder: "26 cyfr",
+      placeholder: translations.accountNumberPlaceholder,
       type: InputType.TEXT,
       required: true,
     },
@@ -125,7 +125,7 @@ export const getdataInputsEmployer = (
     {
       label: translations.companyName,
       name: "companyName",
-      placeholder: "Firma",
+      placeholder: translations.companyNamePlaceholder,
       type: InputType.TEXT,
       required: true,
     },
@@ -188,7 +188,11 @@ export const getdataContractOptions = (translations: WageInputLabels) => {
       label: translations.contractOptions.undeclaredWork,
       value: "pracy na czarno",
     },
-    { label: translations.contractOptions.other, value: "other" },
+    {
+      label: translations.contractOptions.other,
+      value: "other",
+      placeholder: translations.contractOptions.otherPlaceholder,
+    },
   ];
 };
 

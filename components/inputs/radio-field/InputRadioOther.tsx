@@ -8,6 +8,7 @@ type Props = {
   isRadioValue: boolean;
   value: string;
   label?: string;
+  placeholder: string;
 };
 
 const InputRadioOther = (props: Props) => {
@@ -17,7 +18,7 @@ const InputRadioOther = (props: Props) => {
       <input
         type="text"
         value={props.isRadioValue ? "" : props.value || ""}
-        placeholder="Inna odpowiedź"
+        placeholder={props.placeholder}
         onChange={(e) => {
           props.setValue(props.name, e.target.value, {
             shouldDirty: true,

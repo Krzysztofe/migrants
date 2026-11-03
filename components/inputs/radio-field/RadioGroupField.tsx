@@ -10,6 +10,7 @@ import InputLabel from "../input-texts/InputLabel";
 type Option = {
   label: string;
   value: string;
+  placeholder?: string;
 };
 
 type Props = {
@@ -98,6 +99,9 @@ const RadioGroupField = (props: Props) => {
                   setValue={setValue}
                   isRadioValue={isRadioValue}
                   value={value}
+                  placeholder={
+                    option.placeholder ? option.placeholder : "Inna odpowiedź"
+                  }
                 />
               ) : (
                 <label

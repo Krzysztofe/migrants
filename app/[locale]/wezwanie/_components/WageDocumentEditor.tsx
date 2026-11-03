@@ -18,7 +18,7 @@ const fields = Object.keys(emptyPlaceholders) as DocumentField[];
 
 const WageDocumentEditor = () => {
   const { translations } = useWageLanguage();
-  const { downloadWord, downloadPDF, fillFields, placeholders } = translations;
+  const { downloadWord, downloadPDF, fillFields } = translations;
 
   const { trigger, getValues, getFieldState } =
     useFormContext<WageFormSchema>();
