@@ -16,20 +16,23 @@ import {
 } from "@/lib/dataCollections/wageFormInputsData";
 import {
   WageFormSchema,
-  wageFormSchema,
+  getWageFormSchema,
 } from "@/lib/zod-schema/wageFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormProvider, Path, useForm, useWatch } from "react-hook-form";
 import CardHeader from "./CardHeader";
 import WageDocumentEditor from "./WageDocumentEditor";
 import { SelectFieldController } from "@/components/inputs/select-field/SelectFieldController";
 import RadioGroupField from "@/components/inputs/radio-field/RadioGroupField";
 import { useWageLanguage } from "@/context/WageLanguageContext";
+import FormErrorNotification from "./FormErrorNotification";
 
 const WageForm = () => {
   const { translations } = useWageLanguage();
-  const { inputsLabels, formHeaders } = translations;
+  const { inputsLabels, formHeaders, validationErrors } = translations;
+
+  const wageFormSchema = getWageFormSchema(validationErrors);
 
   const methods = useForm<WageFormSchema>({
     resolver: zodResolver(wageFormSchema),
@@ -70,7 +73,7 @@ const WageForm = () => {
   const {
     setValue,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     trigger,
     setError,
   } = methods;
@@ -79,6 +82,14 @@ const WageForm = () => {
     control: methods.control,
     name: "contactType",
   });
+
+  // useEffect(() => {
+  //   const fieldsWithErrors = Object.keys(errors) as Path<WageFormSchema>[];
+
+  //   if (fieldsWithErrors.length > 0) {
+  //     void trigger(fieldsWithErrors);
+  //   }
+  // }, [translations, trigger, errors]);
 
   const isEmail = contactType === "email";
 

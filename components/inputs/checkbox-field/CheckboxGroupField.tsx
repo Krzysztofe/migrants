@@ -4,7 +4,7 @@ import { Control, Controller } from "react-hook-form";
 import InputError from "../InputError";
 import InputCheckboxOther from "./InputCheckboxOther";
 import Checkbox from "./Checkbox";
-import InputLabel from "../input-texts/InputLabel";
+import InputLabel from "../input-labels/InputLabel";
 
 type CheckboxOption = {
   name: string;

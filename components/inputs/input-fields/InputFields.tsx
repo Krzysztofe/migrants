@@ -4,7 +4,7 @@ import { UseFormRegister } from "react-hook-form";
 
 import InputField, { InputData, InputType } from "./InputField";
 import TextareaField from "./TextareaField";
-import InputLabel from "../input-texts/InputLabel";
+import InputLabel from "../input-labels/InputLabel";
 
 type Props = {
   inputsData: InputData[];

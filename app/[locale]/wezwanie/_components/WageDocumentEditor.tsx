@@ -11,6 +11,7 @@ import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholder
 import Card from "@/components/shared/Card";
 import Button from "@/components/shared/buttons/Button";
 import { useWageLanguage } from "@/context/WageLanguageContext";
+import FormErrorNotification from "./FormErrorNotification";
 
 type DocumentField = keyof typeof emptyPlaceholders;
 
@@ -76,7 +77,7 @@ const WageDocumentEditor = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 ml-auto w-fit">
         <CopyTextBtn previewRef={previewRef} />
 
         <Button
@@ -100,17 +101,7 @@ const WageDocumentEditor = () => {
         </Button>
       </div>
 
-      {invalidFields.length > 0 && (
-        <Card className="mt-4 rounded-md !border-error text-error">
-          <p className="mb-2 font-semibold">{fillFields}</p>
-
-          <ul className="list-inside list-disc">
-            {invalidFields.map((field) => (
-              <li key={field}>{field}</li>
-            ))}
-          </ul>
-        </Card>
-      )}
+      <FormErrorNotification />
 
       {error && <p className="mt-3 text-error text-sm">{error}</p>}
 

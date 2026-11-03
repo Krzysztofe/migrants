@@ -45,6 +45,7 @@ const InputField = (props: Props) => {
   const inputDefaultValue = props.default?.[name] ?? defaultValue ?? "";
 
   const registration = props.register?.(name);
+  const fieldError = props.error?.[name];
 
   return (
     <div className="group relative">
@@ -59,8 +60,8 @@ const InputField = (props: Props) => {
         defaultValue={inputDefaultValue}
         disabled={props.isLoading?.[name] || props.isSubmitting}
         aria-required={required}
-        aria-invalid={!!props.error}
-        aria-describedby={props.error ? `${name}-error` : undefined}
+        aria-invalid={!!fieldError}
+        aria-describedby={fieldError ? `${name}-error` : undefined}
         className={`peer w-full rounded-sm border border-gray-primary p-3 text-base focus:border-accent focus:outline-none ${props.error ? "border-red" : "border-default"} ${
           props.isLoading?.[name] || props.isSubmitting
             ? "cursor-not-allowed opacity-50"

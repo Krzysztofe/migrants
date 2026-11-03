@@ -1,11 +1,10 @@
 "use client";
 
-// import { OPTION_OTHER } from "@/helpers/inputHelpers";
 import { useFormContext } from "react-hook-form";
 import { useState, useRef } from "react";
 import InputError from "../InputError";
 import InputRadioOther from "./InputRadioOther";
-import InputLabel from "../input-texts/InputLabel";
+import InputLabel from "../input-labels/InputLabel";
 
 type Option = {
   label: string;
