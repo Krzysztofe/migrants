@@ -2,187 +2,225 @@ import {
   InputData,
   InputType,
 } from "@/components/inputs/input-fields/InputField";
+import { az } from "zod/locales";
+import { WageInputLabels } from "./wageTranslations";
 
-export const dataInputsHeader = [
-  {
-    label: "Miejscowość",
-    name: "place",
-    placeholder: "Warszawa",
-    type: InputType.TEXT,
-    required: true,
-  },
-  {
-    label: "Data pisma",
-    name: "date",
-    type: InputType.DATE,
-    required: true,
-  },
-];
+export const getdataInputsHeader = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.place,
+      name: "place",
+      placeholder: "Warszawa",
+      type: InputType.TEXT,
+      required: true,
+    },
+    {
+      label: translations.date,
+      name: "date",
+      type: InputType.DATE,
+      required: true,
+    },
+  ];
+};
 
-export const dataInputsUser = [
-  {
-    label: "Imię",
-    name: "name",
-    placeholder: "Anna",
-    type: InputType.TEXT,
-    required: true,
-  },
-  {
-    label: "Nazwisko",
-    name: "surname",
-    placeholder: "Kowalska",
-    type: InputType.TEXT,
-    required: true,
-  },
-  {
-    label: "Telefon",
-    name: "phone",
-    placeholder: "111-111-111",
-    type: InputType.TEXT,
-  },
-  {
-    label: "E-mail",
-    name: "email",
-    placeholder: "wwww@ww.pl",
-    type: InputType.EMAIL,
-    required: true,
-  },
-  {
-    label: "Miejscowość zmieszkania",
-    name: "userCity",
-    placeholder: "Warszawa",
-    type: InputType.TEXT,
-    required: true,
-  },
-];
+export const getdataInputsUser = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.name,
+      name: "name",
+      placeholder: "Anna",
+      type: InputType.TEXT,
+      required: true,
+    },
+    {
+      label: translations.surname,
+      name: "surname",
+      placeholder: "Kowalska",
+      type: InputType.TEXT,
+      required: true,
+    },
+    {
+      label: translations.phone,
+      name: "phone",
+      placeholder: "111-111-111",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.email,
+      name: "email",
+      placeholder: "wwww@ww.pl",
+      type: InputType.EMAIL,
+      required: true,
+    },
+    {
+      label: translations.userCity,
+      name: "userCity",
+      placeholder: "Warszawa",
+      type: InputType.TEXT,
+      required: true,
+    },
+  ];
+};
 
-export const contactTypeOptions = [
-  { label: "E-mail", value: "email" },
-  { label: "Na adres fizyczny", value: "adress" },
-];
+export const getdataContractTypeOptions = (translations: WageInputLabels) => {
+  return [
+    { label: translations.email, value: "email" },
+    { label: translations.onAdress, value: "adress" },
+  ];
+};
 
-export const dataInputsUserAdress = [
-  {
-    label: "Ulica",
-    name: "userStreet",
-    placeholder: "Matejki",
-    type: InputType.TEXT,
-  },
-  {
-    label: "Nr budynku",
-    name: "userHouseNomber",
-    placeholder: "10",
-    type: InputType.TEXT,
-  },
-  {
-    label: "Nr mieszkania",
-    name: "userFlatNomber",
-    placeholder: "10",
-    type: InputType.TEXT,
-  },
-  {
-    label: "Kod pocztowy",
-    name: "userPostCode",
-    placeholder: "11-111",
-    type: InputType.TEXT,
-  },
-];
-export const dataAccount = [
-  {
-    label: "Numer rachunku bankowego",
-    name: "accountNumber",
-    placeholder: "26 cyfr",
-    type: InputType.TEXT,
-    required: true,
-  },
-];
+export const getdataInputsUserAdress = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.userStreet,
+      name: "userStreet",
+      placeholder: "Matejki",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.userHouseNomber,
+      name: "userHouseNomber",
+      placeholder: "10",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.userFlatNomber,
+      name: "userFlatNomber",
+      placeholder: "10",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.userPostCode,
+      name: "userPostCode",
+      placeholder: "11-111",
+      type: InputType.TEXT,
+    },
+  ];
+};
 
-export const dataInputsEmployer = [
-  {
-    label: "Nazwa przedsiębiorstwa",
-    name: "companyName",
-    placeholder: "Firma",
-    type: InputType.TEXT,
-    required: true,
-  },
-  {
-    label: "Miejscowość siedziby przedsiębiorstwa",
-    name: "companyCity",
-    placeholder: "Kowalska",
-    type: InputType.TEXT,
-    required: true,
-  },
-  {
-    label: "Ulica",
-    name: "companyStreet",
-    placeholder: "Matejki",
-    type: InputType.TEXT,
-  },
-  {
-    label: "Nr budynku",
-    name: "companyHouseNomber",
-    placeholder: "10",
-    type: InputType.TEXT,
-  },
-  {
-    label: "Nr lokalu",
-    name: "companyFlatNomber",
-    placeholder: "10",
-    type: InputType.TEXT,
-  },
-  {
-    label: "Kod pocztowy",
-    name: "companyPostCode",
-    placeholder: "11-111",
-    type: InputType.TEXT,
-  },
-];
+export const getdataInputsAccount = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.accountNumber,
+      name: "accountNumber",
+      placeholder: "26 cyfr",
+      type: InputType.TEXT,
+      required: true,
+    },
+  ];
+};
 
-export const dataInputsContract = [
-  {
-    label: "Data zawarcia umowy",
-    name: "contractStartDate",
-    type: InputType.DATE,
-    required: true,
-  },
-];
+export const getdataInputsEmployer = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.companyName,
+      name: "companyName",
+      placeholder: "Firma",
+      type: InputType.TEXT,
+      required: true,
+    },
+    {
+      label: translations.companyCity,
+      name: "companyCity",
+      placeholder: "Kowalska",
+      type: InputType.TEXT,
+      required: true,
+    },
+    {
+      label: translations.companyStreet,
+      name: "companyStreet",
+      placeholder: "Matejki",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.companyHouseNomber,
+      name: "companyHouseNomber",
+      placeholder: "10",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.companyFlatNomber,
+      name: "companyFlatNomber",
+      placeholder: "10",
+      type: InputType.TEXT,
+    },
+    {
+      label: translations.companyPostCode,
+      name: "companyPostCode",
+      placeholder: "11-111",
+      type: InputType.TEXT,
+    },
+  ];
+};
 
-export const contractOptions = [
-  { label: "Umowa zlecenia", value: "umowy zlecenia" },
-  { label: "Umowa o pracę", value: "umowy o pracę" },
-  { label: "Umowa o dzieło", value: "umowy o dzieło" },
-  {
-    label: "Bez pisemnej umowy (praca na czarno)",
-    value: "pracy na czarno",
-  },
-  { label: "Inna (wpisz jaka)", value: "other" },
-];
+export const getdataInputsContract = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.contractStartDate,
+      name: "contractStartDate",
+      type: InputType.DATE,
+      required: true,
+    },
+  ];
+};
 
-export const dataInputsWage: InputData[] = [
-  {
-    label: "Okres pracy od",
-    name: "workStart",
-    type: InputType.DATE,
-    required: true,
-  },
-  {
-    label: "do",
-    name: "workEnd",
-    type: InputType.DATE,
-    required: true,
-  },
-  {
-    label: "Nieopłacone godziny ",
-    name: "hours",
-    placeholder: "100",
-    type: InputType.NUMBER,
-    required: true,
-  },
-  {
-    label: "Zaległa kwota (zł)",
-    name: "money",
-    placeholder: "100",
-    type: InputType.NUMBER,
-    required: true,
-  },
-];
+export const getdataContractOptions = (translations: WageInputLabels) => {
+  return [
+    { label: translations.contractOptions.mandate, value: "umowy zlecenia" },
+    { label: translations.contractOptions.employment, value: "umowy o pracę" },
+    {
+      label: translations.contractOptions.specificWork,
+      value: "umowy o dzieło",
+    },
+    {
+      label: translations.contractOptions.undeclaredWork,
+      value: "pracy na czarno",
+    },
+    { label: translations.contractOptions.other, value: "other" },
+  ];
+};
+
+export const getdataInputsWage = (
+  translations: WageInputLabels,
+): InputData[] => {
+  return [
+    {
+      label: translations.workStart,
+      name: "workStart",
+      type: InputType.DATE,
+      required: true,
+    },
+    {
+      label: translations.workEnd,
+      name: "workEnd",
+      type: InputType.DATE,
+      required: true,
+    },
+    {
+      label: translations.hours,
+      name: "hours",
+      placeholder: "100",
+      type: InputType.NUMBER,
+      required: true,
+    },
+    {
+      label: translations.money,
+      name: "money",
+      placeholder: "100",
+      type: InputType.NUMBER,
+      required: true,
+    },
+  ];
+};

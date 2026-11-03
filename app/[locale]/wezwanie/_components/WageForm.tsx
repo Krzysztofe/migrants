@@ -4,15 +4,15 @@ import InputFields from "@/components/inputs/input-fields/InputFields";
 import Button from "@/components/shared/buttons/Button";
 import Card from "@/components/shared/Card";
 import {
-  contractOptions,
-  dataAccount,
-  dataInputsContract,
-  dataInputsEmployer,
-  dataInputsHeader,
-  dataInputsUser,
-  dataInputsUserAdress,
-  dataInputsWage,
-  contactTypeOptions,
+  getdataInputsWage,
+  getdataInputsHeader,
+  getdataInputsUser,
+  getdataContractTypeOptions,
+  getdataInputsUserAdress,
+  getdataInputsAccount,
+  getdataInputsEmployer,
+  getdataInputsContract,
+  getdataContractOptions,
 } from "@/lib/dataCollections/wageFormInputsData";
 import {
   WageFormSchema,
@@ -25,8 +25,12 @@ import CardHeader from "./CardHeader";
 import WageDocumentEditor from "./WageDocumentEditor";
 import { SelectFieldController } from "@/components/inputs/select-field/SelectFieldController";
 import RadioGroupField from "@/components/inputs/radio-field/RadioGroupField";
+import { useWageLanguage } from "@/context/WageLanguageContext";
 
 const WageForm = () => {
+  const { translations } = useWageLanguage();
+  const { inputsLabels, formHeaders } = translations;
+
   const methods = useForm<WageFormSchema>({
     resolver: zodResolver(wageFormSchema),
     defaultValues: {
@@ -82,82 +86,80 @@ const WageForm = () => {
     <FormProvider {...methods}>
       <form className="lg:w-[42rem] grid gap-8">
         <Card>
-          <CardHeader message="PISMO" />
+          <CardHeader message={formHeaders.letter} />
           <InputFields
-            inputsData={dataInputsHeader}
+            inputsData={getdataInputsHeader(inputsLabels)}
             register={register}
             errorMsg={errors}
           />
         </Card>
 
         <Card>
-          <CardHeader message="TWOJE DANE" />
+          <CardHeader message={formHeaders.yourData} />
           <InputFields
-            inputsData={dataInputsUser}
+            inputsData={getdataInputsUser(inputsLabels)}
             register={register}
             errorMsg={errors}
           />
 
-          <p className="text-bold mb-4">
-            W jakiej formie chcesz uzyskać odpowiedź
-          </p>
+          <p className="text-bold mb-4">{inputsLabels.answerForm}</p>
 
           <RadioGroupField
             name={"contactType"}
-            options={contactTypeOptions}
+            options={getdataContractTypeOptions(inputsLabels)}
             errorMsg={errors}
             hidden={true}
           />
 
           {!isEmail && (
             <InputFields
-              inputsData={dataInputsUserAdress}
+              inputsData={getdataInputsUserAdress(inputsLabels)}
               register={register}
               errorMsg={errors}
             />
           )}
 
           <InputFields
-            inputsData={dataAccount}
+            inputsData={getdataInputsAccount(inputsLabels)}
             register={register}
             errorMsg={errors}
           />
         </Card>
         <Card>
-          <CardHeader message="PRACODAWCA / ZLECENIODAWCA" />
+          <CardHeader message={formHeaders.employer} />
           <InputFields
-            inputsData={dataInputsEmployer}
+            inputsData={getdataInputsEmployer(inputsLabels)}
             register={register}
             errorMsg={errors}
           />
         </Card>
         <Card>
-          <CardHeader message="UMOWA" />
+          <CardHeader message={formHeaders.contract} />
 
           <RadioGroupField
-            label="Rodzaj umowy"
+            label={inputsLabels.contractType}
             name={"contractType"}
-            options={contractOptions}
+            options={getdataContractOptions(inputsLabels)}
             errorMsg={errors}
             required={true}
           />
 
           <InputFields
-            inputsData={dataInputsContract}
+            inputsData={getdataInputsContract(inputsLabels)}
             register={register}
             errorMsg={errors}
           />
         </Card>
         <Card>
-          <CardHeader message="ZALEGŁA WYPŁATA" />
+          <CardHeader message={formHeaders.wage} />
           <InputFields
-            inputsData={dataInputsWage}
+            inputsData={getdataInputsWage(inputsLabels)}
             register={register}
             errorMsg={errors}
           />
         </Card>
       </form>
-      <div className="md:sticky md:top-[20rem] h-fit">
+      <div className="md:sticky md:top-[16rem] h-fit">
         <WageDocumentEditor />
       </div>
     </FormProvider>

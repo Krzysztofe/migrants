@@ -20,7 +20,7 @@ type Props = {
 
 const PdfTemplate = ({ previewRef }: Props) => {
   const { translations } = useWageLanguage();
-  const { templateSubtitle, placeholders } = translations;
+  const { templateSubtitle, placeholders, inputsLabels } = translations;
   const { control } = useFormContext<WageFormSchema>();
   const formValues = useWatch({ control });
   const { errors } = useFormState({ control });
@@ -47,8 +47,8 @@ const PdfTemplate = ({ previewRef }: Props) => {
         ? formatDateWithDots(fieldValue)
         : fieldValue
       : isDate
-        ? formatDateWithDots(placeholders[field])
-        : placeholders[field];
+        ? formatDateWithDots(inputsLabels[field])
+        : inputsLabels[field];
 
     return fieldValue ? (
       <span>{displayValue}</span>
@@ -131,9 +131,7 @@ const PdfTemplate = ({ previewRef }: Props) => {
           <p className="indent-8">
             Niniejszym, w imieniu własnym, wzywam Państwa do zapłaty kwoty{" "}
             <PreviewValue field="money" /> zł (słownie:{" "}
-            <span
-              className={moneyInWords ? "" : "font-medium italic text-error"}
-            >
+            <span className={moneyInWords ? "" : "font-medium text-error"}>
               {moneyInWords || "Kwota słownie"}
             </span>
             ), tytułem zaległego wynagrodzenia z tytułu{" "}

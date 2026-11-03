@@ -76,7 +76,7 @@ const WageDocumentEditor = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-4">
         <CopyTextBtn previewRef={previewRef} />
 
         <Button
@@ -112,7 +112,7 @@ const WageDocumentEditor = () => {
         </Card>
       )}
 
-      {error && <p className="mt-3 text-error tetx-sm">{error}</p>}
+      {error && <p className="mt-3 text-error text-sm">{error}</p>}
 
       <PdfTemplate previewRef={previewRef} />
     </div>
