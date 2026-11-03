@@ -70,7 +70,12 @@ export const wageTranslations = {
     downloadWord: "Pobierz jako Word (.docx)",
     downloadPDF: "Pobierz PDF",
     fillFields: "Uzupełnij następujące pola:",
-    errorsButton: "Popraw błędy",
+    fixErrors: "Popraw błędy:",
+    moveTo: "Przejdz do pierwszego",
+    toFill: "Do uzupełnienia:",
+    from: "z",
+    fields: "pól",
+    filledFields: "Wszystkie pola uzupełnione. Możesz pobrać pismo",
     templateSubtitle:
       "Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi związku. Plik Word możesz po zapisaniu dowolnie poprawić.",
     warning:
@@ -148,6 +153,12 @@ export const wageTranslations = {
     downloadPDF: "Download PDF",
     errorsButton: "Fix errors",
     fillFields: "Please complete the following fields:",
+    fixErrors: "Fix errors:",
+    moveTo: "Move to first",
+    toFill: "To fill:",
+    from: "from",
+    fields: "fields",
+    filledFields: "All fields filled",
     templateSubtitle:
       "Sections highlighted in color need to be completed. The content follows the trade union's template. You can edit the Word document freely after saving it.",
     warning:

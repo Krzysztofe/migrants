@@ -16,6 +16,7 @@
   --color-gray-light: #f4f4f4;
   --color-gray-dark: #5c5c5c;
   --color-error: rgb(231 0 0);
+  --color-succes: oklch(62.7% 0.194 149.214);
 
   --text-2xs: 1rem;
   --text-xs: 1.2rem;

@@ -38,11 +38,11 @@ const Button = (props: Props) => {
       aria-expanded={props["aria-expanded"]}
       className={`group relative block cursor-pointer select-none rounded-sm bg-transparent text-white transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 active:scale-[0.98] active:brightness-90 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[props.variant || "primary"]} ${props.className ? props.className : ""} `}
     >
-      <span
-        className={`${props.isLoading ? "opacity-0" : "opacity-100"} flex items-center justify-center gap-2`}
+      <div
+        className={`${props.isLoading ? "opacity-0" : "opacity-100"} w-full flex items-center justify-center gap-2`}
       >
         {props.children}
-      </span>
+      </div>
 
       {props.isLoading && (
         <span
