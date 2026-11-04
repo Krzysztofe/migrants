@@ -1,17 +1,17 @@
 "use client";
 
+import Button from "@/components/shared/buttons/Button";
+import { useWageLanguage } from "@/context/WageLanguageContext";
+import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
 import { useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import useExportDocx from "../_hooks/useExportDocx";
 import useExportPdf from "../_hooks/useExportPdf";
 import CopyTextBtn from "./CopyTextBtn";
-import PdfTemplate from "./PdfTemplate";
-import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
-import Card from "@/components/shared/Card";
-import Button from "@/components/shared/buttons/Button";
-import { useWageLanguage } from "@/context/WageLanguageContext";
 import FormErrorNotification from "./FormErrorNotification";
+import PdfTemplate from "./PdfTemplate";
+import Captcha from "./Captcha";
 
 type DocumentField = keyof typeof emptyPlaceholders;
 
@@ -19,7 +19,7 @@ const fields = Object.keys(emptyPlaceholders) as DocumentField[];
 
 const WageDocumentEditor = () => {
   const { translations } = useWageLanguage();
-  const { downloadWord, downloadPDF, fillFields } = translations;
+  const { downloadWord, downloadPDF } = translations;
 
   const { trigger, getValues, getFieldState } =
     useFormContext<WageFormSchema>();
@@ -100,6 +100,7 @@ const WageDocumentEditor = () => {
         >
           {downloadPDF}
         </Button>
+        <Captcha />
       </div>
 
       {error && <p className="mt-3 text-error text-sm">{error}</p>}
