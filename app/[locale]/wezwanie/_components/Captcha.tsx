@@ -1,5 +1,5 @@
+import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useState } from "react";
 
 type Props = {
   handleCaptcha: (value: boolean) => void;
@@ -7,6 +7,7 @@ type Props = {
 
 const Captcha = ({ handleCaptcha }: Props) => {
   const key = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
+  const captchaRef = useRef<ReCAPTCHA>(null);
 
   let printChaptcha;
 
@@ -15,6 +16,7 @@ const Captcha = ({ handleCaptcha }: Props) => {
   } else {
     printChaptcha = (
       <ReCAPTCHA
+        ref={captchaRef}
         sitekey={key}
         onChange={(token) => handleCaptcha(!!token)}
         onExpired={() => handleCaptcha(false)}

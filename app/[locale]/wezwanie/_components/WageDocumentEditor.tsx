@@ -4,7 +4,7 @@ import Button from "@/components/shared/buttons/Button";
 import { useWageLanguage } from "@/context/WageLanguageContext";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import { WageFormSchema } from "@/lib/zod-schema/wageFormSchema";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import useExportDocx from "../_hooks/useExportDocx";
 import useExportPdf from "../_hooks/useExportPdf";
@@ -69,21 +69,24 @@ const WageDocumentEditor = () => {
   const handlePdfDownload = async () => {
     if (!(await validateBeforeExport())) return;
     if (!isCaptcha) return;
-    // if (!(await validateBeforeExport())) return;
-
     await handleExportPdf();
   };
 
   const handleDocxDownload = async () => {
     if (!(await validateBeforeExport())) return;
     if (!isCaptcha) return;
-
     await handleExportDocx(getDocumentData());
   };
 
   const handleCaptcha = (value: boolean) => {
     setCaptcha(value);
   };
+
+  useEffect(() => {
+    if (!isValid) {
+      setCaptcha(false);
+    }
+  }, [isValid]);
 
   const error = pdfError || docxError;
 

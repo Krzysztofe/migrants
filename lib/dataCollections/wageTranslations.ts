@@ -75,7 +75,7 @@ export const wageTranslations = {
     toFill: "Do uzupełnienia:",
     from: "z",
     fields: "pól",
-    filledFields: "Zaznacz 'nie jestem robotem'  i pobierz pismo.",
+    filledFields: "Zaznacz 'Nie jestem robotem'  i pobierz pismo.",
     getField: "Pobierz pismo",
     templateSubtitle:
       "Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi związku. Plik Word możesz po zapisaniu dowolnie poprawić.",
