@@ -75,7 +75,7 @@ export const wageTranslations = {
     toFill: "Do uzupełnienia:",
     from: "z",
     fields: "pól",
-    filledFields: "Wszystkie pola uzupełnione. Możesz pobrać pismo",
+    filledFields: "Zaznacz CAPTCHA i pobierz pismo.",
     templateSubtitle:
       "Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi związku. Plik Word możesz po zapisaniu dowolnie poprawić.",
     warning:

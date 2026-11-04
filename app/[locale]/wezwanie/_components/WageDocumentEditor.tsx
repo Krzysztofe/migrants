@@ -20,9 +20,14 @@ const fields = Object.keys(emptyPlaceholders) as DocumentField[];
 const WageDocumentEditor = () => {
   const { translations } = useWageLanguage();
   const { downloadWord, downloadPDF } = translations;
+  const [isCaptcha, setCaptcha] = useState(false);
 
-  const { trigger, getValues, getFieldState } =
-    useFormContext<WageFormSchema>();
+  const {
+    trigger,
+    getValues,
+    getFieldState,
+    formState: { isValid },
+  } = useFormContext<WageFormSchema>();
 
   const previewRef = useRef<HTMLDivElement>(null);
   const [invalidFields, setInvalidFields] = useState<string[]>([]);
@@ -61,16 +66,24 @@ const WageDocumentEditor = () => {
     ) as Record<DocumentField, string>;
   };
 
+  console.log("", isCaptcha);
+
   const handlePdfDownload = async () => {
+    if (!isCaptcha) return;
     if (!(await validateBeforeExport())) return;
 
     await handleExportPdf();
   };
 
   const handleDocxDownload = async () => {
+    if (isCaptcha) return;
     if (!(await validateBeforeExport())) return;
 
     await handleExportDocx(getDocumentData());
+  };
+
+  const handleCaptcha = (value: boolean) => {
+    setCaptcha(value);
   };
 
   const error = pdfError || docxError;
@@ -100,7 +113,7 @@ const WageDocumentEditor = () => {
         >
           {downloadPDF}
         </Button>
-        <Captcha />
+        {isValid && <Captcha handleCaptcha={handleCaptcha} />}
       </div>
 
       {error && <p className="mt-3 text-error text-sm">{error}</p>}
