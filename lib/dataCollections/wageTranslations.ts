@@ -75,7 +75,8 @@ export const wageTranslations = {
     toFill: "Do uzupełnienia:",
     from: "z",
     fields: "pól",
-    filledFields: "Zaznacz CAPTCHA i pobierz pismo.",
+    filledFields: "Zaznacz 'nie jestem robotem'  i pobierz pismo.",
+    getField: "Pobierz pismo",
     templateSubtitle:
       "Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi związku. Plik Word możesz po zapisaniu dowolnie poprawić.",
     warning:
@@ -159,6 +160,7 @@ export const wageTranslations = {
     from: "from",
     fields: "fields",
     filledFields: "All fields filled",
+    getField: "Get field",
     templateSubtitle:
       "Sections highlighted in color need to be completed. The content follows the trade union's template. You can edit the Word document freely after saving it.",
     warning:

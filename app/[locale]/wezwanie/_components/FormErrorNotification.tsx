@@ -24,9 +24,13 @@ const requiredFields: (keyof WageFormSchema)[] = [
   "money",
 ];
 
-const FormErrorNotification = () => {
+type Props = {
+  isCaptcha: boolean;
+};
+
+const FormErrorNotification = ({ isCaptcha }: Props) => {
   const { translations } = useWageLanguage();
-  const { fixErrors, moveTo, toFill, from, fields, filledFields } =
+  const { fixErrors, moveTo, toFill, from, fields, filledFields, getField } =
     translations;
 
   const {
@@ -86,7 +90,7 @@ const FormErrorNotification = () => {
   } else if (isValid) {
     infoBar = (
       <div className={`${className} border-succes text-succes`}>
-        {filledFields}
+        {!isCaptcha ? filledFields : getField}
       </div>
     );
   }

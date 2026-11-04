@@ -75,8 +75,8 @@ const WageDocumentEditor = () => {
   };
 
   const handleDocxDownload = async () => {
-    if (isCaptcha) return;
     if (!(await validateBeforeExport())) return;
+    if (!isCaptcha) return;
 
     await handleExportDocx(getDocumentData());
   };
@@ -89,7 +89,8 @@ const WageDocumentEditor = () => {
 
   return (
     <div className="w-full">
-      <FormErrorNotification />
+      <FormErrorNotification isCaptcha={isCaptcha} />
+      {isValid && <Captcha handleCaptcha={handleCaptcha} />}
       <div className="flex flex-wrap gap-4 ml-auto w-fit">
         <CopyTextBtn previewRef={previewRef} />
 
@@ -112,7 +113,6 @@ const WageDocumentEditor = () => {
         >
           {downloadPDF}
         </Button>
-        {isValid && <Captcha handleCaptcha={handleCaptcha} />}
       </div>
 
       {error && <p className="mt-3 text-error text-sm">{error}</p>}
