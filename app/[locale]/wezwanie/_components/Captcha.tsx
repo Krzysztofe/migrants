@@ -2,7 +2,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 
 const Captcha = () => {
-  const key = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
+  const key = process.env.RECAPTCHA_KEY;
   const [isCaptcha, setCaptcha] = useState(false);
 
   const handleChange = () => {
