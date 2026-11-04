@@ -66,11 +66,10 @@ const WageDocumentEditor = () => {
     ) as Record<DocumentField, string>;
   };
 
-  console.log("", isCaptcha);
-
   const handlePdfDownload = async () => {
-    if (!isCaptcha) return;
     if (!(await validateBeforeExport())) return;
+    if (!isCaptcha) return;
+    // if (!(await validateBeforeExport())) return;
 
     await handleExportPdf();
   };
