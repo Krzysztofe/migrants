@@ -57,6 +57,7 @@ export const wageTranslations = {
       noLeadingZero: "Liczba nie może zaczynać się od zera",
       greaterThanZero: "Wartość musi być większa od 0",
       maxDigits: "Maksymalnie 6 cyfr",
+      postCode: "Podaj prawidłowy kod",
       invalidEmail: "Podaj prawidłowy adres e-mail",
       bankAccountRequired: "Numer konta bankowego jest wymagany",
       bankAccountLength: "Numer konta musi zawierać dokładnie 26 cyfr",
@@ -81,6 +82,14 @@ export const wageTranslations = {
       "Miejsca zaznaczone kolorem należy uzupełnić. Treść odpowiada wzorowi związku. Plik Word możesz po zapisaniu dowolnie poprawić.",
     warning:
       "Formularz pomaga przygotować pismo, ale nie jest poradą prawną. Roszczenia o wynagrodzenie przedawniają się po 3 latach. Jeśli pracodawca nie zapłaci w terminie, możesz złożyć pozew do sądu pracy (przy umowie o pracę) albo do sądu cywilnego (przy umowie zlecenia lub o dzieło) i zawiadomić Państwową Inspekcję Pracy.",
+    copyLinkSection: {
+      title: "Razem łatwiej",
+      header: "Pracujesz z kimś, kto też nie dostał pensji?",
+      description:
+        "Twoja szansa na odzyskanie pensji znacznie wzrasta, gdy ten formularz wypełnią Twoi koledzy z pracy, którzy mają ten sam problem. Przekaż im link do formularza.",
+      copyLink: "Kopiuj link",
+      copied: "Skopiowano",
+    },
   },
   en: {
     title: "Pre-court payment demand",
@@ -142,6 +151,7 @@ export const wageTranslations = {
       greaterThanZero: "The value must be greater than 0",
       maxDigits: "Maximum 6 digits",
       invalidEmail: "Enter a valid email address",
+      postCode: "Podaj prawidłowy kod",
       bankAccountRequired: "Bank account number is required",
       bankAccountLength: "The account number must contain exactly 26 digits",
       invalidDate: "Enter a valid date",
@@ -165,6 +175,14 @@ export const wageTranslations = {
       "Sections highlighted in color need to be completed. The content follows the trade union's template. You can edit the Word document freely after saving it.",
     warning:
       "This form helps you prepare a letter but does not constitute legal advice. Claims for unpaid wages become time-barred after 3 years. If your employer fails to pay within the specified deadline, you can file a claim with the labour court (for an employment contract) or the civil court (for a contract of mandate or a contract for specific work), and notify the National Labour Inspectorate.",
+    copyLinkSection: {
+      title: "togeather",
+      header: "Pracujesz z kimś, kto też nie dostał pensji eng?",
+      description:
+        "eng Twoja szansa na odzyskanie pensji znacznie wzrasta, gdy ten formularz wypełnią Twoi koledzy z pracy, którzy mają ten sam problem. Przekaż im link do formularza.",
+      copyLink: "Copy link",
+      copied: "Copied",
+    },
   },
 } as const;
 

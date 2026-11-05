@@ -6,7 +6,7 @@ import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBound
 import CallToAction from "@/components/shared/CallToAction";
 import EventsLIst from "@/components/shared/posts/EventsLIst";
 import { Post } from "@/app/models/postModel";
-import { getPosts } from "@/app/utils/querries/getPosts";
+import { getPosts } from "@/utils/querries/getPosts";
 
 export const metadata: Metadata = {
   title: "Dość zakazu strajków | Wpisy",

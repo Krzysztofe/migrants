@@ -15,12 +15,14 @@ const Captcha = ({ handleCaptcha }: Props) => {
     printChaptcha = "CAPTCHA nie istnieje";
   } else {
     printChaptcha = (
-      <ReCAPTCHA
-        ref={captchaRef}
-        sitekey={key}
-        onChange={(token) => handleCaptcha(!!token)}
-        onExpired={() => handleCaptcha(false)}
-      />
+      <div className="ml-auto w-fit mb-4">
+        <ReCAPTCHA
+          ref={captchaRef}
+          sitekey={key}
+          onChange={(token) => handleCaptcha(!!token)}
+          onExpired={() => handleCaptcha(false)}
+        />
+      </div>
     );
   }
 

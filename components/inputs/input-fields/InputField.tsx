@@ -1,6 +1,7 @@
 import { UseFormRegister } from "react-hook-form";
 import InputError from "../InputError";
 import DataLoader from "@/components/shared/loaders/DataLoader";
+import { ChangeEvent } from "react";
 
 export enum InputType {
   TEXT = "text",
@@ -26,6 +27,7 @@ export type InputData = {
   dataAttribut?: string;
   labelClassName?: string;
   hidden?: boolean;
+  mask?: "postCode";
 };
 
 type Props = {
@@ -39,20 +41,40 @@ type Props = {
   variant?: string;
 };
 
+export const formatPostCode = (value: string): string => {
+  const digits = value.replace(/\D/g, "").slice(0, 5);
+  return digits.length > 2
+    ? `${digits.slice(0, 2)}-${digits.slice(2)}`
+    : digits;
+};
+
 const InputField = (props: Props) => {
-  const { name, label, type, required, placeholder, defaultValue } =
+  const { name, label, type, required, placeholder, defaultValue, mask } =
     props.inputData;
   const inputDefaultValue = props.default?.[name] ?? defaultValue ?? "";
 
   const registration = props.register?.(name);
   const fieldError = props.error?.[name];
+  const isPostCode = mask === "postCode";
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+    if (isPostCode) e.target.value = formatPostCode(e.target.value);
+
+    if (props.onChange) {
+      void props.onChange(name, e.target.value);
+    } else {
+      void registration?.onChange(e);
+    }
+  };
 
   return (
     <div className="group relative">
       <input
         id={name}
         name={name}
-        inputMode={type === "number" ? "numeric" : undefined}
+        inputMode={isPostCode || type === "number" ? "numeric" : undefined}
+        maxLength={isPostCode ? 6 : undefined}
+        autoComplete={isPostCode ? "postal-code" : undefined}
         // maxLength={type === "number" ? 6 : undefined}
         type={type}
         aria-label={`${label || label || name}`}
@@ -62,18 +84,21 @@ const InputField = (props: Props) => {
         aria-required={required}
         aria-invalid={!!fieldError}
         aria-describedby={fieldError ? `${name}-error` : undefined}
-        className={`peer w-full rounded-sm border border-gray-primary p-3 text-base focus:border-accent focus:outline-none ${props.error ? "border-red" : "border-default"} ${
+        className={`peer w-full rounded-sm border border-gray-primary p-3 text-base focus:border-accent focus:outline-none ${fieldError ? "border-error" : "border-default"} ${
           props.isLoading?.[name] || props.isSubmitting
             ? "cursor-not-allowed opacity-50"
             : ""
         } `}
         {...registration}
+        // onChange={(e) => {
+        //   if (props.onChange) {
+        //     void props.onChange(name, e.target.value);
+        //   } else {
+        //     void registration?.onChange(e);
+        //   }
+        // }}
         onChange={(e) => {
-          if (props.onChange) {
-            void props.onChange(name, e.target.value);
-          } else {
-            void registration?.onChange(e);
-          }
+          handleChange(e);
         }}
       />
 

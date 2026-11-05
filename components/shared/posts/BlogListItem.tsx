@@ -1,5 +1,5 @@
 import { Post } from "@/app/models/postModel";
-import { formatDate } from "@/app/utils/formatDate";
+import { formatDate } from "@/utils/formatDate";
 import { mapBlogCategories } from "@/data/mapBlogCategiries";
 import ButtonLink from "../buttons/ButtonLink";
 import PostImage from "./PostImage";

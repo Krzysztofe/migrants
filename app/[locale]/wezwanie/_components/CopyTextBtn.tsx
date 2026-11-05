@@ -1,5 +1,6 @@
 import Button from "@/components/shared/buttons/Button";
 import { useWageLanguage } from "@/context/WageLanguageContext";
+import { useCopyText } from "@/hooks/useCopyText";
 import { useState } from "react";
 import { RefObject } from "react";
 
@@ -10,27 +11,11 @@ type Props = {
 const CopyTextBtn = ({ previewRef }: Props) => {
   const { translations } = useWageLanguage();
   const { copyContent, copied } = translations;
-  const [icCopied, setCopied] = useState(false);
-
-  const handleCopyText = async () => {
-    if (!previewRef.current) return;
-
-    try {
-      await navigator.clipboard.writeText(previewRef.current.innerText);
-
-      setCopied(true);
-
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Nie udało się skopiować tekstu:", error);
-    }
-  };
+  const { handleCopyText, isCopied } = useCopyText(previewRef);
 
   return (
     <Button type="button" onClickAction={handleCopyText} variant="empty-accent">
-      {icCopied ? copied : copyContent}
+      {isCopied ? copied : copyContent}
     </Button>
   );
 };

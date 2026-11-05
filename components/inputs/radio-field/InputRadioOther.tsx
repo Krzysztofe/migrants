@@ -14,7 +14,7 @@ type Props = {
 const InputRadioOther = (props: Props) => {
   return (
     <div>
-      {props.label && <label className="block pb-3">{props.label}</label>}
+      {props.label && <label className="block pb-1">{props.label}</label>}
       <input
         type="text"
         value={props.isRadioValue ? "" : props.value || ""}

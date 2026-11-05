@@ -5,7 +5,7 @@ import { useFormContext, useWatch, useFormState } from "react-hook-form";
 import { RefObject } from "react";
 import { emptyPlaceholders } from "@/lib/dataCollections/wageDocumentPlaceholders";
 import { formatDateWithDots } from "@/utils/date";
-import { numberToPolishWords } from "@/app/utils/numberToPolishWords";
+import { numberToPolishWords } from "@/utils/numberToPolishWords";
 import { useWageLanguage } from "@/context/WageLanguageContext";
 
 const dateFields: (keyof WageFormSchema)[] = [

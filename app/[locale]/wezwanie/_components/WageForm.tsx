@@ -82,15 +82,6 @@ const WageForm = () => {
     control: methods.control,
     name: "contactType",
   });
-
-  // useEffect(() => {
-  //   const fieldsWithErrors = Object.keys(errors) as Path<WageFormSchema>[];
-
-  //   if (fieldsWithErrors.length > 0) {
-  //     void trigger(fieldsWithErrors);
-  //   }
-  // }, [translations, trigger, errors]);
-
   const isEmail = contactType === "email";
 
   return (

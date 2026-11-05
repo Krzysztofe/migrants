@@ -70,7 +70,7 @@ const RadioGroupField = (props: Props) => {
   };
 
   return (
-    <div className="">
+    <div>
       <InputLabel
         label={props.label}
         description={props.description}
@@ -80,66 +80,67 @@ const RadioGroupField = (props: Props) => {
       />
 
       <fieldset
-        className={`relative flex flex-col gap-6 ${props.className ?? ""}`}
+        className={` ${props.className ?? ""}`}
         aria-required={props.required}
         aria-invalid={!!errorMsg}
       >
-        {props.options.map((option, idx) => {
-          const isOther = option.value === "other";
-          const isChecked = !isOther && value === option.value;
-          const optionId = `${props.name}-option-${idx}`;
+        <div className="flex flex-col gap-4">
+          {props.options.map((option, idx) => {
+            const isOther = option.value === "other";
+            const isChecked = !isOther && value === option.value;
+            const optionId = `${props.name}-option-${idx}`;
 
-          return (
-            <div key={option.value} className="flex flex-col">
-              {isOther ? (
-                <InputRadioOther
-                  label={option.label}
-                  name={props.name}
-                  setValue={setValue}
-                  isRadioValue={isRadioValue}
-                  value={value}
-                  placeholder={
-                    option.placeholder ? option.placeholder : "Inna odpowiedź"
-                  }
-                />
-              ) : (
-                <label
-                  htmlFor={optionId}
-                  className="flex cursor-pointer items-center gap-3"
-                >
-                  <input
-                    ref={(el) => {
-                      inputRefs.current[idx] = el;
-                    }}
-                    id={optionId}
-                    type="radio"
+            return (
+              <div key={option.value} className="flex flex-col">
+                {isOther ? (
+                  <InputRadioOther
+                    label={option.label}
                     name={props.name}
-                    value={option.value}
-                    checked={isChecked}
-                    tabIndex={focusedIndex === idx ? 0 : -1}
-                    aria-label={`Wybierz ${option.label}`}
-                    aria-describedby={
-                      errorMsg ? `${props.name}-error` : undefined
+                    setValue={setValue}
+                    isRadioValue={isRadioValue}
+                    value={value}
+                    placeholder={
+                      option.placeholder ? option.placeholder : "Inna odpowiedź"
                     }
-                    className="peer sr-only"
-                    onChange={() =>
-                      setValue(props.name, option.value, {
-                        shouldDirty: true,
-                        shouldValidate: true,
-                      })
-                    }
-                    onKeyDown={handleKeyDown}
-                    onFocus={() => setFocusedIndex(idx)}
                   />
+                ) : (
+                  <label
+                    htmlFor={optionId}
+                    className="flex cursor-pointer items-center gap-3"
+                  >
+                    <input
+                      ref={(el) => {
+                        inputRefs.current[idx] = el;
+                      }}
+                      id={optionId}
+                      type="radio"
+                      name={props.name}
+                      value={option.value}
+                      checked={isChecked}
+                      tabIndex={focusedIndex === idx ? 0 : -1}
+                      aria-label={`Wybierz ${option.label}`}
+                      aria-describedby={
+                        errorMsg ? `${props.name}-error` : undefined
+                      }
+                      className="peer sr-only"
+                      onChange={() =>
+                        setValue(props.name, option.value, {
+                          shouldDirty: true,
+                          shouldValidate: true,
+                        })
+                      }
+                      onKeyDown={handleKeyDown}
+                      onFocus={() => setFocusedIndex(idx)}
+                    />
 
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border transition peer-checked:border-accent peer-checked:bg-accent peer-checked:shadow-[inset_0_0_0_2px_white] peer-focus:ring-2 peer-focus:ring-accent peer-focus:ring-offset-2"></span>
-                  <div className="block w-full text-sm">{option.label}</div>
-                </label>
-              )}
-            </div>
-          );
-        })}
-
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full border transition peer-checked:border-accent peer-checked:bg-accent peer-checked:shadow-[inset_0_0_0_2px_white] peer-focus:ring-2 peer-focus:ring-accent peer-focus:ring-offset-2"></span>
+                    <div className="block w-full">{option.label}</div>
+                  </label>
+                )}
+              </div>
+            );
+          })}
+        </div>{" "}
         <InputError
           errorMsg={
             props.errorMsg?.[props.name]?.message ||

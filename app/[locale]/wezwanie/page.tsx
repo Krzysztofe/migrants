@@ -4,6 +4,8 @@ import WageForm from "./_components/WageForm";
 import WageLanguageSwitcher from "./_components/WageLanguageSwitcher";
 import Hero from "./_components/Hero";
 import Warning from "./_components/Warning";
+import FormLink from "./_components/SiteLink";
+import SiteLink from "./_components/SiteLink";
 
 export const metadata = { title: "Wezwanie do zapłaty" };
 
@@ -24,6 +26,11 @@ export default function PageWezwanie() {
       <section className="mt-8">
         <div className="container flex flex-col gap-8 lg:flex-row">
           <WageForm />
+        </div>
+      </section>
+      <section>
+        <div className="container my-20">
+          <SiteLink />
         </div>
       </section>
       <section>

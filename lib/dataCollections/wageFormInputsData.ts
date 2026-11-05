@@ -100,6 +100,7 @@ export const getdataInputsUserAdress = (
       name: "userPostCode",
       placeholder: "11-111",
       type: InputType.TEXT,
+      mask: "postCode",
     },
   ];
 };
@@ -159,6 +160,7 @@ export const getdataInputsEmployer = (
       name: "companyPostCode",
       placeholder: "11-111",
       type: InputType.TEXT,
+      mask: "postCode",
     },
   ];
 };

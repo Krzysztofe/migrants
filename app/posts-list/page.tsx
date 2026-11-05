@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Post } from "../models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 import NewsList from "../../components/shared/posts/NewsList";
-import { getPosts } from "../utils/querries/getPosts";
+import { getPosts } from "../../utils/querries/getPosts";
 import CallToAction from "@/components/shared/CallToAction";
 import EventsLIst from "@/components/shared/posts/EventsLIst";
 
